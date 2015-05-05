@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"info",
+				"infoPatient"
+			],
+			[
+				"json",
+				"jsonresult"
+			],
+			[
+				"lis",
+				"listActrGrp"
+			],
+			[
+				"li",
+				"listActrGrp"
+			],
+			[
 				"iter",
 				"interventions"
 			],
@@ -72,10 +88,6 @@
 				"inline-block"
 			],
 			[
-				"info",
-				"infosPays"
-			],
-			[
 				"coun",
 				"countries"
 			],
@@ -142,10 +154,6 @@
 			[
 				"connexi",
 				"connexionCtrl"
-			],
-			[
-				"json",
-				"jsondata"
 			],
 			[
 				"temo",
@@ -292,9 +300,17 @@
 	},
 	"file_history":
 	[
-		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/service.js",
+		"/Users/Yvann/Documents/bachelor/inca/www/scripts/interventions/interventions.html",
+		"/Users/Yvann/Documents/bachelor/inca/www/scripts/interventions/interventions.js",
+		"/Users/Yvann/Documents/bachelor/inca/www/index.html",
+		"/Users/Yvann/Documents/bachelor/inca/www/scripts/app.js",
+		"/Users/Yvann/Documents/programmation/mean-io/source/server.js",
 		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/controllers.js",
 		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/core.js",
+		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/service.js",
+		"/Users/Yvann/Documents/bachelor/inca/www/scripts/interventions/interventions",
+		"/Users/Yvann/Documents/bachelor/inca/www/scripts/interventions/interventions.spec.js",
+		"/Users/Yvann/Documents/bachelor/inca/www/scripts/controllers/interventions-controller.js",
 		"/Users/Yvann/Documents/bachelor/appTest/www/views/interventions.html",
 		"/Users/Yvann/Documents/bachelor/appTest/www/js/app.js",
 		"/Users/Yvann/Documents/bachelor/appTest/www/index.html",
@@ -351,7 +367,6 @@
 		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/test.php",
 		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/app.js",
 		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/package.json",
-		"/Users/Yvann/Documents/programmation/mean-io/source/server.js",
 		"/Applications/XAMPP/xamppfiles/htdocs/christenseneurope/caserver/.htpasswd",
 		"/Applications/XAMPP/xamppfiles/htdocs/christenseneurope/caserver/.htaccess",
 		"/Applications/XAMPP/xamppfiles/htdocs/christenseneurope/caserver/customers.asp",
@@ -412,14 +427,7 @@
 		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/index.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/css/style.css",
 		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/index.html",
-		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/nosMarques.php",
-		"/Users/Yvann/Documents/cvut/web20/3 - Restfull URI operations/design.txt",
-		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/views/users.html",
-		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/views/index.html",
-		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/js/services/UsersService.js",
-		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/js/controllers/UsersCtrl.js",
-		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/app/routes.js",
-		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/app/models/users.js"
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/nosMarques.php"
 	],
 	"find":
 	{
@@ -437,6 +445,15 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			".ROOM",
+			"myList",
+			"seek",
+			"dataActGrp",
+			"data act",
+			"data",
+			"db",
+			"idActGroup",
+			"lib",
 			"interventionsController",
 			".put",
 			".add",
@@ -555,16 +572,7 @@
 			"pays",
 			"possede",
 			"possedde",
-			"infoAccount",
-			"33%",
-			"rgba(0,0,0",
-			"black",
-			"owned",
-			"getInf",
-			"class=\"case\"",
-			"class=\"case",
-			".case",
-			"http"
+			"infoAccount"
 		],
 		"highlight": false,
 		"in_selection": false,

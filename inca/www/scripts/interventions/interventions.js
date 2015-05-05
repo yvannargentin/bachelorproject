@@ -77,18 +77,18 @@ function seekIntervention(container, idAct){
 }
 
 
-function interventionsController($scope,$http,getters){
+function interventionsController($scope,$http,getters, $ionicScrollDelegate){
 
   $scope.interventions = {};
   var jsonData = null;
 
-  $http.get("/assets/data.xml")
+  $http.get("http://crayonoir.ch/bachelor/data.xml")
     .then(function (data) { // promise
       var x2js = new X2JS();
       jsonData = x2js.xml_str2json(data.data);
       var interventions = getInterventions(jsonData,"UNIT",0,0);
       $scope.interventions.list = interventions;
-      console.log(interventions);
+      $ionicScrollDelegate.resize(); // to be called every content content is changed
   });
 
 
