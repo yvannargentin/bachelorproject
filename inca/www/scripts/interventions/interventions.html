@@ -1,0 +1,8 @@
+
+
+<div class="list" >
+	<div class="item item-divider" ng-repeat="acts in interventions.list"> {{acts._TYPE}}</dv>
+	<a href="#" class="item" ng-repeat="myAct in acts.ACT ORDER BY _PLANNED_DATETIME" >
+		{{myAct._TITLE}}
+	</a>
+</div>

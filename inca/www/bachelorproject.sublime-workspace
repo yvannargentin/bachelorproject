@@ -1,0 +1,688 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"iter",
+				"interventions"
+			],
+			[
+				"data",
+				"datasets"
+			],
+			[
+				"labe",
+				"labels"
+			],
+			[
+				"get",
+				"getMousePos"
+			],
+			[
+				"my",
+				"myBarChart"
+			],
+			[
+				"idP",
+				"idPays"
+			],
+			[
+				"R",
+				"RoomID"
+			],
+			[
+				"room",
+				"roomID"
+			],
+			[
+				"ec",
+				"ex_security_group"
+			],
+			[
+				"pay",
+				"paysTest"
+			],
+			[
+				"liE",
+				"liElemClose"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"sen",
+				"sentJson"
+			],
+			[
+				"un",
+				"undefined"
+			],
+			[
+				"id",
+				"idPlayer"
+			],
+			[
+				"cas",
+				"case-horizontal"
+			],
+			[
+				"inle",
+				"inline-block"
+			],
+			[
+				"info",
+				"infosPays"
+			],
+			[
+				"coun",
+				"countries"
+			],
+			[
+				"pos",
+				"posPays"
+			],
+			[
+				"local",
+				"localJson"
+			],
+			[
+				"btn",
+				"btnUpgrade"
+			],
+			[
+				"lo",
+				"localJson"
+			],
+			[
+				"pays",
+				"payspossede"
+			],
+			[
+				"upgr",
+				"upgraded"
+			],
+			[
+				"tabl",
+				"table-row-group"
+			],
+			[
+				"kwi",
+				"kwib_monopoly"
+			],
+			[
+				"con",
+				"controllers"
+			],
+			[
+				"contro",
+				"controller"
+			],
+			[
+				"rig",
+				"RightController"
+			],
+			[
+				"ri",
+				"RightController"
+			],
+			[
+				"left",
+				"LeftController"
+			],
+			[
+				"user",
+				"userInfos"
+			],
+			[
+				"error",
+				"errorMessage"
+			],
+			[
+				"connexi",
+				"connexionCtrl"
+			],
+			[
+				"json",
+				"jsondata"
+			],
+			[
+				"temo",
+				"temoignage"
+			],
+			[
+				"site",
+				"siteURL"
+			],
+			[
+				"des",
+				"descProjet"
+			],
+			[
+				"Row",
+				"RowTables"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"socket",
+				"SocketClient"
+			],
+			[
+				"Combatt",
+				"Combattant1"
+			],
+			[
+				"Re",
+				"RequeteBD"
+			],
+			[
+				"Pseudo",
+				"PseudoCo"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"A",
+				"Application"
+			],
+			[
+				"M",
+				"MonCompte"
+			],
+			[
+				"exp",
+				"expUp"
+			],
+			[
+				"Exp",
+				"Experience"
+			],
+			[
+				"ge",
+				"getPseudo"
+			],
+			[
+				"buffer",
+				"buffer_w"
+			],
+			[
+				"nick",
+				"nicknameSet"
+			],
+			[
+				"Clent",
+				"ClientAddr"
+			],
+			[
+				"Clien",
+				"ClientsList"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"usernam",
+				"usernameset"
+			],
+			[
+				"Cli",
+				"ClientsList"
+			],
+			[
+				"s",
+				"sizeof"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"Package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Controle",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/service.js",
+		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/controllers.js",
+		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/core.js",
+		"/Users/Yvann/Documents/bachelor/appTest/www/views/interventions.html",
+		"/Users/Yvann/Documents/bachelor/appTest/www/js/app.js",
+		"/Users/Yvann/Documents/bachelor/appTest/www/index.html",
+		"/Users/Yvann/Documents/programmation/mean-io/source/public/index.html",
+		"/Users/Yvann/Documents/bachelor/appTest/www/partials/interventions.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/public/index.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/public/stylesheets/main.css",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/client/index.html",
+		"/Users/Yvann/Documents/programmation/2048/public/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/insides/.htaccess",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/construction.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/init.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/index.html",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/account.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/salon.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/notify.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/css/index.css",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/bank.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/css/style.css",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/game.html",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/css/materialize.min.css",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/move.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/communication.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/app/socket.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/gamestate.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/css/pion.css",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/server.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/app/routes.js",
+		"/Users/Yvann/Documents/programmation/systemes distribues/libcloud/test.py",
+		"/Users/Yvann/Documents/programmation/systemes distribues/rest/commandes.txt",
+		"/Users/Yvann/Documents/programmation/systemes distribues/rest/commandes-script.sh",
+		"/Users/Yvann/Documents/programmation/systemes distribues/libcloud/client.py",
+		"/Users/Yvann/Documents/programmation/systemes distribues/libcloud/server.py",
+		"/Users/Yvann/Documents/programmation/systemes distribues/cloud/part1/check_yvann.py",
+		"/Users/Yvann/Documents/programmation/systemes distribues/DistrSys/part2.py",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/cards.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/test.html",
+		"/Users/Yvann/Documents/programmation/mean-io/source/config/database.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/app/endofturn.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/magnific-popup.js",
+		"/Users/Yvann/Documents/programmation/2048/server.js",
+		"/Users/Yvann/Documents/programmation/2048/app/routes.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/dans decoration intevertir signaletique et vehicul",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/Git.sublime-settings",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/Git/Git.sublime-settings",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/public/deplcementPions.html",
+		"/Users/Yvann/Documents/programmation/mean-io/source/app/routes.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/picibi/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/picibi/admin/nosMarques.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/picibi/include/ConnexionBDD.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/test.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/include/ConnexionBDD.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/include/ConnexionBDD.php",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/test.php",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/app.js",
+		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/package.json",
+		"/Users/Yvann/Documents/programmation/mean-io/source/server.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/christenseneurope/caserver/.htpasswd",
+		"/Applications/XAMPP/xamppfiles/htdocs/christenseneurope/caserver/.htaccess",
+		"/Applications/XAMPP/xamppfiles/htdocs/christenseneurope/caserver/customers.asp",
+		"/Users/Yvann/Documents/programmation/systemes distribues/rest/index.py",
+		"/Users/Yvann/Documents/cvut/web20/4/design",
+		"/Users/Yvann/Documents/programmation/web/tp6/tp6.html",
+		"/Users/Yvann/Documents/programmation/systemes distribues/rest/server.py",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/index.html",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/core.js",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/routes.js",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/server.js",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/auth.js",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/Partials/deconnexion.html",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/css/style.css",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/Partials/rooms.html",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/Partials/connexion.html",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/Partials/unites.html",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/package.json",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/users.js",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/data/UnitList.json",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/hug.js",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/todo.js",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/units.js",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/data/UnitList.xml",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/config/database.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/bootstrap/css/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/bootstrap/img/edition.svg",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/bootstrap/img/graphisme.svg",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/admin/accueil.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/realisations.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/exemple/css/component.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/exemple/css/default.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/exemple/index3.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/journal.php",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/LiveReload.sublime-settings",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/nosprojets.html",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/LiveReload/LiveReload.sublime-settings",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/css/style.css",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/Autoprefixer.sublime-settings",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/Autoprefixer/Autoprefixer.sublime-settings",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/CSScomb/Default.sublime-keymap",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/CSScomb/CSScomb.sublime-settings",
+		"/Users/Yvann/Documents/programmation/mean-io/travail de semestre/graphiques/vues/application flow [semestre].xml",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/js/general.js",
+		"/Users/Yvann/Documents/programmation/web/tp6/tp6.css",
+		"/Users/Yvann/Documents/programmation/web/tp6/script.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/projetclient.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/include/fonctions.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/accueil.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/quisommesnous.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/Contact.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/picibi.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/css/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/nosMarques.php",
+		"/Users/Yvann/Documents/cvut/web20/3 - Restfull URI operations/design.txt",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/views/users.html",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/views/index.html",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/js/services/UsersService.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/js/controllers/UsersCtrl.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/app/routes.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/app/models/users.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"interventionsController",
+			".put",
+			".add",
+			"interventionsController",
+			"init",
+			"console.log",
+			"receiveData",
+			"isPossessed",
+			"receive",
+			"updateUpgrades",
+			"countries",
+			"receive",
+			"sell",
+			"roboto",
+			".card",
+			"card",
+			"parties",
+			"sell",
+			"innerHTML",
+			"updateUpgrades",
+			"sell",
+			"getMyInfos",
+			"amelioration",
+			"enha",
+			"amel",
+			"updateUpgrade",
+			"endof",
+			"display",
+			"buy",
+			"finPlayer",
+			"Game",
+			"gameOver¨Game",
+			"gameOver¨",
+			"gameOver",
+			"game",
+			"terminateGame",
+			"finPlayer",
+			"terminateGame\nterminateGame",
+			"terminateGame",
+			"waiting",
+			"idPlayer",
+			"numberOfPlayer",
+			"finTour",
+			"resetSentJson",
+			"finTour",
+			"fin",
+			"receive",
+			"receiveData",
+			"receive",
+			"receiveData",
+			"receive",
+			"buy",
+			"player",
+			"buy",
+			"loaned",
+			"sentJson",
+			"addClass",
+			"receiveData",
+			"addClass",
+			"waiting",
+			"updateUpgrades",
+			"updateUI",
+			"upgrade",
+			"levle",
+			"btnBuy",
+			"updateLogs",
+			"udapteLogs",
+			"udapte",
+			"propos",
+			"updateLogs",
+			"updTELOGS",
+			"récup",
+			"recuperer",
+			"récuperer",
+			"hypotheque",
+			"hypothque",
+			"recover",
+			"lvl",
+			"lvl 0",
+			"recover",
+			"getInfos",
+			"getInf",
+			"#credit",
+			"actions",
+			"receiveData",
+			"lr",
+			"lt",
+			"zoomIn",
+			"handshake",
+			"hand",
+			"display-none",
+			".display-none",
+			"socket",
+			"PlayerNumber",
+			"player",
+			"debuff_",
+			"handsha",
+			"solde",
+			"infoAccount",
+			".case",
+			"updateUpgr",
+			"buy",
+			"finT",
+			"receiveData",
+			"sentJson",
+			"finTour",
+			"notify",
+			"receiveData",
+			"verti",
+			"plate",
+			"box-siz",
+			"btnDes",
+			"actions",
+			"br",
+			"#pays",
+			"pays",
+			"possede",
+			"possedde",
+			"infoAccount",
+			"33%",
+			"rgba(0,0,0",
+			"black",
+			"owned",
+			"getInf",
+			"class=\"case\"",
+			"class=\"case",
+			".case",
+			"http"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"updateLogs",
+			"rgba(33,33,33",
+			"'",
+			"unit",
+			"",
+			"	",
+			"$TAILLESUDOKU",
+			"MUser",
+			"user",
+			"dbUsers",
+			"dbUser",
+			"users",
+			"user",
+			"User",
+			"}}",
+			"{{",
+			"line",
+			"Line",
+			"Socket_serveur",
+			"RequeteBD",
+			"2014-05-24",
+			"*",
+			"WhosThere",
+			"possibilities"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 25.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"public/game.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/crayonoir.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 358.0,
+	"status_bar_visible": true
+}
