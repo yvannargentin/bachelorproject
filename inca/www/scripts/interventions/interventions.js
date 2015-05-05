@@ -77,7 +77,7 @@ function seekIntervention(container, idAct){
 }
 
 
-function interventionsController($scope,$http,getters, $ionicScrollDelegate){
+function interventionsController($scope,$http,getters, $ionicScrollDelegate,$ionicSideMenuDelegate){
 
   $scope.interventions = {};
   var jsonData = null;
@@ -86,9 +86,29 @@ function interventionsController($scope,$http,getters, $ionicScrollDelegate){
     .then(function (data) { // promise
       var x2js = new X2JS();
       jsonData = x2js.xml_str2json(data.data);
+      console.log(jsonData);
       var interventions = getInterventions(jsonData,"UNIT",0,0);
+      $scope.editMode = false;
       $scope.interventions.list = interventions;
       $ionicScrollDelegate.resize(); // to be called every content content is changed
+
+      // retrieves current time (hour)
+      $scope.getCurrentTime = function(){
+        return new Date().getHours();
+      };
+
+      // toggles left menu
+      $scope.toggleLeft = function() {
+        $ionicSideMenuDelegate.toggleLeft();
+      };
+      // adds buttons delete
+      $scope.toggleEditMode = function(){
+        $scope.editMode = !$scope.editMode;
+      };
+      $scope.deleteElement = function(elemID,index){
+        $scope.interventions.list.splice(index, 1);
+      };
+
   });
 
 

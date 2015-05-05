@@ -1,22 +1,43 @@
 <div class="bar bar-header">
-  <button class="button button-icon icon ion-navicon"></button>
+  <button class="button button-icon icon ion-navicon" on-release="toggleLeft()"></button>
   <div class="h1 title">Interventions</div>
-  <button class="button button-clear button-positive">Edit</button>
+  <button class="button button-clear button-positive" on-release="toggleEditMode()">Modifer</button>
 </div>
 
-<!-- delegates scrolling to ionic  http://ionicframework.com/docs/api/directive/ionContent/ -->
-<ion-content>
-	<div class="list">
-		<div ng-repeat="acts in interventions.list | orderBy:'_PLANNED_DATETIME'">
-			<div class="item item-divider"> 
-				{{acts._TYPE}} - {{acts._PLANNED_DATETIME_DISPLAY}}
+<!-- gestion menu offcanvas -->
+<ion-side-menus>
+<!-- contenu de la page -->
+	<ion-side-menu-content>
+
+		<!-- delegates scrolling to ionic  http://ionicframework.com/docs/api/directive/ionContent/ -->
+		<ion-content>
+			<ion-list show-delete="editMode">
+			<div ng-repeat="acts in interventions.list | orderBy:'_PLANNED_DATETIME'">
+
+				<ion-item class="item item-divider">
+					{{acts._TYPE}} - {{acts._PLANNED_DATETIME_DISPLAY}}
+				</ion-item>
+
+				<ion-item href="#" class="item" ng-if="acts.ACT.length > 1 && acts.ACT.length < 14" ng-repeat="myAct in acts.ACT" >
+						{{myAct._TITLE}}
+						<ion-delete-button on-release="deleteElement(myAct.ID,$index)" ng-if="editMode" class="ion-minus-circled">
+						</ion-delete-button>
+				</ion-item>
+
+				<ion-item href="#" class="item" ng-if="acts.ACT.length == undefined" >
+					{{acts.ACT._TITLE}}
+					<ion-delete-button on-release="deleteElement(acts.ACT.ID,$index)" ng-if="editMode" class="ion-minus-circled">
+					</ion-delete-button>
+				</ion-item>
 			</div>
-			<a href="#" class="item" ng-if="acts.ACT.length == 2" ng-repeat="myAct in acts.ACT" >
-				{{myAct._TITLE}}
-			</a>
-			<a href="#" class="item" ng-if="acts.ACT.length != 2" >
-				{{acts.ACT._TITLE}}
-			</a>
-		</div>
-	</div>
-</ion-content>
+				
+					
+			</ion-list>
+		</ion-content>
+	</ion-side-menu-content>
+
+	<!-- Left menu -->
+	<ion-side-menu side="left">
+	</ion-side-menu>
+
+</ion-side-menus>
