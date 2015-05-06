@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"ioni",
+				"ionicScrollDelegate"
+			],
+			[
+				"js",
+				"jsonData"
+			],
+			[
+				"io",
+				"ionicScrollDelegate"
+			],
+			[
 				"info",
 				"infoPatient"
 			],
@@ -300,6 +312,10 @@
 	},
 	"file_history":
 	[
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/index.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/assets/.htaccess",
 		"/Users/Yvann/Documents/bachelor/inca/www/scripts/interventions/interventions.html",
 		"/Users/Yvann/Documents/bachelor/inca/www/scripts/interventions/interventions.js",
 		"/Users/Yvann/Documents/bachelor/inca/www/index.html",
@@ -423,11 +439,7 @@
 		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/accueil.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/quisommesnous.html",
 		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/Contact.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/picibi.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/index.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/css/style.css",
-		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/index.html",
-		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/nosMarques.php"
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/picibi.php"
 	],
 	"find":
 	{

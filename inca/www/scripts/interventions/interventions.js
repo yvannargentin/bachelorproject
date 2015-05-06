@@ -81,37 +81,80 @@ function interventionsController($scope,$http,getters, $ionicScrollDelegate,$ion
 
   $scope.interventions = {};
   var jsonData = null;
+  var reserveList  = [];
 
+  // AJAX
   $http.get("http://crayonoir.ch/bachelor/data.xml")
     .then(function (data) { // promise
+
       var x2js = new X2JS();
       jsonData = x2js.xml_str2json(data.data);
-      console.log(jsonData);
+
       var interventions = getInterventions(jsonData,"UNIT",0,0);
-      $scope.editMode = false;
+      for(var i = 0; i < interventions.length; i++){
+        // detects reserve interventions
+        if(interventions[i]._PLANNED_DATETIME_DISPLAY == "R"){
+          reserveList.push(interventions[i]);
+          interventions.splice(i,1);
+        }
+      }
+      interventions.sort("_PLANNED_DATETIME_DISPLAY");
+      console.log(interventions);
+
       $scope.interventions.list = interventions;
+      $scope.interventions.reserve = reserveList;
+
       $ionicScrollDelegate.resize(); // to be called every content content is changed
-
-      // retrieves current time (hour)
-      $scope.getCurrentTime = function(){
-        return new Date().getHours();
-      };
-
-      // toggles left menu
-      $scope.toggleLeft = function() {
-        $ionicSideMenuDelegate.toggleLeft();
-      };
-      // adds buttons delete
-      $scope.toggleEditMode = function(){
-        $scope.editMode = !$scope.editMode;
-      };
-      $scope.deleteElement = function(elemID,index){
-        $scope.interventions.list.splice(index, 1);
-      };
-
   });
 
+  $scope.editMode = false;
 
+  $scope.labels = [];
+  $scope.labels.editMode = "Modifier";
+
+  // retrieves current time (hour)
+  $scope.getCurrentTime = function(){
+    return new Date().getHours();
+  };
+
+  // adds buttons delete
+  $scope.toggleEditMode = function(){
+    $scope.editMode = !$scope.editMode;
+    if($scope.labels.editMode == "Modifier")
+      $scope.labels.editMode = "Annuler";
+    else
+      $scope.labels.editMode = "Modifier";
+  };
+
+  //set up a watch over the current hour, once it changes, the scroll will be set to the accurate acts
+  $scope.$watch(function(scope) { return $scope.getCurrentTime(); },
+    function() {
+      // scroll to accurate acts
+    }
+  );
+
+  //delete the element of the list
+  $scope.deleteElement = function(counter,index,type){
+
+    if (type=="list"){
+      if(counter == -1){
+        $scope.interventions.list.splice(index, 1);
+      }else{console.log($scope.interventions.list);
+        $scope.interventions.list[counter+1].ACT.splice(index, 1);
+        if($scope.interventions.list[counter+1].ACT.length == 0)
+          $scope.interventions.list.splice(counter+1, 1);
+      }
+
+    }else if(type=="reserve"){
+      $scope.interventions.reserve[0].splice(index, 1);
+
+      // if there's no reserve act anymore
+      if($scope.interventions.reserve[0].ACT.length == 0)
+        $scope.interventions.reserve.splice(index, 1);
+    }
+
+    $ionicScrollDelegate.resize(); // to be called every content content is changed
+  };
 
 }
 
