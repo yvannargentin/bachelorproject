@@ -2,15 +2,21 @@
 <ion-side-menus>
 <!-- contenu de la page -->
 	<ion-side-menu-content>
-		<ion-header-bar align-title="left" class="bar-header">
-			<div class="buttons">
-				<button  menu-toggle="left" class="button button-icon icon ion-navicon" ></button>
-			</div>
+	<ion-nav-view class="slide-left-right"></ion-nav-view>
+			
+			<ion-nav-bar class="bar bar-header bar-light" align-title="left">
+				<div class="buttons">
+					<button  menu-toggle="left" class="button button-icon icon ion-navicon" ></button>
+				</div>
+				<ion-nav-back-button class="button-clear">
+				    <i class="ion-arrow-left-c"></i> Back
+				</ion-nav-back-button>
+
 			<h1 class="title">Interventions</h1>
 			<div class="buttons">
 				<button class="button button-clear button-positive" on-release="toggleEditMode()">{{labels.editMode}}</button>
 			</div>
-		</ion-header-bar>
+			</ion-nav-bar>
 		<!-- delegates scrolling to ionic  http://ionicframework.com/docs/api/directive/ionContent/ -->
 		<ion-content>
 			<ion-list show-delete="editMode">
@@ -19,26 +25,27 @@
 					Réserve
 				</ion-item>
 
-				<ion-item href="#" class="item"  ng-repeat="myAct in interventions.reserve[0].ACT" >
-						{{myAct._TITLE}}
-						<ion-delete-button on-release="deleteElement(-1,$index,'reserve')" ng-if="editMode" class="ion-minus-circled">
-						</ion-delete-button>
+				<ion-item href="#vitals" class="item" >
+						{{interventions.reserve[0]._SUBTITLE_1}}{{interventions.reserve[0]._SUBTITLE_2}}
 				</ion-item>
 
 				<div ng-repeat="acts in interventions.list | orderBy:'_PLANNED_DATETIME'" ng-init="counter=$index">
 					<ion-item class="item item-divider"  >
-						{{acts._TYPE}} - {{acts._PLANNED_DATETIME_DISPLAY}}
+						{{acts._TYPE}}
+						<br/>
+						{{acts._PLANNED_DATETIME}}
 					</ion-item>
 
-					<ion-item href="#" class="item" ng-if="acts.ACT.length >= 1 && acts.ACT.length < 14" ng-repeat="myAct in acts.ACT" >
-							{{myAct._TITLE}} {{counter}}<!-- passer l'ID au lieu du counter -->
-							<ion-delete-button on-release="deleteElement(counter,$index,'list')" ng-if="editMode" class="ion-minus-circled">
-							</ion-delete-button>
+					<ion-item nav-direction="forward"  ng-click="getDetails({{acts.ACT[0]._ID}})" class="item" ng-if="acts.ACT.length >= 1 && acts.ACT.length < 14"  >
+							{{acts._SUBTITLE_1}}{{acts._SUBTITLE_2}}
 					</ion-item>
 
-					<ion-item href="#" class="item" ng-if="acts.ACT.length == undefined" >
-						{{acts.ACT._TITLE}}
-						<ion-delete-button on-release="deleteElement(-1,$index,'list')" ng-if="editMode" class="ion-minus-circled">
+					<ion-item href="#" class="item" ng-if="acts.ACT.length == undefined">
+						<strong>{{acts.ACT._TITLE}}  </strong>
+						<br/>
+						{{acts._SUBTITLE_1}} {{acts._SUBTITLE_2}}
+
+						<ion-delete-button on-release="deleteElement(acts.ACT._ID,$index,'list')" ng-if="editMode" class="ion-minus-circled">
 						</ion-delete-button>
 					</ion-item>
 				</div>

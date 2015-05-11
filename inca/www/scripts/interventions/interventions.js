@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var incaInterventions = angular.module('inca.interventions', ['ionic','cb.x2js'])
+var incaInterventions = angular.module('inca.interventions', ['ionic','ui.router', 'cb.x2js','ngSanitize'])
 
 
 // ----------------------------
@@ -16,35 +16,20 @@ var incaInterventions = angular.module('inca.interventions', ['ionic','cb.x2js']
             url: '/interventions',
             templateUrl: 'scripts/interventions/interventions.html',
             controller: controllers.interventionsController
+        })
+        .state('interventions.group',{
+            url: '/group/:idElem',
+            templateUrl: 'scripts/interventions/details.html',
+            controller: controllers.detailsController
         });
-    $urlRouterProvider.otherwise('/interventions');
-});
-
-
-// FACTORY GETTERS FOR INTERVENTION
-incaInterventions.factory('getters',function($http){
-
-  var factory = {};
-
-  factory.getTypeInterventionsPatient = function(idPatient){
-    var url = '/api/interventions/group?idPatient='+idPatient;
-
-    return $http.get(url); // asynchronus request to server
-  }
-
-  factory.getInterventionsPatient = function(idGroup){
-    var url = '/api/interventions/patient?idGroup='+idGroup;
-
-    return $http.get(url); // asynchronus request to server
-  }
-
-  return factory;
 });
 
 var controllers = {};
 
 controllers.interventionsController = interventionsController;
 incaInterventions.controller('getters', controllers.interventionsController);
+controllers.detailsController = detailsController;
+incaInterventions.controller('getters', controllers.detailsController);
 
 
 function getInterventions(jsonresult,unit_id,room_id,bed_id){
@@ -77,11 +62,16 @@ function seekIntervention(container, idAct){
 }
 
 
-function interventionsController($scope,$http,getters, $ionicScrollDelegate,$ionicSideMenuDelegate){
+function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMenuDelegate, $sanitize,$state){
 
   $scope.interventions = {};
   var jsonData = null;
   var reserveList  = [];
+
+  $scope.editMode = false;
+
+  $scope.labels = [];
+  $scope.labels.editMode = "Modifier";
 
   // AJAX
   $http.get("http://crayonoir.ch/bachelor/data.xml")
@@ -98,8 +88,8 @@ function interventionsController($scope,$http,getters, $ionicScrollDelegate,$ion
           interventions.splice(i,1);
         }
       }
+
       interventions.sort("_PLANNED_DATETIME_DISPLAY");
-      console.log(interventions);
 
       $scope.interventions.list = interventions;
       $scope.interventions.reserve = reserveList;
@@ -107,10 +97,6 @@ function interventionsController($scope,$http,getters, $ionicScrollDelegate,$ion
       $ionicScrollDelegate.resize(); // to be called every content content is changed
   });
 
-  $scope.editMode = false;
-
-  $scope.labels = [];
-  $scope.labels.editMode = "Modifier";
 
   // retrieves current time (hour)
   $scope.getCurrentTime = function(){
@@ -126,27 +112,40 @@ function interventionsController($scope,$http,getters, $ionicScrollDelegate,$ion
       $scope.labels.editMode = "Modifier";
   };
 
-  //set up a watch over the current hour, once it changes, the scroll will be set to the accurate acts
-  $scope.$watch(function(scope) { return $scope.getCurrentTime(); },
-    function() {
-      // scroll to accurate acts
-    }
-  );
+  $scope.getDetails = function(idElem){
+   // window.location = "#/interventions/group/?idElem=" + idElem;
+    $state.go('interventions.group',{'idElem' : idElem});
+  }
 
   //delete the element of the list
-  $scope.deleteElement = function(counter,index,type){
+  $scope.deleteElement = function(idElem,index,type){
 
-    if (type=="list"){
-      if(counter == -1){
-        $scope.interventions.list.splice(index, 1);
-      }else{console.log($scope.interventions.list);
-        $scope.interventions.list[counter+1].ACT.splice(index, 1);
-        if($scope.interventions.list[counter+1].ACT.length == 0)
-          $scope.interventions.list.splice(counter+1, 1);
+    if (type == "list"){
+
+      // goes thourgh all interventions
+      for(var i = 0; i < $scope.interventions.list.length;i++){
+
+        // if there's more than one act
+        if($scope.interventions.list[i].ACT.length != undefined){
+
+          // goes through all the inner acts
+          for(var y = 0; y < $scope.interventions.list[i].ACT.length; y++)
+            if($scope.interventions.list[i].ACT[y]._ID == idElem) // if there's a match we splice it
+              $scope.interventions.list[i].ACT.splice(y, 1);
+          // if there's no more act in the category at this time we splice the categorie for that time
+          if($scope.interventions.list[i].ACT.length == 0)
+            $scope.interventions.list.splice(i, 1);
+
+        }else{ // if there's only one act and we find a match we splice the category for the time
+          if($scope.interventions.list[i].ACT._ID == idElem)
+              $scope.interventions.list.splice(i, 1);
+        }
+
       }
 
-    }else if(type=="reserve"){
-      $scope.interventions.reserve[0].splice(index, 1);
+
+    }else if(type == "reserve"){
+      $scope.interventions.reserve[0].ACT.splice(index, 1);
 
       // if there's no reserve act anymore
       if($scope.interventions.reserve[0].ACT.length == 0)
@@ -156,5 +155,49 @@ function interventionsController($scope,$http,getters, $ionicScrollDelegate,$ion
     $ionicScrollDelegate.resize(); // to be called every content content is changed
   };
 
+  //set up a watch over the current hour, once it changes, the scroll will be set to the accurate acts
+  $scope.$watch(function(scope) { return $scope.getCurrentTime(); },
+    function() {
+      // scroll to accurate acts
+    }
+  );
+
 }
+
+
+  function detailsController($scope,$http, $ionicScrollDelegate,$ionicSideMenuDelegate, $sanitize,$state){
+    var idElem = $state.params.idElem;
+    var interventions = $scope.interventions.list;
+    var nbGroupAct = 0;
+
+    // AJAX
+    $http.get("http://crayonoir.ch/bachelor/data.xml")
+    .then(function (data) { // promise
+
+      var x2js = new X2JS();
+      jsonData = x2js.xml_str2json(data.data);
+
+      $scope.interventions = [];
+
+      var interventions = getInterventions(jsonData,"UNIT",0,0);
+      interventions.sort("_PLANNED_DATETIME_DISPLAY");
+
+      for(var i = 0; i < interventions.length; i++){
+        // detects reserve interventions
+        if(interventions[i].ACT.length != undefined)
+        // goes through all the inner acts
+          for(var y = 0; y < interventions[i].ACT.length; y++)
+            if(interventions[i].ACT[y]._ID == idElem) // if there's a match we save the index of the group of act
+              nbGroupAct = i;
+
+      }
+
+      $scope.interventions.detailedList =  interventions[nbGroupAct].ACT;
+      console.log($scope.interventions.detailedList);
+
+
+      $ionicScrollDelegate.resize(); // to be called every content content is changed
+    });
+
+  }
 
