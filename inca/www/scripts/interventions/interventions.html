@@ -12,8 +12,9 @@
 					Réserve
 				</ion-item>
 
-				<ion-item href="#vitals" class="item" >
-						{{interventions.reserve[0]._SUBTITLE_1}}{{interventions.reserve[0]._SUBTITLE_2}}
+				<ion-item on-release="" nav-direction="forward" class="item item-icon-left" >
+					<img class="icon" src="assets/domain/reserve.png" alt="Reserve"/>
+					<p class="text-left-interventions">{{interventions.reserve[0]._SUBTITLE_1}} {{interventions.reserve[0]._SUBTITLE_2}}</p>
 				</ion-item>
 
 				<div ng-repeat="acts in interventions.list | orderBy:'_PLANNED_DATETIME'" ng-init="counter=$index">
@@ -23,33 +24,19 @@
 						{{acts._PLANNED_DATETIME}}
 					</ion-item>
 
-					<ion-item nav-direction="forward"  ng-click="getDetails({{acts.ACT[0]._ID}})" class="item" ng-if="acts.ACT.length >= 1 && acts.ACT.length < 14"  >
-
-						{{acts._SUBTITLE_1}} {{acts._SUBTITLE_2}}
+					<ion-item nav-direction="forward"  on-release="getDetails({{acts.ACT[0]._ID}})" class="item item-icon-left" ng-if="acts.ACT.length >= 1 && acts.ACT.length < 14"  >
+						<img class="icon" src="assets/domain/{{acts.IconeLink}}" alt="{{acts.IconeLink}}"/>
+						<p class="text-left-interventions">{{acts._SUBTITLE_1}} {{acts._SUBTITLE_2}}</p>
 					</ion-item>
 
-					<ion-item href="#" class="item item-icon-left" ng-if="acts.ACT.length == undefined">
-						<span ng-switch on="acts._TYPE" >
-							<img ng-switch-when="Bilans" class="icon" src="assets/domain/bilans.png" alt="Bilans"/>
-							<img ng-switch-when="Enseignement" class="icon" src="assets/domain/enseignement.png" alt="Enseignement"/>
-							<img ng-switch-when="Mobilisation" class="icon" src="assets/domain/mobilisation.png" alt="Mobilisation"/>
-							<img ng-switch-when="Traitements" class="icon" src="assets/domain/traitements.png" alt="Traitements"/>
-							<img ng-switch-when="Alimentation" class="icon" src="assets/domain/alimentation.png" alt="Alimentation"/>
-							<img ng-switch-when="Equipements" class="icon" src="assets/domain/equipements.png" alt="Equipements"/>
-							<img ng-switch-when="Examens" class="icon" src="assets/domain/examens.png" alt="Examens"/>
-							<img ng-switch-when="Surveillances" class="icon" src="assets/domain/surveillances.png" alt="Surveillances"/>
-							<img ng-switch-when="Respiration" class="icon" src="assets/domain/respiration.png" alt="Respiration"/>
-							<img ng-switch-when="Matinée" class="icon" src="assets/domain/matinee.png" alt="Matinee"/>
-							<img ng-switch-when="Sommeil - Repos" class="icon" src="assets/domain/sommeil_repos.png" alt="Sommeil - Repos"/>
-							<img ng-switch-when="Après-Midi" class="icon" src="assets/domain/apres_midi.png" alt="Après-Midi"/>
-							<img ng-switch-when="Cognition Perception" class="icon" src="assets/domain/cognition_perception.png" alt="Cognition Perception"/>
-							<img ng-switch-when="Communication" class="icon" src="assets/domain/communication.png" alt="Communication"/>
-							<img ng-switch-when="Diurne" class="icon" src="assets/domain/diurne.png" alt="Diurne"/>
-							<img ng-switch-when="Elimination" class="icon" src="assets/domain/elimination.png" alt="Elimination"/>
-						</span>
+					<ion-item href="#" class="item item-icon-left item-icon-right" ng-if="acts.ACT.length == undefined">
+						<img class="icon" src="assets/domain/{{acts.IconeLink}}" alt="{{acts.IconeLink}}"/>
+
 						<strong>{{acts.ACT._TITLE}}  </strong>
 						<br/>
 						{{acts._SUBTITLE_1}} {{acts._SUBTITLE_2}}
+
+						<img class="icon" src="assets/Icon/notepad.png" on-release="showPopup(acts.ACT._ID,-1)" alt="Notepad" />
 
 						<ion-delete-button  on-release="deleteElement(acts.ACT._ID,$index,'list')" ng-if="editMode" class="ion-minus-circled">
 						</ion-delete-button>

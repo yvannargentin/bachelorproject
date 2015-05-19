@@ -50,6 +50,9 @@ function getInterventions(jsonresult,unit_id,room_id,bed_id){
   return infoPatient;
 }
 
+function getCurrentTime (){
+  return new Date().getHours() + " : " + new Date().getMinutes();
+};
 
 // used for the interventions digging
 function seekIntervention(container, idAct){
@@ -74,10 +77,45 @@ function seekIntervention(container, idAct){
   return data;
 }
 
+function addIcons(interventions){
+      switch(interventions._TYPE){
+        case "Alimentation" : interventions.IconeLink = "alimentation.png"; break;
+        case "Après-Midi" : interventions.IconeLink = "apres-midi.png"; break;
+        case "Bilans" : interventions.IconeLink = "bilans.png"; break;
+        case "Cognition Perception" : interventions.IconeLink = "cognition_perception.png"; break;
+        case "Communication" : interventions.IconeLink = "communication.png"; break;
+        case "Diurne" : interventions.IconeLink = "diurne.png"; break;
+        case "Elimination" : interventions.IconeLink = "elimination.png"; break;
+        case "Enseignement" : interventions.IconeLink = "enseignement.png"; break;
+        case "Environnement SocioFamilial" : interventions.IconeLink = "environnementSocioFamilial.png"; break;
+        case "Equipements" : interventions.IconeLink = "equipements.png"; break;
+        case "Examens" : interventions.IconeLink = "examens.png"; break;
+        case "Gestion De La Santé" : interventions.IconeLink = "gestion_de_la_sante.png"; break;
+        case "Hygiène" : interventions.IconeLink = "hygiene.png"; break;
+        case "Matinée" : interventions.IconeLink = "matinee.png"; break;
+        case "Mobilisation" : interventions.IconeLink = "mobilisation.png"; break;
+        case "Nocturne" : interventions.IconeLink = "nocturne.png"; break;
+        case "Nuit" : interventions.IconeLink = "nuit.png"; break;
+        case "Rendez-vous" : interventions.IconeLink = "rendez_vous.png"; break;
+        case "Reserve" : interventions.IconeLink = "reserve.png"; break;
+        case "Respiration" : interventions.IconeLink = "respiration.png"; break;
+        case "Sommeil - Repos" : interventions.IconeLink = "sommeil_repos.png"; break;
+        case "Spiritualites" : interventions.IconeLink = "spiritualites.png"; break;
+        case "Sur - 24h" : interventions.IconeLink = "sur_24h_.png"; break;
+        case "Surveillances" : interventions.IconeLink = "surveillances.png"; break;
+        case "Traitements" : interventions.IconeLink = "traitements.png"; break;
+      }
 
-function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMenuDelegate, $sanitize,$state, interventions){
+  return interventions;
+}
+
+
+
+function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMenuDelegate, $sanitize,$state,$ionicPopup, interventions){
+
 
   $scope.interventions = {};
+  $scope.toSend = [];
   var jsonData = null;
   var reserveList  = [];
 
@@ -96,9 +134,12 @@ function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMe
 
   interventions.sort("_PLANNED_DATETIME_DISPLAY");
 
+  for (i = 0; i < interventions.length;i++)
+    interventions[i] = addIcons(interventions[i]);
+
+
   $scope.interventions.list = interventions;
   $scope.interventions.reserve = reserveList;
-  console.log(interventions);
 
   $ionicScrollDelegate.resize(); // to be called every content content is changed
 
@@ -108,9 +149,10 @@ function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMe
   ///////////////
 
   // retrieves current time (hour)
-  $scope.getCurrentTime = function(){
+  $scope.getCurrentHour= function(){
     return new Date().getHours();
   };
+
 
   // adds buttons delete
   $scope.toggleEditMode = function(){
@@ -130,7 +172,6 @@ function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMe
   $scope.deleteElement = function(idElem,index,type){
 
     if (type == "list"){
-      console.log(idElem + ' ' + index);
       // goes thourgh all interventions
       for(var i = 0; i < $scope.interventions.list.length;i++){
 
@@ -164,14 +205,84 @@ function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMe
     $ionicScrollDelegate.resize(); // to be called every content content is changed
   };
 
+  // Triggered on a button click, or some other target
+  $scope.showPopup = function(idElem,index) {
+    $scope.data = {};
+    var myInterventionPos = null;
+
+    for (var i = 0; i < $scope.interventions.list.length; i++)
+      if(typeof($scope.interventions.list[i].ACT.length) === 'undefined'){
+        if($scope.interventions.list[i].ACT._ID == idElem){console.log($scope.interventions.list[i].ACT.length);
+          var myInterventionPos = i;
+          break;
+        }
+      }else{ // if we're explopring a group of act
+        if(typeof($scope.interventions.list[i].ACT[index]) !== 'undefined'){
+          console.log($scope.interventions.list[i].ACT[index]._ID + ' = ' + idElem);
+          if($scope.interventions.list[i].ACT[index]._ID == idElem){
+            var myInterventionPos = i;
+            break;
+          }
+        }
+      }
+    // An elaborate, custom popup
+    var notesPopup = $ionicPopup.show({
+      template: '<textarea ng-model="data.notes" rows="5"></textarea>',
+      title: 'Notes',
+      scope: $scope,
+      buttons: [
+        { text: 'Annuler' },
+        {
+          text: '<b>Confirmer</b>',
+          type: 'button-light',
+          onTap: function(e) {
+            if (!$scope.data.notes) {
+              //don't allow the user to close unless he enters notes
+              notesPopup.close();
+            } else {
+
+              // saving the notes
+              if(index == -1)
+                $scope.interventions.list[myInterventionPos]._NOTES = $scope.data.notes;
+              else
+                $scope.interventions.list[myInterventionPos].ACT[index]._NOTES = $scope.data.notes;
+
+              return {'d_idElem' : idElem, 'd_index' : index, 'd_pos' : myInterventionPos};
+            }
+          }
+        }
+      ]
+    });
+
+    notesPopup.then(function(data) {
+      if(typeof(data) !== 'undefined'){
+        // we first retrieve all important data from the element
+        $scope.interventions.list[data.d_pos]._TIME = getCurrentTime();
+        if(data.d_index == -1)
+          $scope.toSend.push($scope.interventions.list[data.d_pos]);
+        else{
+          var tmp = $scope.interventions.list[data.d_pos];
+          tmp.ACT = $scope.interventions.list[data.d_pos].ACT[data.d_index];
+          $scope.toSend.push(tmp);
+        }
+        console.log($scope.toSend);
+        //then we need to delete the element
+        $scope.deleteElement(data.d_idElem,data.d_index,'list');
+      }
+
+    });
+
+  };
+
 }
 
 
 
-function detailsController($scope,$http, $ionicScrollDelegate,$ionicSideMenuDelegate, $sanitize,$state,interventions){
+function detailsController($scope,$http, $ionicScrollDelegate,$ionicSideMenuDelegate, $sanitize,$state, $ionicPopup, interventions){
   var idElem = $state.params.idElem;
   var interventions = $scope.interventions.list;
   var nbGroupAct = 0;
+  console.log($scope.toSend);
 
   interventions.sort("_PLANNED_DATETIME_DISPLAY");
 
@@ -183,6 +294,8 @@ function detailsController($scope,$http, $ionicScrollDelegate,$ionicSideMenuDele
         if(interventions[i].ACT[y]._ID == idElem) // if there's a match we save the index of the group of act
           nbGroupAct = i;
 
+    interventions[nbGroupAct] = addIcons(interventions[nbGroupAct]);
+    $scope.interventions.Icone = interventions[nbGroupAct].IconeLink;
     $scope.interventions.detailedList =  interventions[nbGroupAct].ACT;
 
 

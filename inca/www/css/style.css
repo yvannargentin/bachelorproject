@@ -2,3 +2,4 @@
 .item-complex .item-content, .item-radio .item-content{padding:0;}
 .item-complex, .item-content {padding: 1em;}
 .text-left-interventions{padding-left: 1em;}
+.item-icon-left img, .item-icon-right img{max-width: 40px!important; max-height: 40px!important;}

@@ -9,8 +9,10 @@
 
 	<ion-content>
 		<ion-list show-delete="editMode">
-			<ion-item href="#vitals" class="item"  ng-repeat="myAct in interventions.detailedList" >
+			<ion-item class="item item-icon-left item-icon-right"  ng-repeat="myAct in interventions.detailedList" >
+					<img class="icon" src="assets/domain/{{interventions.Icone}}" alt="{{interventions.Icone}}"/>
 					{{myAct._SUBTITLE_1}} {{myAct._SUBTITLE_2}}
+					<img class="icon" src="assets/Icon/notepad.png" on-release="showPopup(myAct._ID,$index)" alt="Notepad" />
 					<ion-delete-button on-release="deleteElement(myAct._ID,$index,'list')" ng-if="editMode" class="ion-minus-circled">
 					</ion-delete-button>
 			</ion-item>
