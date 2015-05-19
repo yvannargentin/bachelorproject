@@ -1,22 +1,9 @@
-<!-- gestion menu offcanvas -->
-<ion-side-menus>
-<!-- contenu de la page -->
-	<ion-side-menu-content>
-	<ion-nav-view class="slide-left-right"></ion-nav-view>
-			
-			<ion-nav-bar class="bar bar-header bar-light" align-title="left">
-				<div class="buttons">
-					<button  menu-toggle="left" class="button button-icon icon ion-navicon" ></button>
-				</div>
-				<ion-nav-back-button class="button-clear">
-				    <i class="ion-arrow-left-c"></i> Back
-				</ion-nav-back-button>
+<ion-view view-title="interventions">
 
-			<h1 class="title">Interventions</h1>
-			<div class="buttons">
-				<button class="button button-clear button-positive" on-release="toggleEditMode()">{{labels.editMode}}</button>
-			</div>
-			</ion-nav-bar>
+	<ion-nav-view class="slide-left-right"></ion-nav-view>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear button-positive" on-release="toggleEditMode()">{{labels.editMode}}</button>
+    </ion-nav-buttons>
 		<!-- delegates scrolling to ionic  http://ionicframework.com/docs/api/directive/ionContent/ -->
 		<ion-content>
 			<ion-list show-delete="editMode">
@@ -30,31 +17,45 @@
 				</ion-item>
 
 				<div ng-repeat="acts in interventions.list | orderBy:'_PLANNED_DATETIME'" ng-init="counter=$index">
-					<ion-item class="item item-divider"  >
+					<ion-item class="item item-divider">
 						{{acts._TYPE}}
 						<br/>
 						{{acts._PLANNED_DATETIME}}
 					</ion-item>
 
 					<ion-item nav-direction="forward"  ng-click="getDetails({{acts.ACT[0]._ID}})" class="item" ng-if="acts.ACT.length >= 1 && acts.ACT.length < 14"  >
-							{{acts._SUBTITLE_1}}{{acts._SUBTITLE_2}}
+
+						{{acts._SUBTITLE_1}} {{acts._SUBTITLE_2}}
 					</ion-item>
 
-					<ion-item href="#" class="item" ng-if="acts.ACT.length == undefined">
+					<ion-item href="#" class="item item-icon-left" ng-if="acts.ACT.length == undefined">
+						<span ng-switch on="acts._TYPE" >
+							<img ng-switch-when="Bilans" class="icon" src="assets/domain/bilans.png" alt="Bilans"/>
+							<img ng-switch-when="Enseignement" class="icon" src="assets/domain/enseignement.png" alt="Enseignement"/>
+							<img ng-switch-when="Mobilisation" class="icon" src="assets/domain/mobilisation.png" alt="Mobilisation"/>
+							<img ng-switch-when="Traitements" class="icon" src="assets/domain/traitements.png" alt="Traitements"/>
+							<img ng-switch-when="Alimentation" class="icon" src="assets/domain/alimentation.png" alt="Alimentation"/>
+							<img ng-switch-when="Equipements" class="icon" src="assets/domain/equipements.png" alt="Equipements"/>
+							<img ng-switch-when="Examens" class="icon" src="assets/domain/examens.png" alt="Examens"/>
+							<img ng-switch-when="Surveillances" class="icon" src="assets/domain/surveillances.png" alt="Surveillances"/>
+							<img ng-switch-when="Respiration" class="icon" src="assets/domain/respiration.png" alt="Respiration"/>
+							<img ng-switch-when="Matinée" class="icon" src="assets/domain/matinee.png" alt="Matinee"/>
+							<img ng-switch-when="Sommeil - Repos" class="icon" src="assets/domain/sommeil_repos.png" alt="Sommeil - Repos"/>
+							<img ng-switch-when="Après-Midi" class="icon" src="assets/domain/apres_midi.png" alt="Après-Midi"/>
+							<img ng-switch-when="Cognition Perception" class="icon" src="assets/domain/cognition_perception.png" alt="Cognition Perception"/>
+							<img ng-switch-when="Communication" class="icon" src="assets/domain/communication.png" alt="Communication"/>
+							<img ng-switch-when="Diurne" class="icon" src="assets/domain/diurne.png" alt="Diurne"/>
+							<img ng-switch-when="Elimination" class="icon" src="assets/domain/elimination.png" alt="Elimination"/>
+						</span>
 						<strong>{{acts.ACT._TITLE}}  </strong>
 						<br/>
 						{{acts._SUBTITLE_1}} {{acts._SUBTITLE_2}}
 
-						<ion-delete-button on-release="deleteElement(acts.ACT._ID,$index,'list')" ng-if="editMode" class="ion-minus-circled">
+						<ion-delete-button  on-release="deleteElement(acts.ACT._ID,$index,'list')" ng-if="editMode" class="ion-minus-circled">
 						</ion-delete-button>
 					</ion-item>
 				</div>
 			</ion-list>
+
 		</ion-content>
-	</ion-side-menu-content>
-	<!-- Left menu -->
-	<ion-side-menu side="left">
-
-	</ion-side-menu>
-
-</ion-side-menus>
+</ion-view>

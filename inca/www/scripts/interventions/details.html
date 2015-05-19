@@ -1,14 +1,19 @@
-<!-- delegates scrolling to ionic  http://ionicframework.com/docs/api/directive/ionContent/ -->
-<ion-content>
-	<ion-list show-delete="editMode">
-		<ion-item class="item item-divider">
-			Details
-		</ion-item>
+<ion-view view-title="détails">
 
-		<ion-item href="#vitals" class="item"  ng-repeat="myAct in interventions.detailedList" >
-				{{myAct._SUBTITLE_1}} {{myAct._SUBTITLE_2}}
-				<ion-delete-button on-release="deleteElement(-1,$index,'reserve')" ng-if="editMode" class="ion-minus-circled">
-				</ion-delete-button>
-		</ion-item>
-	</ion-list>
-</ion-content>
+	<ion-nav-buttons side="right">
+      <button class="button button-clear button-positive" on-release="toggleEditMode()">{{labels.editMode}}</button>
+    </ion-nav-buttons>
+	<ion-nav-title>
+		{{interventions.detailedList[0]._TYPE}}
+	</ion-nav-title>
+
+	<ion-content>
+		<ion-list show-delete="editMode">
+			<ion-item href="#vitals" class="item"  ng-repeat="myAct in interventions.detailedList" >
+					{{myAct._SUBTITLE_1}} {{myAct._SUBTITLE_2}}
+					<ion-delete-button on-release="deleteElement(myAct._ID,$index,'list')" ng-if="editMode" class="ion-minus-circled">
+					</ion-delete-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

@@ -15,10 +15,23 @@ var incaInterventions = angular.module('inca.interventions', ['ionic','ui.router
         .state('interventions', {
             url: '/interventions',
             templateUrl: 'scripts/interventions/interventions.html',
-            controller: controllers.interventionsController
+            controller: controllers.interventionsController,
+            resolve : {
+                // data loading
+                interventions : function($http) {
+                  return $http.get("http://crayonoir.ch/bachelor/data.xml")
+                  .then(function (data) { // promise
+
+                    var x2js = new X2JS();
+                    jsonData = x2js.xml_str2json(data.data);
+
+                    return getInterventions(jsonData,"UNIT",0,0);
+                  });
+                }
+            }
         })
         .state('interventions.group',{
-            url: '/group/:idElem',
+            url: '/group/{idElem}',
             templateUrl: 'scripts/interventions/details.html',
             controller: controllers.detailsController
         });
@@ -62,7 +75,7 @@ function seekIntervention(container, idAct){
 }
 
 
-function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMenuDelegate, $sanitize,$state){
+function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMenuDelegate, $sanitize,$state, interventions){
 
   $scope.interventions = {};
   var jsonData = null;
@@ -73,30 +86,26 @@ function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMe
   $scope.labels = [];
   $scope.labels.editMode = "Modifier";
 
-  // AJAX
-  $http.get("http://crayonoir.ch/bachelor/data.xml")
-    .then(function (data) { // promise
+  for(var i = 0; i < interventions.length; i++){
+    // detects reserve interventions
+    if(interventions[i]._PLANNED_DATETIME_DISPLAY == "R"){
+      reserveList.push(interventions[i]);
+      interventions.splice(i,1);
+    }
+  }
 
-      var x2js = new X2JS();
-      jsonData = x2js.xml_str2json(data.data);
+  interventions.sort("_PLANNED_DATETIME_DISPLAY");
 
-      var interventions = getInterventions(jsonData,"UNIT",0,0);
-      for(var i = 0; i < interventions.length; i++){
-        // detects reserve interventions
-        if(interventions[i]._PLANNED_DATETIME_DISPLAY == "R"){
-          reserveList.push(interventions[i]);
-          interventions.splice(i,1);
-        }
-      }
+  $scope.interventions.list = interventions;
+  $scope.interventions.reserve = reserveList;
+  console.log(interventions);
 
-      interventions.sort("_PLANNED_DATETIME_DISPLAY");
+  $ionicScrollDelegate.resize(); // to be called every content content is changed
 
-      $scope.interventions.list = interventions;
-      $scope.interventions.reserve = reserveList;
 
-      $ionicScrollDelegate.resize(); // to be called every content content is changed
-  });
-
+  ///////////////
+  // FUNCTIONS //
+  ///////////////
 
   // retrieves current time (hour)
   $scope.getCurrentTime = function(){
@@ -107,7 +116,7 @@ function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMe
   $scope.toggleEditMode = function(){
     $scope.editMode = !$scope.editMode;
     if($scope.labels.editMode == "Modifier")
-      $scope.labels.editMode = "Annuler";
+      $scope.labels.editMode = "Confirmer";
     else
       $scope.labels.editMode = "Modifier";
   };
@@ -121,7 +130,7 @@ function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMe
   $scope.deleteElement = function(idElem,index,type){
 
     if (type == "list"){
-
+      console.log(idElem + ' ' + index);
       // goes thourgh all interventions
       for(var i = 0; i < $scope.interventions.list.length;i++){
 
@@ -155,49 +164,29 @@ function interventionsController($scope,$http, $ionicScrollDelegate,$ionicSideMe
     $ionicScrollDelegate.resize(); // to be called every content content is changed
   };
 
-  //set up a watch over the current hour, once it changes, the scroll will be set to the accurate acts
-  $scope.$watch(function(scope) { return $scope.getCurrentTime(); },
-    function() {
-      // scroll to accurate acts
-    }
-  );
-
 }
 
 
-  function detailsController($scope,$http, $ionicScrollDelegate,$ionicSideMenuDelegate, $sanitize,$state){
-    var idElem = $state.params.idElem;
-    var interventions = $scope.interventions.list;
-    var nbGroupAct = 0;
 
-    // AJAX
-    $http.get("http://crayonoir.ch/bachelor/data.xml")
-    .then(function (data) { // promise
+function detailsController($scope,$http, $ionicScrollDelegate,$ionicSideMenuDelegate, $sanitize,$state,interventions){
+  var idElem = $state.params.idElem;
+  var interventions = $scope.interventions.list;
+  var nbGroupAct = 0;
 
-      var x2js = new X2JS();
-      jsonData = x2js.xml_str2json(data.data);
+  interventions.sort("_PLANNED_DATETIME_DISPLAY");
 
-      $scope.interventions = [];
+  for(var i = 0; i < interventions.length; i++)
+    // detects reserve interventions
+    if(interventions[i].ACT.length != undefined)
+    // goes through all the inner acts
+      for(var y = 0; y < interventions[i].ACT.length; y++)
+        if(interventions[i].ACT[y]._ID == idElem) // if there's a match we save the index of the group of act
+          nbGroupAct = i;
 
-      var interventions = getInterventions(jsonData,"UNIT",0,0);
-      interventions.sort("_PLANNED_DATETIME_DISPLAY");
-
-      for(var i = 0; i < interventions.length; i++){
-        // detects reserve interventions
-        if(interventions[i].ACT.length != undefined)
-        // goes through all the inner acts
-          for(var y = 0; y < interventions[i].ACT.length; y++)
-            if(interventions[i].ACT[y]._ID == idElem) // if there's a match we save the index of the group of act
-              nbGroupAct = i;
-
-      }
-
-      $scope.interventions.detailedList =  interventions[nbGroupAct].ACT;
-      console.log($scope.interventions.detailedList);
+    $scope.interventions.detailedList =  interventions[nbGroupAct].ACT;
 
 
-      $ionicScrollDelegate.resize(); // to be called every content content is changed
-    });
+    $ionicScrollDelegate.resize(); // to be called every content content is changed
 
-  }
+}
 
