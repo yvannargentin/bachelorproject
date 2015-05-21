@@ -1,0 +1,27 @@
+<ion-view view-title="Vitals">
+	<ion-nav-title>
+		<span>{{patient.Name}}</span>
+	</ion-nav-title>
+
+	<ion-content>
+		<label ng-repeat="elem in List |  orderBy : reverse" class="item item-input item-select">
+			<div class="input-label">
+				{{elem.Name}}
+			</div>
+			<select>
+				<option  ng-repeat="Rythme in elem.options">{{Rythme}}</option>
+			</select>
+		</label>
+		<label class="item item-input" >
+			<div class="input-label">
+				Pouls
+			</div>
+			<input type="number"></input>
+		</label>
+		<button class="button button-full button-clear button-positive" id="beforeChart">
+			Valider
+		</button>
+		<canvas id="barChartVitals" class="chart chart-bar" height="250" data="data" labels="labels" options="options">
+		</canvas>
+	</ion-content>
+</ion-view>

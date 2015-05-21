@@ -4,7 +4,7 @@
       <button class="button button-clear button-positive" on-release="toggleEditMode()">{{labels.editMode}}</button>
     </ion-nav-buttons>
 	<ion-nav-title>
-		{{interventions.detailedList[0]._TYPE}}
+		<span>{{interventions.detailedList[0]._TYPE}}</span>
 	</ion-nav-title>
 
 	<ion-content>
@@ -12,7 +12,7 @@
 			<ion-item class="item item-icon-left item-icon-right"  ng-repeat="myAct in interventions.detailedList" >
 					<img class="icon" src="assets/domain/{{interventions.Icone}}" alt="{{interventions.Icone}}"/>
 					{{myAct._SUBTITLE_1}} {{myAct._SUBTITLE_2}}
-					<img class="icon" src="assets/Icon/notepad.png" on-release="showPopup(myAct._ID,$index)" alt="Notepad" />
+					<img class="icon hover" src="assets/Icon/notepad.png" on-release="showPopup(myAct._ID,$index)" alt="Notepad" />
 					<ion-delete-button on-release="deleteElement(myAct._ID,$index,'list')" ng-if="editMode" class="ion-minus-circled">
 					</ion-delete-button>
 			</ion-item>
