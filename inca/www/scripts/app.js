@@ -32,7 +32,7 @@ angular.module('inca', ['ionic','ui.router','inca.interventions','cb.x2js','ngSa
             templateUrl: 'scripts/interventions/interventions.html',
             controller: controllers.interventionsController
         });*/
-  $urlRouterProvider.otherwise('/interventions/home');
+  $urlRouterProvider.otherwise('/interventions/vitals');
 
 });
 

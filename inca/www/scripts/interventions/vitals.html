@@ -2,26 +2,127 @@
 	<ion-nav-title>
 		<span>{{patient.Name}}</span>
 	</ion-nav-title>
+		<ion-tabs class="tabs-light tabs-color-positive ">
 
-	<ion-content>
-		<label ng-repeat="elem in List |  orderBy : reverse" class="item item-input item-select">
-			<div class="input-label">
-				{{elem.Name}}
-			</div>
-			<select>
-				<option  ng-repeat="Rythme in elem.options">{{Rythme}}</option>
-			</select>
-		</label>
-		<label class="item item-input" >
-			<div class="input-label">
-				Pouls
-			</div>
-			<input type="number"></input>
-		</label>
-		<button class="button button-full button-clear button-positive" id="beforeChart">
-			Valider
-		</button>
-		<canvas id="barChartVitals" class="chart chart-bar" height="250" data="data" labels="labels" options="options">
-		</canvas>
-	</ion-content>
+			<ion-tab title="Puls">
+				<ion-nav-view>
+					<ion-content>
+						<label ng-if="elem.Tab=='Puls'" ng-repeat="elem in List |  orderBy : reverse" class="item item-input item-select">
+							<div class="input-label">
+								{{elem.Name}}
+							</div>
+							<select >
+								<option   ng-repeat="Rythme in elem.Options">{{Rythme}}</option>
+							</select>
+						</label>
+						<label class="item item-input" >
+							<div class="input-label">
+								Pouls
+							</div>
+							<input ng-model="PulsPouls" type="number"></input>
+						</label>
+						<button ng-click="validate('Puls')" class="button button-full button-clear button-positive" id="beforeChart">
+							Valider
+						</button>
+						<canvas id="barChartVitals" class="chart chart-bar" height="250" data="data" labels="labels" options="options">
+						</canvas>
+					</ion-content>
+				</ion-nav-view>
+			</ion-tab>
+
+			<ion-tab title="T">
+				<ion-nav-view>
+					<ion-content>
+						<label ng-if="elem.Tab=='T'"  ng-repeat="elem in List |  orderBy : reverse" class="item item-input item-select">
+							<div class="input-label">
+								{{elem.Name}}
+							</div>
+							<select>
+								<option ng-repeat="Lieu in elem.Options">{{Lieu}}</option>
+							</select>
+						</label>
+						<label class="item item-input" >
+							<div class="input-label">
+								Température
+							</div>
+							<input ng-model="TTemperature" type="number"></input>
+						</label>
+						<button ng-click="validate('T')"  class="button button-full button-clear button-positive" id="beforeChart">
+							Valider
+						</button>
+					</ion-content>
+				</ion-nav-view>
+			</ion-tab>
+
+			<ion-tab title="TAH">
+				<ion-nav-view>
+					<ion-content>
+						<label ng-if="elem.Tab=='TAH'"  ng-repeat="elem in List |  orderBy : reverse" class="item item-input item-select">
+							<div class="input-label">
+								{{elem.Name}}
+							</div>
+							<select>
+								<option ng-repeat="Prise in elem.Options">{{Prise}}</option>
+							</select>
+						</label>
+						<label class="item item-input" >
+							<div class="input-label">
+								Systol
+							</div>
+							<input ng-model="TAHSystol" type="number"></input>
+						</label>
+						<label class="item item-input" >
+							<div class="input-label">
+								Diastol
+							</div>
+							<input ng-model="TAHDiastol" type="number"></input>
+						</label>
+						<button ng-click="validate('TAH')"  class="button button-full button-clear button-positive" id="beforeChart">
+							Valider
+						</button>
+					</ion-content>
+				</ion-nav-view>
+			</ion-tab>
+
+			<ion-tab title="Glyc">
+				<ion-nav-view>
+					<ion-content>
+						<label class="item item-input" >
+							<div class="input-label">
+								Glycémie
+							</div>
+							<input ng-model="GlycGlycemie" type="number"></input>
+						</label>
+						<button ng-click="validate('Glyc')" class="button button-full button-clear button-positive" id="beforeChart">
+							Valider
+						</button>
+					</ion-content>
+				</ion-nav-view>
+			</ion-tab>
+
+			<ion-tab title="Resp">
+				<ion-nav-view>
+					<ion-content>
+						<label ng-if="elem.Tab=='Resp'"  ng-repeat="elem in List |  orderBy : reverse" class="item item-input item-select">
+							<div class="input-label">
+								{{elem.Name}}
+							</div>
+							<select>
+								<option ng-repeat="Rythme in elem.Options">{{Rythme}}</option>
+							</select>
+						</label>
+						<label class="item item-input" >
+							<div class="input-label">
+								Respiration
+							</div>
+							<input ng-model="RespRespiration" type="number"></input>
+						</label>
+						<button ng-click="validate('Resp')"  class="button button-full button-clear button-positive" id="beforeChart">
+							Valider
+						</button>
+					</ion-content>
+				</ion-nav-view>
+			</ion-tab>
+
+		</ion-tabs>
 </ion-view>

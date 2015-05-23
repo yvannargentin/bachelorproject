@@ -76,6 +76,22 @@ function getCurrentTime (){
   return new Date().getHours() + " : " + new Date().getMinutes();
 };
 
+function getCurrentDate() {
+    var now     = new Date();
+    var year    = now.getFullYear();
+    var month   = now.getMonth() + 1;
+    var day     = now.getDate();
+
+    if(month.toString().length == 1) {
+        var month = '0'+month;
+    }
+    if(day.toString().length == 1) {
+        var day = '0'+day;
+    }
+    var date = day+'.'+month+'.'+year;
+    return date;
+}
+
 // used for the interventions digging
 function seekIntervention(container, idAct){
   var data = {
@@ -401,29 +417,94 @@ function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, 
 
   patient = interventions;
   interventions = interventions.ACT_GROUP;
+  $scope.interventions = interventions;
+
+  ////////////////////
+  // INITIALIZATION //
+  ////////////////////
+
+  var Historical = [
+    {Category : 'Puls', data : [{Date : '20.05.2015',Time : '07:00',Measure : '120'}]},
+    {Category : 'T', data : [{Date : '20.05.2015',Time : '07:00',Measure : '34.6'}]},
+    {Category : 'TAH', data : [{Date : '20.05.2015',Time : '07:00',Measure : '189-224'}]},
+    {Category : 'Glyc', data : [{Date : '20.05.2015',Time : '07:00',Measure : '14.3'}]},
+    {Category : 'Resp', data : [{Date : '20.05.2015',Time : '07:00',Measure : '14.7'}]}
+  ];
 
   var Rythme = [ 'Non précisé','Irrégulier','Régulier','Autre' ];
+
+  var RythmeR = ['Non précisé','Irrégulier','Régulier','Apnée','Cheynes-Stroke','Kusmmaul','Autre'];
+
   var Lieu = [
-  'Non précisé',
-  'Radial gauche',
-  'Radial droit',
-  'Rétro-malléolaire gauche',
-  'Rétro-malléolaire droit',
-  'Pédieux gauche',
-  'Pédieux droit',
-  'Fémoral gauche',
-  'Fémoral droit',
-  'Poplité gauche',
-  'Poplité droit',
-  'Cardiaque',
-  'Autre'
+    'Non précisé',
+    'Radial gauche',
+    'Radial droit',
+    'Rétro-malléolaire gauche',
+    'Rétro-malléolaire droit',
+    'Pédieux gauche',
+    'Pédieux droit',
+    'Fémoral gauche',
+    'Fémoral droit',
+    'Poplité gauche',
+    'Poplité droit',
+    'Cardiaque',
+    'Autre'
   ];
+
+  var LieuT = [
+    'Non précisé',
+    'Rectal',
+    'Buccal',
+    'Axillaire',
+    'Inguinale',
+    'Tympanique',
+    'Cutanée',
+    'Autre'
+  ];
+
+  var LieuTAH = [
+    'Non précisé',
+    'Bras gauche',
+    'Bras droit',
+    'Jambe gauche',
+    'Jambe droite',
+    'Autre'
+  ];
+
+  var Prise = [
+    'Non précisé',
+    'Debout',
+    'Couché',
+    'Assi',
+    'Après effort',
+    'Autre'
+  ];
+
+  var Observation = [
+    'Non précisé',
+    'Dyspnée',
+    'Tachypnée',
+    'Sibilance',
+    'Tirage',
+    'Balancement thoraco-abdominal',
+    'Paradoxal',
+    'Stridor',
+    'Autre'
+  ];
+
 
   $scope.patient = {};
   $scope.patient.Name = patient._FIRST_NAME + ' ' + patient._LAST_NAME;
+
   $scope.List = [
-  {Name : 'Rythme','options' : Rythme},
-  {Name : 'Lieu','options' : Lieu}];
+  {Name : 'Rythme',Options : Rythme,Tab : 'Puls'},
+  {Name : 'Lieu',Options : Lieu, Tab : 'Puls'},
+  {Name : 'Lieu',Options : LieuT, Tab : 'T'},
+  {Name : 'Prise',Options : Prise, Tab : 'TAH'},
+  {Name : 'Lieu',Options : LieuTAH, Tab : 'TAH'},
+  {Name : 'Rythme',Options : RythmeR, Tab : 'Resp'},
+  {Name : 'Observation',Options : Observation, Tab : 'Resp'}
+  ];
 
   $scope.labels = ['May 20 17:05', 'May 20 20:52', 'May 21 12:53'];
   $scope.options = {
@@ -438,6 +519,34 @@ function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, 
   $scope.data = [
     [110, 120, 76]
   ];
+
+  $scope.PulsPouls = 0;
+  $scope.TTemperature = 0;
+  $scope.TAHSystol = 0;
+  $scope.TAHDiastol = 0;
+  $scope.GlycGlycemie = 0;
+  $scope.RespRespiration = 0;
+
+  $scope.validate = function(category){
+
+    var currentDate = getCurrentDate();
+    var currentTime = getCurrentTime();
+    var measureVal = null;
+
+    switch(category){
+      case 'Puls' : measureVal = $scope.PulsPouls;break;
+      case 'T' : measureVal = $scope.TTemperature;break;
+      case 'TAH' : measureVal = $scope.TAHSystol + '-' + $scope.TAGDiastol;break;
+      case 'Glyc' : measureVal = $scope.GlycGlycemie;break;
+      case 'Resp' : measureVal = $scope.RespRespiration;break;
+    }
+
+    var newMeasure = {Date : currentDate,Time : currentTime,Measure : measureVal};
+
+    for(var i = 0; i < Historical.length;i++)
+        if(Historical[i].Category == category)
+            Historical[i].data.push(newMeasure);
+  }
 
 
 }
