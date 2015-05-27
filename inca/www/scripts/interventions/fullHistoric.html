@@ -1,0 +1,53 @@
+<ion-view view-title="Vitals">
+	<ion-nav-title>
+		<span>{{patient.Name}}</span>
+	</ion-nav-title>
+		<ion-tabs class="tabs-light tabs-color-positive slide-left-right" >
+
+			<ion-tab title="Puls" ng-click="switchTab(0)">
+				<ion-nav-view>
+					<ion-content class="fullScreenChartContainer" on-swipe-left="switchTab(1)" >
+						<canvas id="barChartVitals" class="chart chart-bar fullscreenChart"  data="dataPuls" labels="labelsPuls" options="optionsPuls">
+						</canvas>
+					</ion-content>
+				</ion-nav-view>
+			</ion-tab>
+
+			<ion-tab title="T" ng-click="switchTab(1)">
+				<ion-nav-view>
+					<ion-content class="fullScreenChartContainer" on-swipe-left="switchTab(2)" on-swipe-right="switchTab(0)">
+						<canvas id="barChartVitals" class="chart chart-bar fullscreenChart"  data="dataT" labels="labelsT" options="optionsT">
+						</canvas>
+					</ion-content>
+				</ion-nav-view>
+			</ion-tab>
+
+			<ion-tab title="TAH" ng-click="switchTab(2)">
+				<ion-nav-view>
+					<ion-content class="fullScreenChartContainer" on-swipe-left="switchTab(3)" on-swipe-right="switchTab(1)">
+						<canvas id="barChartVitals" class="chart chart-bar fullscreenChart"  data="dataTAH" labels="labelsTAH" options="optionsTAH">
+						</canvas>
+					</ion-content>
+				</ion-nav-view>
+			</ion-tab>
+
+			<ion-tab title="Glyc" ng-click="switchTab(3)">
+				<ion-nav-view>
+					<ion-content class="fullScreenChartContainer" on-swipe-left="switchTab(4)" on-swipe-right="switchTab(2)">
+						<canvas id="barChartVitals" class="chart chart-bar fullscreenChart"  data="dataGlyc" labels="labelsGlyc" options="optionsGlyc">
+						</canvas>
+					</ion-content>
+				</ion-nav-view>
+			</ion-tab>
+
+			<ion-tab title="Resp" ng-click="switchTab(4)">
+				<ion-nav-view>
+					<ion-content class="fullScreenChartContainer" on-swipe-right="switchTab(3)">
+						<canvas id="barChartVitals" class="chart chart-bar fullscreenChart"  data="dataResp" labels="labelsResp" options="optionsResp">
+						</canvas>
+					</ion-content>
+				</ion-nav-view>
+			</ion-tab>
+
+		</ion-tabs>
+</ion-view>

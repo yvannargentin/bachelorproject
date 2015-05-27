@@ -2,16 +2,16 @@
 	<ion-nav-title>
 		<span>{{patient.Name}}</span>
 	</ion-nav-title>
-		<ion-tabs class="tabs-light tabs-color-positive ">
+		<ion-tabs class="tabs-light tabs-color-positive slide-left-right" >
 
-			<ion-tab title="Puls">
+			<ion-tab title="Puls" >
 				<ion-nav-view>
-					<ion-content>
+					<ion-content on-swipe-left="switchTab(1)" >
 						<label ng-if="elem.Tab=='Puls'" ng-repeat="elem in List |  orderBy : reverse" class="item item-input item-select">
 							<div class="input-label">
 								{{elem.Name}}
 							</div>
-							<select >
+							<select>
 								<option   ng-repeat="Rythme in elem.Options">{{Rythme}}</option>
 							</select>
 						</label>
@@ -19,12 +19,12 @@
 							<div class="input-label">
 								Pouls
 							</div>
-							<input ng-model="PulsPouls" type="number"></input>
+							<input ng-model="elems.PulsPouls" type="number"></input>
 						</label>
 						<button ng-click="validate('Puls')" class="button button-full button-clear button-positive" id="beforeChart">
 							Valider
 						</button>
-						<canvas id="barChartVitals" class="chart chart-bar" height="250" data="data" labels="labels" options="options">
+						<canvas id="barChartVitals" on-double-tap="fullHistoric('Puls')" class="chart chart-bar" height="250" data="dataPuls" labels="labelsPuls" options="optionsPuls">
 						</canvas>
 					</ion-content>
 				</ion-nav-view>
@@ -32,7 +32,7 @@
 
 			<ion-tab title="T">
 				<ion-nav-view>
-					<ion-content>
+					<ion-content on-swipe-left="switchTab(2)" on-swipe-right="switchTab(0)">
 						<label ng-if="elem.Tab=='T'"  ng-repeat="elem in List |  orderBy : reverse" class="item item-input item-select">
 							<div class="input-label">
 								{{elem.Name}}
@@ -45,18 +45,20 @@
 							<div class="input-label">
 								Température
 							</div>
-							<input ng-model="TTemperature" type="number"></input>
+							<input ng-model="elems.TTemperature" type="number"></input>
 						</label>
 						<button ng-click="validate('T')"  class="button button-full button-clear button-positive" id="beforeChart">
 							Valider
 						</button>
+						<canvas id="barChartVitals" class="chart chart-bar" on-double-tap="fullHistoric('T')" height="250" data="dataT" labels="labelsT" options="optionsT">
+						</canvas>
 					</ion-content>
 				</ion-nav-view>
 			</ion-tab>
 
 			<ion-tab title="TAH">
 				<ion-nav-view>
-					<ion-content>
+					<ion-content on-swipe-left="switchTab(3)" on-swipe-right="switchTab(1)">
 						<label ng-if="elem.Tab=='TAH'"  ng-repeat="elem in List |  orderBy : reverse" class="item item-input item-select">
 							<div class="input-label">
 								{{elem.Name}}
@@ -69,40 +71,44 @@
 							<div class="input-label">
 								Systol
 							</div>
-							<input ng-model="TAHSystol" type="number"></input>
+							<input ng-model="elems.TAHSystol" type="number"></input>
 						</label>
 						<label class="item item-input" >
 							<div class="input-label">
 								Diastol
 							</div>
-							<input ng-model="TAHDiastol" type="number"></input>
+							<input ng-model="elems.TAHDiastol" type="number"></input>
 						</label>
 						<button ng-click="validate('TAH')"  class="button button-full button-clear button-positive" id="beforeChart">
 							Valider
 						</button>
+						<canvas id="barChartVitals" class="chart chart-bar" height="250" on-double-tap="fullHistoric('TAH')" data="dataTAH" labels="labelsTAH" options="optionsTAH">
+						</canvas>
 					</ion-content>
 				</ion-nav-view>
 			</ion-tab>
 
 			<ion-tab title="Glyc">
 				<ion-nav-view>
-					<ion-content>
+					<ion-content  on-swipe-left="switchTab(4)" on-swipe-right="switchTab(2)">
 						<label class="item item-input" >
 							<div class="input-label">
 								Glycémie
 							</div>
-							<input ng-model="GlycGlycemie" type="number"></input>
+							<input ng-model="elems.GlycGlycemie" type="number"></input>
 						</label>
 						<button ng-click="validate('Glyc')" class="button button-full button-clear button-positive" id="beforeChart">
 							Valider
 						</button>
+						<canvas id="barChartVitals" class="chart chart-bar" height="250" on-double-tap="fullHistoric('Glyc')" data="dataGlyc" labels="labelsGlyc" options="optionsGlyc">
+						</canvas>
 					</ion-content>
 				</ion-nav-view>
 			</ion-tab>
 
 			<ion-tab title="Resp">
 				<ion-nav-view>
-					<ion-content>
+					<ion-content on-swipe-right="switchTab(3)">
 						<label ng-if="elem.Tab=='Resp'"  ng-repeat="elem in List |  orderBy : reverse" class="item item-input item-select">
 							<div class="input-label">
 								{{elem.Name}}
@@ -115,11 +121,13 @@
 							<div class="input-label">
 								Respiration
 							</div>
-							<input ng-model="RespRespiration" type="number"></input>
+							<input ng-model="elems.RespRespiration" type="number"></input>
 						</label>
 						<button ng-click="validate('Resp')"  class="button button-full button-clear button-positive" id="beforeChart">
 							Valider
 						</button>
+						<canvas id="barChartVitals" class="chart chart-bar" height="250" on-double-tap="fullHistoric('Resp')" data="dataResp" labels="labelsResp" options="optionsResp">
+						</canvas>
 					</ion-content>
 				</ion-nav-view>
 			</ion-tab>

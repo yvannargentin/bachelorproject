@@ -3,6 +3,9 @@
     <ion-nav-buttons side="right">
       <button class="button button-clear button-positive" on-release="toggleEditMode()">{{labels.editMode}}</button>
     </ion-nav-buttons>
+    <ion-nav-title>
+		{{patient.Name}} <span class="ion-chevron-right" ng-click="changePatient(patient.Index)" ></span>
+	</ion-nav-title>
 
 	<ion-nav-view ></ion-nav-view>
 		<!-- delegates scrolling to ionic  http://ionicframework.com/docs/api/directive/ionContent/ -->
@@ -16,7 +19,7 @@
 
 				<ion-item on-release="" nav-direction="forward" class="item item-icon-left" >
 					<img class="icon" src="assets/domain/reserve.png" alt="Reserve"/>
-					<p class="text-left-interventions">{{interventions.reserve[0]._SUBTITLE_1}} {{interventions.reserve[0]._SUBTITLE_2}}</p>
+					<p class="text-left-interventions">{{interventions.reserve._SUBTITLE_1}} {{interventions.reserve._SUBTITLE_2}}</p>
 				</ion-item>
 
 				<div ng-repeat="acts in interventions.list | orderBy:'_PLANNED_DATETIME'" on-finish-render="test" ng-init="counter=$index">
