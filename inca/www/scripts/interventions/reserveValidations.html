@@ -1,0 +1,24 @@
+<ion-view view-title="détails" on-swipe-right="$ionicGoBack()">
+
+	<ion-nav-buttons side="right">
+      <button class="button button-clear button-positive" on-release="toggleEditMode()">{{labels.editMode}}</button>
+    </ion-nav-buttons>
+	<ion-nav-title>
+		<span>title</span>
+	</ion-nav-title>
+
+	<ion-content>
+		<ion-list show-delete="editMode">
+			<span ng-repeat="time in interventions.reserveDetails track by $index ">
+
+				<ion-item class="item item-divider">{{time._LABEL}}</ion-item>
+				<ion-item class="item item-icon-left item-icon-right" ng-if="time.RESERVE_VALIDATION.length != undefined"  ng-repeat="validation in time.RESERVE_VALIDATION" >
+					{{validation._DATE}} {{validation._USR}}
+				</ion-item>
+				<ion-item class="item item-icon-left item-icon-right" ng-if="time.RESERVE_VALIDATION.length == undefined" >
+					{{time.RESERVE_VALIDATION._DATE}} {{time.RESERVE_VALIDATION._USR}}
+				</ion-item>
+			</span>
+		</ion-list>
+	</ion-content>
+</ion-view>

@@ -3,6 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
+
+// TO CHECK COMPLETETION OF THE SCRIPT LOOK FOR "TODO" OR "TO VERIFY"
+
 var incaInterventions = angular.module('inca.interventions', ['ionic','ui.router', 'cb.x2js','ngSanitize', 'chart.js'])
 
 
@@ -16,40 +19,32 @@ var incaInterventions = angular.module('inca.interventions', ['ionic','ui.router
             url: '/interventions',
             abstract : true,
             template: '<ion-nav-view></ion-nav-view>',
-            controller : interventionsMain,
-            resolve : {
-                // data loading
-                jsonData : function($http) {
-                  return $http.get("http://crayonoir.ch/bachelor/data.xml")
-                  .then(function (data) { // promise
-
-                    var x2js = new X2JS();
-                    jsonData = x2js.xml_str2json(data.data);
-
-                    return jsonData;
-                  });
-                }
-            }
+            controller : interventionsMain
         })
         .state('interventions.home', {
             url: '/home',
             templateUrl: 'scripts/interventions/interventions.html',
-            controller: controllers.interventionsController
+            controller: interventionsController
         })
         .state('interventions.group',{
             url: '/group/{idElem}',
             templateUrl: 'scripts/interventions/details.html',
-            controller: controllers.detailsController
+            controller: detailsController
         })
         .state('interventions.vitals', {
             url: '/vitals',
             templateUrl: 'scripts/interventions/vitals.html',
-            controller: controllers.vitalsController
+            controller: vitalsController
         })
         .state('interventions.fullHistoric', {
           url : '/historic/{category}',
           templateUrl : 'scripts/interventions/fullHistoric.html',
-          controller : controllers.fullHistoricController
+          controller : fullHistoricController
+        })
+        .state('interventions.reserveValidations', {
+          url : '/reserve/{validations}',
+          templateUrl : 'scripts/interventions/reserveValidations.html',
+          controller : reserveValidations
         });
 });
 
@@ -57,20 +52,18 @@ var incaInterventions = angular.module('inca.interventions', ['ionic','ui.router
 // CONTROLLERS //
 /////////////////
 
-var controllers = {};
 
 // intervention.home
-controllers.interventionsController = interventionsController;
-incaInterventions.controller('getters', controllers.interventionsController);
+incaInterventions.controller('getters', interventionsController);
 // intervention.details
-controllers.detailsController = detailsController;
-incaInterventions.controller('getters', controllers.detailsController);
+incaInterventions.controller('getters', detailsController);
 // intervention.vitals
-controllers.vitalsController = vitalsController;
-incaInterventions.controller('getters', controllers.vitalsController);
+incaInterventions.controller('getters', vitalsController);
 // intervention.fullHistoric
-controllers.fullHistoricController = fullHistoricController;
-incaInterventions.controller('getters', controllers.fullHistoricController);
+incaInterventions.controller('getters', fullHistoricController);
+// intervention.reserveValidations
+incaInterventions.controller('getters', reserveValidations);
+
 
 
 //////////////////////////
@@ -118,56 +111,34 @@ function getCurrentDate() {
     return date;
 }
 
-// used for the interventions digging
-function seekIntervention(container, idAct){
-  var data = {
-    'deeper' : false,
-    'info' : {},
-    'container' : container
-  };
-
-  if(container.hasOwnProperty('INTERVENTION')){
-    container = container.INTERVENTION;
-    data.deeper = true;
-    data.info = {
-        'LABEL' : container.LABEL,
-        'ID' : container.ID,
-        'idAct' : idAct
-      };
-    data.container = container;
-
-  }
-
-  return data;
-}
 
 function addIcons(interventions){
       switch(interventions._TYPE){
-        case "Alimentation" : interventions.IconeLink = "alimentation.png"; break;
-        case "Après-Midi" : interventions.IconeLink = "apres-midi.png"; break;
-        case "Bilans" : interventions.IconeLink = "bilans.png"; break;
-        case "Cognition Perception" : interventions.IconeLink = "cognition_perception.png"; break;
-        case "Communication" : interventions.IconeLink = "communication.png"; break;
-        case "Diurne" : interventions.IconeLink = "diurne.png"; break;
-        case "Elimination" : interventions.IconeLink = "elimination.png"; break;
-        case "Enseignement" : interventions.IconeLink = "enseignement.png"; break;
-        case "Environnement SocioFamilial" : interventions.IconeLink = "environnementSocioFamilial.png"; break;
-        case "Equipements" : interventions.IconeLink = "equipements.png"; break;
-        case "Examens" : interventions.IconeLink = "examens.png"; break;
-        case "Gestion De La Santé" : interventions.IconeLink = "gestion_de_la_sante.png"; break;
-        case "Hygiène" : interventions.IconeLink = "hygiene.png"; break;
-        case "Matinée" : interventions.IconeLink = "matinee.png"; break;
-        case "Mobilisation" : interventions.IconeLink = "mobilisation.png"; break;
-        case "Nocturne" : interventions.IconeLink = "nocturne.png"; break;
-        case "Nuit" : interventions.IconeLink = "nuit.png"; break;
-        case "Rendez-vous" : interventions.IconeLink = "rendez_vous.png"; break;
-        case "Reserve" : interventions.IconeLink = "reserve.png"; break;
-        case "Respiration" : interventions.IconeLink = "respiration.png"; break;
-        case "Sommeil - Repos" : interventions.IconeLink = "sommeil_repos.png"; break;
-        case "Spiritualites" : interventions.IconeLink = "spiritualites.png"; break;
-        case "Sur - 24h" : interventions.IconeLink = "sur_24h_.png"; break;
-        case "Surveillances" : interventions.IconeLink = "surveillances.png"; break;
-        case "Traitements" : interventions.IconeLink = "traitements.png"; break;
+        case "Alimentation" : interventions.iconeLink = "alimentation.png"; break;
+        case "Après-Midi" : interventions.iconeLink = "apres-midi.png"; break;
+        case "Bilans" : interventions.iconeLink = "bilans.png"; break;
+        case "Cognition Perception" : interventions.iconeLink = "cognition_perception.png"; break;
+        case "Communication" : interventions.iconeLink = "communication.png"; break;
+        case "Diurne" : interventions.iconeLink = "diurne.png"; break;
+        case "Elimination" : interventions.iconeLink = "elimination.png"; break;
+        case "Enseignement" : interventions.iconeLink = "enseignement.png"; break;
+        case "Environnement SocioFamilial" : interventions.iconeLink = "environnementSocioFamilial.png"; break;
+        case "Equipements" : interventions.iconeLink = "equipements.png"; break;
+        case "Examens" : interventions.iconeLink = "examens.png"; break;
+        case "Gestion De La Santé" : interventions.iconeLink = "gestion_de_la_sante.png"; break;
+        case "Hygiène" : interventions.iconeLink = "hygiene.png"; break;
+        case "Matinée" : interventions.iconeLink = "matinee.png"; break;
+        case "Mobilisation" : interventions.iconeLink = "mobilisation.png"; break;
+        case "Nocturne" : interventions.iconeLink = "nocturne.png"; break;
+        case "Nuit" : interventions.iconeLink = "nuit.png"; break;
+        case "Rendez-vous" : interventions.iconeLink = "rendez_vous.png"; break;
+        case "Reserve" : interventions.iconeLink = "reserve.png"; break;
+        case "Respiration" : interventions.iconeLink = "respiration.png"; break;
+        case "Sommeil - Repos" : interventions.iconeLink = "sommeil_repos.png"; break;
+        case "Spiritualites" : interventions.iconeLink = "spiritualites.png"; break;
+        case "Sur - 24h" : interventions.iconeLink = "sur_24h_.png"; break;
+        case "Surveillances" : interventions.iconeLink = "surveillances.png"; break;
+        case "Traitements" : interventions.iconeLink = "traitements.png"; break;
       }
 
   return interventions;
@@ -178,13 +149,20 @@ function addIcons(interventions){
 // CONTROLLERS //
 /////////////////
 
-function interventionsMain($scope,$ionicHistory, $ionicPopup, $ionicScrollDelegate,$ionicLoading, jsonData){
+function interventionsMain($scope,$state,$ionicHistory, $rootScope, $ionicPopup,$sanitize, $ionicScrollDelegate,$ionicLoading){
 
   ////////////////////
   // LOADER SPINNER //
   ////////////////////
 
-  var indexPatientDefault = 0;
+
+  var indexPatientDefault = $rootScope.medicalData.indexPatient;
+  var indexRoom = $rootScope.medicalData.indexRoom;
+  var indexUnit = $rootScope.medicalData.indexUnit;
+  jsonData = $rootScope.medicalData.jsonData;
+
+
+  Username = "Yvann";
 
   $scope.show = function(){
     $ionicLoading.show({
@@ -215,8 +193,8 @@ function interventionsMain($scope,$ionicHistory, $ionicPopup, $ionicScrollDelega
 
   patients = [];
 
-  patients.push(getPatient(jsonData,"UNIT",0,0));
-  patients.push(getPatient(jsonData,"UNIT",0,1));
+  patients.push(getPatient(jsonData,indexUnit,indexRoom,0));
+  patients.push(getPatient(jsonData,indexUnit,indexRoom,1));
 
   interventions = patients[indexPatientDefault].ACT_GROUP;
 
@@ -259,35 +237,42 @@ function interventionsMain($scope,$ionicHistory, $ionicPopup, $ionicScrollDelega
       $scope.labels.editMode = "Modifier";
   };
 
+  $scope.closeEditMode = function(){
+    if($scope.editMode)
+      $scope.editMode = !$scope.editMode;
+    $scope.labels.editMode = "Modifier";
+  };
+
   //delete an element of the list
   $scope.deleteElement = function(idElem,index,type){
-   // console.log(idElem + " - " + index + ' - ' + type);
-
+    console.log(idElem + ' - ' + index + ' - ' + type);
     if (type == "list"){
-
       // goes thourgh all interventions
+
       for(var i = 0; i < $scope.interventions.list.length;i++){
 
         // if there's more than one act
         if(typeof($scope.interventions.list[i].ACT.length) !== 'undefined'){
-
           // goes through all the inner acts
           for(var y = 0; y < $scope.interventions.list[i].ACT.length; y++){
             if($scope.interventions.list[i].ACT[y]._ID == idElem){ // if there's a match we splice it
               $scope.interventions.list[i].ACT.splice(y, 1);
+              if(typeof($scope.interventions.detailedList) !== 'undefined')
+                console.log($scope.interventions.detailedList);//.splice(y, 1); // TO VERIFY
             }
           }
           // if there's no more act in the category at this time we splice the categorie for that time
           if($scope.interventions.list[i].ACT.length == 0){
             $scope.interventions.list.splice(i, 1);
             // we get out of the edit mode
-            $scope.toggleEditMode();
+            $scope.closeEditMode();
             // and come back to the intervention page
             $ionicHistory.goBack();
           }
 
         }else{ // if there's only one act and we find a match we splice the category for the time
-          if($scope.interventions.list[i].ACT._ID == idElem)
+
+          if($scope.interventions.list[i].ACT._ID == idElem && index == -1)
             $scope.interventions.list.splice(i, 1);
         }
 
@@ -295,11 +280,20 @@ function interventionsMain($scope,$ionicHistory, $ionicPopup, $ionicScrollDelega
 
 
     }else if(type == "reserve"){
-      $scope.interventions.reserve[0].ACT.splice(index, 1);
+      console.log("a reserve shouldn't be deleted, code is commented...");
+      // TO VERIFY
+      /*
+      $scope.interventions.detailedList.splice(index, 1);
 
       // if there's no reserve act anymore
-      if($scope.interventions.reserve[0].ACT.length == 0)
-        $scope.interventions.reserve.splice(index, 1);
+      if($scope.interventions.detailedList.length == 0){
+
+        // we get out of the edit mode
+        $scope.closeEditMode();
+        // and come back to the intervention page
+        $ionicHistory.goBack();
+      }
+      */
     }
 
     $ionicScrollDelegate.resize(); // to be called every content content is changed
@@ -307,7 +301,7 @@ function interventionsMain($scope,$ionicHistory, $ionicPopup, $ionicScrollDelega
 
 
   // show a popup with a textarea (used for the validation of an act)
-  $scope.showPopup = function(idElem,index) {
+  $scope.showPopup = function(idElem,index,type) {
     $scope.data = {};
     var myInterventionPos = null;
 
@@ -342,11 +336,17 @@ function interventionsMain($scope,$ionicHistory, $ionicPopup, $ionicScrollDelega
               notesPopup.close();
             } else {
 
-              // saving the notes
-              if(index == -1)
-                $scope.interventions.list[myInterventionPos]._NOTES = $scope.data.notes;
-              else
-                $scope.interventions.list[myInterventionPos].ACT[index]._NOTES = $scope.data.notes;
+              if (type == 'list'){
+                // saving the notes
+                if(index == -1)
+                  $scope.interventions.list[myInterventionPos]._NOTES = $scope.data.notes;
+                else
+                  $scope.interventions.list[myInterventionPos].ACT[index]._NOTES = $scope.data.notes;
+
+              }else if(type == 'reserve'){
+                // saving the notes
+                $scope.interventions.detailedList[index]._NOTES = $scope.data.notes;
+              }
 
               return {'d_idElem' : idElem, 'd_index' : index, 'd_pos' : myInterventionPos};
             }
@@ -358,22 +358,52 @@ function interventionsMain($scope,$ionicHistory, $ionicPopup, $ionicScrollDelega
     notesPopup.then(function(data) {
       if(typeof(data) !== 'undefined'){
         // we first retrieve all important data from the element
-        $scope.interventions.list[data.d_pos]._TIME = getCurrentTime();
-        if(data.d_index == -1)
-          $scope.toSend.push($scope.interventions.list[data.d_pos]);
-        else{
-          var tmp = $scope.interventions.list[data.d_pos];
-          tmp.ACT = $scope.interventions.list[data.d_pos].ACT[data.d_index];
-          $scope.toSend.push(tmp);
+        if(type == 'list'){
+          $scope.interventions.list[data.d_pos]._TIME = getCurrentTime();
+          if(data.d_index == -1){
+            $scope.toSend.push($scope.interventions.list[data.d_pos]);
+            //then we need to delete the element
+            $scope.deleteElement(data.d_idElem,data.d_index,type);
+
+          }else{
+
+            var tmp = $scope.interventions.list.slice(0,$scope.interventions.list.length);
+
+            // TO VERIFY erase the actual data have to be fixed
+            //var data = tmp[1];
+            //data = tmp[1].ACT[0];
+
+            //$scope.toSend.push(data);
+            console.log($scope.toSend);
+            //then we need to delete the element
+            $scope.deleteElement(data.d_idElem,data.d_index,type);
+          }
+
+        }else{
+          $scope.interventions.detailedList[data.d_index]._TIME = getCurrentTime();
+          var tmp = $scope.interventions.reserve;
+          tmp.ACT = $scope.interventions.detailedList[data.d_index];
+
+          // TODO
+          // we need to add it to the scope data
+          // if something's been done today already
+          /*
+          if(typeof($scope.interventions.detailedList[data.d_index].RESERVE_LAST_COMPLETION_DATE_LIST.TODAY) !== 'undefined')
+            $scope.interventions.detailedList[data.d_index].RESERVE_LAST_COMPLETION_DATE_LIST.TODAY.RESERVE_VALIDATION.push({'_USR' : tmp.ACT._TIME , '_DATE' : Username});
+          else
+            $scope.interventions.detailedList[data.d_index].RESERVE_LAST_COMPLETION_DATE_LIST.TODAY = {'_LABEL' : 'aujourd\'hui', 'RESERVE_VALIDATION' : [{'_USR' : tmp.ACT._TIME , '_DATE' : Username}]};
+          console.log($scope.interventions.detailedList);
+          */
+
         }
-        console.log($scope.toSend);
-        //then we need to delete the element
-        $scope.deleteElement(data.d_idElem,data.d_index,'list');
       }
+
+
 
     });
 
   };
+
 
 
 }
@@ -382,7 +412,8 @@ function interventionsMain($scope,$ionicHistory, $ionicPopup, $ionicScrollDelega
 // SPECIFIC FUNCTIONS FOR THE INTERVENTION HOME VIEW //
 ///////////////////////////////////////////////////////
 
-function interventionsController($scope,$http, $ionicScrollDelegate, $sanitize,$state,$ionicPopup, jsonData){
+function interventionsController($scope, $ionicScrollDelegate, $sanitize,$state,$ionicPopup){
+
   var reserveList  = [];
 
 
@@ -416,6 +447,7 @@ function interventionsController($scope,$http, $ionicScrollDelegate, $sanitize,$
     var tmp = innerTab.slice(0,innerTab.length);
     reserveList.push(tmp[0]);
   }
+
 
 
 
@@ -464,27 +496,57 @@ function interventionsController($scope,$http, $ionicScrollDelegate, $sanitize,$
 // SPECIFIC FUNCTIONS FOR THE INTERVENTION DETAILS VIEW //
 //////////////////////////////////////////////////////////
 
-function detailsController($scope, $http, $ionicScrollDelegate, $sanitize, $state, $ionicPopup, jsonData){
+function detailsController($scope, $http, $ionicScrollDelegate, $sanitize, $state, $ionicPopup){
 
   var idElem = $state.params.idElem;
-
-  var interventions = $scope.interventions.list;
   var nbGroupAct = 0;
 
-  interventions.sort("_PLANNED_DATETIME_DISPLAY");
+  if(idElem == 'Reserves'){
+    var interventions = $scope.interventions.reserve;
 
-  for(var i = 0; i < interventions.length; i++)
-    // detects reserve interventions
-    if(interventions[i].ACT.length != undefined)
-    // goes through all the inner acts
-      for(var y = 0; y < interventions[i].ACT.length; y++)
-        if(interventions[i].ACT[y]._ID == idElem) // if there's a match we save the index of the group of act
-          nbGroupAct = i;
+    for (var  i = 0; i < interventions.ACT.length; i++)
+      interventions.ACT[i] = addIcons(interventions.ACT[i]);
+
+    $scope.interventions.Icone = null;
+    $scope.type="reserve";
+    $scope.interventions.detailedList =  interventions.ACT;
+    console.log($scope.interventions.detailedList);
+
+  }else{
+
+    var interventions = $scope.interventions.list;
+    $scope.type="list";
+    interventions.sort("_PLANNED_DATETIME_DISPLAY");
+
+    for(var i = 0; i < interventions.length; i++)
+      // detects reserve interventions
+      if(interventions[i].ACT.length != undefined)
+      // goes through all the inner acts
+        for(var y = 0; y < interventions[i].ACT.length; y++)
+          if(interventions[i].ACT[y]._ID == idElem) // if there's a match we save the index of the group of act
+            nbGroupAct = i;
 
     interventions[nbGroupAct] = addIcons(interventions[nbGroupAct]);
-    $scope.interventions.Icone = interventions[nbGroupAct].IconeLink;
+    $scope.interventions.Icone = interventions[nbGroupAct].iconeLink;
     $scope.interventions.detailedList =  interventions[nbGroupAct].ACT;
 
+  }
+
+
+
+  $scope.lastValidations = function(index){
+    var reserveValidations = $scope.interventions.detailedList[index].RESERVE_LAST_COMPLETION_DATE_LIST;
+    if(typeof($scope.interventions.detailedList[index].RESERVE_LAST_COMPLETION_DATE_LIST) !== 'undefined'){
+      $state.go('interventions.reserveValidations',{'validations' : JSON.stringify(reserveValidations)});
+    }else{
+      // An alert dialog
+      $ionicPopup.alert({
+        title: 'Aucune validation enregistrée.'
+      });
+    }
+
+
+  };
 
     $ionicScrollDelegate.resize(); // to be called every content content is changed
 
@@ -494,7 +556,7 @@ function detailsController($scope, $http, $ionicScrollDelegate, $sanitize, $stat
 // SPECIFIC FUNCTIONS FOR THE INTERVENTION VITALS MEASURES VIEW //
 //////////////////////////////////////////////////////////////////
 
-function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, $ionicPopup, $ionicTabsDelegate, jsonData){
+function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, $ionicPopup, $ionicTabsDelegate){
 
 
   $scope.interventions = interventions;
@@ -505,7 +567,6 @@ function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, 
 
 
   $scope.$on('$ionicView.enter',function(){
-    //console.log(category);
     if(typeof(category) !== 'undefined')
       $ionicTabsDelegate.select(categoryNameToIdCategory(category));
   });
@@ -688,8 +749,8 @@ function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, 
 
     $scope.labelsResp = ['May 20 17:05'];
     $scope.dataResp = [ [17.2] ];
-    dataCharts.labelsResp = ['May 20 17:05'];
-    dataCharts.dataResp = [ [17.2] ];
+    dataCharts.labelsResp = ['May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05',];
+    dataCharts.dataResp = [ [17.2,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,1.2,1.3,1.9,5.3,8.4,3.7,5.78,5.3,5.89] ];
 
     defaultValues();
   }
@@ -710,19 +771,6 @@ function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, 
   };
 
   $scope.fullHistoric = function(category){
-   /*dataCharts = {
-      'labelsPuls' : $scope.labelsPuls,
-      'dataPuls' :   $scope.dataPuls,
-      'labelsT' :    $scope.labelsT,
-      'dataT' :      $scope.dataT,
-      'labelsTAH' :  $scope.labelsTAH,
-      'dataTAH' :    $scope.dataTAH,
-      'labelsGlyc' : $scope.labelsGlyc,
-      'dataGlyc' :   $scope.dataGlyc,
-      'labelsResp' : $scope.labelsResp,
-      'dataResp' :   $scope.dataResp
-    };*/
-
     $state.go('interventions.fullHistoric',{'category' : category});
   }
 
@@ -842,7 +890,7 @@ function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, 
 }
 
 
-function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $state, $ionicLoading, $ionicPopup, $ionicTabsDelegate, jsonData){
+function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $state, $ionicLoading, $ionicPopup, $ionicTabsDelegate){
 
   /////////////////////////////////////////////
   // CHARTS DATA INITIALIZATION AND SETTINGS //
@@ -877,8 +925,9 @@ function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $
     scaleStepWidth: 20,
     // Number - The scale starting value
     scaleStartValue: 20,
-    responsive : true,
-    maintainAspectRatio : false
+    responsive : false,
+    maintainAspectRatio : true,
+    animation : false
   };
 
   $scope.optionsT = {
@@ -888,8 +937,9 @@ function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $
     scaleStepWidth: 5,
     // Number - The scale starting value
     scaleStartValue: 26,
-    responsive : true,
-    maintainAspectRatio : false
+    responsive : false,
+    maintainAspectRatio : true,
+    animation : false
   };
 
   $scope.optionsTAH = {
@@ -899,8 +949,9 @@ function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $
     scaleStepWidth: 20,
     // Number - The scale starting value
     scaleStartValue: 0,
-    responsive : true,
-    maintainAspectRatio : false
+    responsive : false,
+    maintainAspectRatio : true,
+    animation : false
   };
 
   $scope.optionsGlyc = {
@@ -910,8 +961,9 @@ function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $
     scaleStepWidth: 2,
     // Number - The scale starting value
     scaleStartValue: 0,
-    responsive : true,
-    maintainAspectRatio : false
+    responsive : false,
+    maintainAspectRatio : true,
+    animation : false
   };
 
   $scope.optionsResp = {
@@ -921,8 +973,9 @@ function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $
     scaleStepWidth: 2,
     // Number - The scale starting value
     scaleStartValue: 0,
-    responsive : true,
-    maintainAspectRatio : false
+    responsive : false,
+    maintainAspectRatio : true,
+    animation : false
   };
 
 
@@ -930,6 +983,10 @@ function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $
     category = idCategorytoCategoryName(nbTab);
     $ionicTabsDelegate.select(nbTab);
   };
+
+  $scope.resetZoom = function(){
+    $ionicScrollDelegate.zoomTo(1, true);
+  }
 
 
   function categoryNameToIdCategory(category){
@@ -946,12 +1003,71 @@ function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $
     var tab = ['Puls','T','TAH','Glyc','Resp'];
     return tab[idCategory];
   }
-  $scope.test = function(){
-    console.log("ok");
-  }
+
 
 }
 
+
+function reserveValidations($scope,$http, $ionicScrollDelegate, $sanitize, $state, $ionicLoading, $ionicPopup, $ionicTabsDelegate){
+
+    // hack to apss an object as parameter from a state to another
+    var validations = JSON.parse($state.params.validations);
+
+    if(typeof(validations.OLDER_THAN_THIS_WEEK) === 'undefined'){
+      var date;
+      var today = new Date();
+      var yesterday =  new Date();
+      var lastWeek = new Date();
+
+      yesterday.setDate(today.getDate() - 1);
+      lastWeek.setDate(today.getDate() - 7);
+
+      today = toFullDate(today);
+      yesterday = toFullDate(yesterday);
+      lastWeek = toFullDate(lastWeek);
+
+
+      var dates = [];
+      validationsTmp = [];
+
+
+      validationsTmp.push(validations.RESERVE_VALIDATION.TODAY);
+      validationsTmp.push(validations.RESERVE_VALIDATION.YESTERDAY);
+      validationsTmp.push(validations.RESERVE_VALIDATION.LAST_WEEK);
+      validationsTmp.push(validations.RESERVE_VALIDATION.OLDER_THAN_THIS_WEEK);
+
+
+
+      for(var i = 0; i < validations.RESERVE_VALIDATION.length; i++){
+        date = new Date(validations.RESERVE_VALIDATION[i]._DATE);
+
+        // is it from today ?
+        if(toFullDate(date) == today)
+          validationsTmp[0].RESERVE_VALIDATION.push(validations.RESERVE_VALIDATION[i]);
+        else if (toFullDate(date) == yesterday)
+          validationsTmp[1].RESERVE_VALIDATION.push(validations.RESERVE_VALIDATION[i]);
+        else if(toFullDate(date) < today && toFullDate(date) >= lastWeek)
+          validationsTmp[2].RESERVE_VALIDATION.push(validations.RESERVE_VALIDATION[i]);
+        else{
+          if(typeof(validationsTmp[3]) == 'undefined')
+            validationsTmp[3] = {'RESERVE_VALIDATION' : [],'_LABEL' : 'semaine précédante'};
+          validationsTmp[3].RESERVE_VALIDATION.push(validations.RESERVE_VALIDATION[i]);
+        }
+      }
+
+      validations = validationsTmp;
+    }
+
+    $scope.interventions.reserveDetails = validations;
+    console.log($scope.interventions.reserveDetails);
+
+    function toFullDate(date){
+      return date.getFullYear() + (date.getMonth() + 1) +  date.getDate();
+    }
+
+
+
+}
 
 
 

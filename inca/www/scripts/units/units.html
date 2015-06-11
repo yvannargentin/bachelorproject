@@ -1,0 +1,15 @@
+<ion-view view-title="units">
+    <ion-nav-title>
+		user :  {{Username}}
+	</ion-nav-title>
+		<!-- delegates scrolling to ionic  http://ionicframework.com/docs/api/directive/ionContent/ -->
+
+		<ion-content>
+			<ion-list>
+				<ion-item nav-direction="forward" ng-switch="room._SEX" ng-repeat="unit in units"  on-tap="selectUnit($index)" class="item hover">
+					<strong>{{unit._ABBR}}</strong>
+				</ion-item>
+			</ion-list>
+
+		</ion-content>
+</ion-view>

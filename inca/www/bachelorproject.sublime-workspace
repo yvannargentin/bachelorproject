@@ -4,6 +4,110 @@
 		"selected_items":
 		[
 			[
+				"roo",
+				"rootScope"
+			],
+			[
+				"index",
+				"indexUnit"
+			],
+			[
+				"ind",
+				"indexUnit"
+			],
+			[
+				"unit",
+				"unitList"
+			],
+			[
+				"data",
+				"dataTransmit"
+			],
+			[
+				"json",
+				"jsonData"
+			],
+			[
+				"UNIT",
+				"UNIT_LIST"
+			],
+			[
+				"RESER",
+				"RESERVE_LAST_COMPLETION_DATE_LIST"
+			],
+			[
+				"to",
+				"tofullDate"
+			],
+			[
+				"val",
+				"validations"
+			],
+			[
+				"template",
+				"templateUrl"
+			],
+			[
+				"reser",
+				"reserve"
+			],
+			[
+				"detail",
+				"detailedList"
+			],
+			[
+				"R",
+				"Reserves"
+			],
+			[
+				"da",
+				"dataPuls"
+			],
+			[
+				"cat",
+				"category"
+			],
+			[
+				"category",
+				"categoryNameToIdCategory"
+			],
+			[
+				"labe",
+				"labelsPuls"
+			],
+			[
+				"contro",
+				"controllers"
+			],
+			[
+				"tem",
+				"templateUrl"
+			],
+			[
+				"reserv",
+				"reserveList"
+			],
+			[
+				"ACT",
+				"ACT_GROUP"
+			],
+			[
+				"patt",
+				"patients"
+			],
+			[
+				"_",
+				"_ID"
+			],
+			[
+				"scale",
+				"scaleSteps"
+			],
+			[
+				"new",
+				"newMeasure"
+			],
+			[
 				"vita",
 				"vitalsController"
 			],
@@ -24,10 +128,6 @@
 				"details"
 			],
 			[
-				"reser",
-				"reserveList"
-			],
-			[
 				"ioni",
 				"ionicScrollDelegate"
 			],
@@ -44,10 +144,6 @@
 				"infoPatient"
 			],
 			[
-				"json",
-				"jsonresult"
-			],
-			[
 				"lis",
 				"listActrGrp"
 			],
@@ -60,14 +156,6 @@
 				"interventions"
 			],
 			[
-				"data",
-				"datasets"
-			],
-			[
-				"labe",
-				"labels"
-			],
-			[
 				"get",
 				"getMousePos"
 			],
@@ -78,10 +166,6 @@
 			[
 				"idP",
 				"idPays"
-			],
-			[
-				"R",
-				"RoomID"
 			],
 			[
 				"room",
@@ -164,10 +248,6 @@
 				"controllers"
 			],
 			[
-				"contro",
-				"controller"
-			],
-			[
 				"rig",
 				"RightController"
 			],
@@ -228,10 +308,6 @@
 				"PseudoCo"
 			],
 			[
-				"to",
-				"toString"
-			],
-			[
 				"A",
 				"Application"
 			],
@@ -288,42 +364,18 @@
 	"buffers":
 	[
 		{
-			"file": "scripts/interventions/interventions.js",
+			"file": "scripts/ibeacon/ibeacon.js",
 			"settings":
 			{
-				"buffer_size": 14278,
+				"buffer_size": 1456,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "scripts/interventions/vitals.html",
+			"file": "scripts/ibeacon/ibeacon.html",
 			"settings":
 			{
-				"buffer_size": 755,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/app.js",
-			"settings":
-			{
-				"buffer_size": 1205,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 1399,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/style.css",
-			"settings":
-			{
-				"buffer_size": 436,
+				"buffer_size": 901,
 				"line_ending": "Unix"
 			}
 		}
@@ -376,22 +428,44 @@
 	},
 	"file_history":
 	[
+		"/Applications/XAMPP/xamppfiles/htdocs/insides/wordpress/wp-content/themes/elevate/page.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/insides/wordpress/wp-content/themes/elevate/template-blog.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/insides/wordpress/wp-content/themes/elevate/template-post-grid.php",
+		"/Applications/XAMPP/xamppfiles/etc/my.cnf",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/insides/wordpress/wp-content/themes/elevate/sidebar.php",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/app.js",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/eventlog/EventLogCtrl.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/eventlog/EventLogModule.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/ranging/RangingCtrl.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/ranging/RangingModule.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/monitoring/MonitoringModule.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/monitoring/MonitoringCtrl.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/details.html",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/css/style.css",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/patients/patients.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/units/units.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/rooms/rooms.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/patients/patients.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/reserveValidations.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/units/units.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/rooms/rooms.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/assets/sex/maleSymbol.png",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/vitals.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/fullHistoric.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/config.xml",
+		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/controllers.js",
+		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/service.js",
+		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/core.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/vitals/vitals.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/vitals/vitals.html",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/details.html",
 		"/private/var/folders/js/b2j7hl9n44z2v_dml35h7q4m0000gn/T/fz3temp-1/functions.inc",
 		"/private/var/folders/js/b2j7hl9n44z2v_dml35h7q4m0000gn/T/fz3temp-1/connection.inc",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.spec.js",
 		"/Users/Yvann/Documents/programmation/mean-io/source/public/views/connexion.html",
-		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/core.js",
-		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/service.js",
-		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/controllers.js",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/assets/.htaccess",
 		"/Users/Yvann/Documents/bachelor/inca/www/scripts/interventions/interventions.html",
 		"/Users/Yvann/Documents/bachelor/inca/www/scripts/interventions/interventions.js",
@@ -481,29 +555,7 @@
 		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/todo.js",
 		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/units.js",
 		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/data/UnitList.xml",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/config/database.js",
-		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/bootstrap/css/style.css",
-		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/index.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/bootstrap/img/edition.svg",
-		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/bootstrap/img/graphisme.svg",
-		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/admin/accueil.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/index.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/realisations.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/exemple/css/component.css",
-		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/exemple/css/default.css",
-		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/exemple/index3.html",
-		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/journal.php",
-		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/LiveReload.sublime-settings",
-		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/nosprojets.html",
-		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/LiveReload/LiveReload.sublime-settings",
-		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/css/style.css",
-		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/Autoprefixer.sublime-settings",
-		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
-		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/Autoprefixer/Autoprefixer.sublime-settings",
-		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/CSScomb/Default.sublime-keymap",
-		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/CSScomb/CSScomb.sublime-settings"
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/config/database.js"
 	],
 	"find":
 	{
@@ -521,6 +573,91 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"primary-toggle",
+			"createBeacon",
+			"Units",
+			"units",
+			"details",
+			"console",
+			"-1",
+			"notepad",
+			"ok",
+			"$state.g",
+			"Rooms",
+			"rooms",
+			"patients",
+			"Patients",
+			"http",
+			"interventionsController",
+			"jsonDa",
+			"jsonData",
+			"getPatient",
+			"parse",
+			"JSON",
+			"jsonify",
+			"stringify",
+			"console",
+			"JSON",
+			"indexPatientDefault",
+			"switch",
+			"){\n",
+			"getPatient",
+			"bed_id",
+			"interventions",
+			"Interventions",
+			"TODO",
+			"showPopup",
+			"detail",
+			"tofullDate",
+			"validations",
+			"params",
+			"$state.go",
+			"toggle",
+			"console",
+			"-1",
+			"notepad",
+			"show",
+			"showpopup",
+			"showPopup",
+			"reserve",
+			"$scope.interventions.reserve",
+			"reserve",
+			"IconeLink",
+			"addIcons",
+			"_TYPE",
+			"Group",
+			"getDeta",
+			"fullscreenChartfullscreenChart",
+			"console",
+			"dataCharts",
+			"fullHistoricController",
+			"categoryNameToIdCategory",
+			"domUtil",
+			"dataPuls",
+			"detailsContr",
+			"fullHistoricController",
+			"$state",
+			"patient1",
+			"console.log",
+			"currentPatient",
+			"patient1",
+			"patients",
+			".then",
+			".hen",
+			"patients",
+			"patient",
+			"getPatient",
+			"switch",
+			"$scope.refreshData",
+			"patient.Index",
+			"change",
+			"getPatient",
+			"getInterventions",
+			"patient",
+			"getInterventions",
+			"getters",
+			"watch",
+			"validate",
 			"jquery",
 			"interventions",
 			"getInterventions",
@@ -563,92 +700,7 @@
 			"connexion",
 			"console",
 			"Interventions",
-			"}\n",
-			".ROOM",
-			"myList",
-			"seek",
-			"dataActGrp",
-			"data act",
-			"data",
-			"db",
-			"idActGroup",
-			"lib",
-			"interventionsController",
-			".put",
-			".add",
-			"interventionsController",
-			"init",
-			"console.log",
-			"receiveData",
-			"isPossessed",
-			"receive",
-			"updateUpgrades",
-			"countries",
-			"receive",
-			"sell",
-			"roboto",
-			".card",
-			"card",
-			"parties",
-			"sell",
-			"innerHTML",
-			"updateUpgrades",
-			"sell",
-			"getMyInfos",
-			"amelioration",
-			"enha",
-			"amel",
-			"updateUpgrade",
-			"endof",
-			"display",
-			"buy",
-			"finPlayer",
-			"Game",
-			"gameOver¨Game",
-			"gameOver¨",
-			"gameOver",
-			"game",
-			"terminateGame",
-			"finPlayer",
-			"terminateGame\nterminateGame",
-			"terminateGame",
-			"waiting",
-			"idPlayer",
-			"numberOfPlayer",
-			"finTour",
-			"resetSentJson",
-			"finTour",
-			"fin",
-			"receive",
-			"receiveData",
-			"receive",
-			"receiveData",
-			"receive",
-			"buy",
-			"player",
-			"buy",
-			"loaned",
-			"sentJson",
-			"addClass",
-			"receiveData",
-			"addClass",
-			"waiting",
-			"updateUpgrades",
-			"updateUI",
-			"upgrade",
-			"levle",
-			"btnBuy",
-			"updateLogs",
-			"udapteLogs",
-			"udapte",
-			"propos",
-			"updateLogs",
-			"updTELOGS",
-			"récup",
-			"recuperer",
-			"récuperer",
-			"hypotheque",
-			"hypothque"
+			"}\n"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -656,6 +708,17 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Ibeacons",
+			"ibeacon",
+			"Units",
+			"units",
+			"rooms",
+			"Rooms",
+			"patients",
+			"Patients",
+			"toFullDate",
+			"iconeLink",
+			"secondPatient",
 			"    ",
 			"Vitals",
 			"updateLogs",
@@ -692,23 +755,23 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/interventions/interventions.js",
+					"file": "scripts/ibeacon/ibeacon.js",
 					"settings":
 					{
-						"buffer_size": 14278,
+						"buffer_size": 1456,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14272,
-								14272
+								884,
+								884
 							]
 						],
 						"settings":
@@ -766,25 +829,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6756.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "scripts/interventions/vitals.html",
+					"file": "scripts/ibeacon/ibeacon.html",
 					"settings":
 					{
-						"buffer_size": 755,
+						"buffer_size": 901,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								666,
-								666
+								94,
+								129
 							]
 						],
 						"settings":
@@ -839,232 +902,6 @@
 							],
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "scripts/app.js",
-					"settings":
-					{
-						"buffer_size": 1205,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1194,
-								1194
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "index.html",
-					"settings":
-					{
-						"buffer_size": 1399,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								897,
-								897
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "css/style.css",
-					"settings":
-					{
-						"buffer_size": 436,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								435,
-								435
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"syntax": "Packages/CSS/CSS.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1147,6 +984,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 238.0,
+	"side_bar_width": 221.0,
 	"status_bar_visible": true
 }

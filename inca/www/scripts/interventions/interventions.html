@@ -1,10 +1,10 @@
-<ion-view view-title="interventions">
+<ion-view view-title="interventions" on-swipe-right="$ionicGoBack()">
 
     <ion-nav-buttons side="right">
       <button class="button button-clear button-positive" on-release="toggleEditMode()">{{labels.editMode}}</button>
     </ion-nav-buttons>
-    <ion-nav-title>
-		{{patient.Name}} <span class="ion-chevron-right" ng-click="changePatient(patient.Index)" ></span>
+    <ion-nav-title on-swipe-right="changePatient(patient.Index)" on-swipe-left="changePatient(patient.Index)">
+		<span class="ion-chevron-left hover" ng-click="changePatient(patient.Index)"></span> {{patient.Name}} <span class="ion-chevron-right hover" ng-click="changePatient(patient.Index)"></span>
 	</ion-nav-title>
 
 	<ion-nav-view ></ion-nav-view>
@@ -13,12 +13,12 @@
 		<ion-content>
 			<ion-list show-delete="editMode">
 
-				<ion-item ng-if="interventions.reserve.length > 0" class="item item-divider">
+				<ion-item ng-if="interventions.reserve.ACT.length > 0" class="item item-divider">
 					Réserve
 				</ion-item>
 
-				<ion-item on-release="" nav-direction="forward" class="item item-icon-left" >
-					<img class="icon" src="assets/domain/reserve.png" alt="Reserve"/>
+				<ion-item  ng-if="interventions.reserve.ACT.length > 0"  nav-direction="forward"  on-tap="getDetails('Reserves')" class="item item-icon-left" >
+					<img class="icon hover" src="assets/domain/reserve.png"  alt="Reserve" />
 					<p class="text-left-interventions">{{interventions.reserve._SUBTITLE_1}} {{interventions.reserve._SUBTITLE_2}}</p>
 				</ion-item>
 
@@ -30,23 +30,23 @@
 					</ion-item>
 
 					<ion-item nav-direction="forward"  on-tap="getDetails({{acts.ACT[0]._ID}})" class="item item-icon-left" ng-if="acts.ACT.length >= 1 && acts.ACT.length < 14 && acts._TYPE != 'Surveillances'"  >
-						<img class="icon hover" src="assets/domain/{{acts.IconeLink}}" alt="{{acts.IconeLink}}"/>
+						<img class="icon hover" src="assets/domain/{{acts.iconeLink}}" alt="{{acts.iconeLink}}"/>
 						<p class="text-left-interventions hover">{{acts._SUBTITLE_1}} {{acts._SUBTITLE_2}}</p>
 					</ion-item>
 
 					<ion-item nav-direction="forward"  on-tap="getVitals({{acts.ACT[0]._ID}})" class="item item-icon-left" ng-if="acts.ACT.length >= 1 && acts.ACT.length < 14 && acts._TYPE == 'Surveillances'"  >
-						<img class="icon hover" src="assets/domain/{{acts.IconeLink}}" alt="{{acts.IconeLink}}"/>
+						<img class="icon hover" src="assets/domain/{{acts.iconeLink}}" alt="{{acts.iconeLink}}"/>
 						<p class="text-left-interventions hover">{{acts._SUBTITLE_1}} {{acts._SUBTITLE_2}}</p>
 					</ion-item>
 
 					<ion-item class="item item-icon-left item-icon-right" ng-if="acts.ACT.length == undefined">
-						<img class="icon" src="assets/domain/{{acts.IconeLink}}" alt="{{acts.IconeLink}}"/>
+						<img class="icon" src="assets/domain/{{acts.iconeLink}}" alt="{{acts.iconeLink}}"/>
 
 						<strong>{{acts.ACT._TITLE}}  </strong>
 						<br/>
 						{{acts._SUBTITLE_1}} {{acts._SUBTITLE_2}}
 
-						<img class="icon hover" src="assets/Icon/notepad.png" on-tap="showPopup(acts.ACT._ID,-1)" alt="Notepad" />
+						<img class="icon hover" src="assets/Icon/notepad.png" on-tap="showPopup(acts.ACT._ID,-1,'list')" alt="Notepad" />
 						<ion-option-button class="button-assertive">Edit</ion-option-button>
 						<ion-delete-button  on-tap="deleteElement(acts.ACT._ID,$index,'list')" ng-if="editMode" class="ion-minus-circled">
 						</ion-delete-button>

@@ -1,0 +1,31 @@
+<ion-view view-title="patients" on-swipe-right="$ionicGoBack()">
+    <ion-nav-title>
+		room {{nbRoom}}
+	</ion-nav-title>
+		<!-- delegates scrolling to ionic  http://ionicframework.com/docs/api/directive/ionContent/ -->
+
+		<ion-content>
+			<ion-list>
+				<ion-item class="item item-divider">
+
+					<p ng-switch="patients[0].PATIENT._SEX" class="uppercase center img-left" id="titre-patients">
+						<span  ng-switch-when="M">
+							<img src="assets/sex/maleSymbol.png" height="30" alt="homme"/>
+							chambre homme
+						</span>
+						<span ng-switch-when="F">
+							<img src="assets/sex/femaleSymbol.png" height="30" alt="femme"/>
+							chambre femme
+						</span>
+					</p>
+				</ion-item>
+				<ion-item nav-direction="forward" ng-repeat="patient in patients"  on-tap="selectPatient($index)" class="item item-icon-left">
+					<img class="icon hover" src="{{patient.PATIENT.PHOTO_URL}}" alt="icone link"/>
+					<p class="text-left-interventions hover">
+						{{patient.PATIENT._FIRST_NAME}} {{patient.PATIENT._LAST_NAME}} {{patient.PATIENT._AGE_STRING}}
+					</p>
+				</ion-item>
+			</ion-list>
+
+		</ion-content>
+</ion-view>

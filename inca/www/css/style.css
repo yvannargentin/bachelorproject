@@ -9,5 +9,9 @@
 .loading-container .loading{background-color: rgba(255,255,255,0.7);}
 #barChartVitals{min-height: 200px;}
 .background-color-stable *{background-color: rgba(248,248,248,1)!important;}
-.fullScreenChartContainer .fullscreenChart{height:100%!important;width: 100%!important;}
+.fullScreenChartContainer .fullscreenChart{height:100%!important;min-width: 100%!important;overflow: scroll;}
 .fullScreenChartContainer div.scroll, .chart-container {height: 100%!important;width: 100%!important;}
+.uppercase{text-transform: uppercase;}
+.center{text-align: center;}
+.img-left img{float: left;}
+#titre-patients{line-height: 30px;}

@@ -1,0 +1,17 @@
+<ion-view view-title="rooms" on-swipe-right="$ionicGoBack()">
+    <ion-nav-title>
+		unité {{nomUnit}}
+	</ion-nav-title>
+		<!-- delegates scrolling to ionic  http://ionicframework.com/docs/api/directive/ionContent/ -->
+
+		<ion-content>
+			<ion-list>
+				<ion-item nav-direction="forward" ng-switch="room._SEX" ng-repeat="room in unit.ROOM"  on-tap="selectRoom($index)" class="item hover item-icon-left">
+					<img ng-switch-when="M" src="assets/sex/maleSymbol.png" height="30" alt="homme"/>
+					<img ng-switch-when="F"  src="assets/sex/femaleSymbol.png" height="30" alt="femme"/>
+					<strong>{{room._LABEL}}</strong>
+				</ion-item>
+			</ion-list>
+
+		</ion-content>
+</ion-view>
