@@ -1,0 +1,8 @@
+1 : Est-ce que je peux voir comment marche le logiciel bureau pour les fiches patient ?
+2 : Est-ce qu'on peut faire tester l'application à une infirmière ?
+3 : Ou se trouve les données des graphes dans le XML, si elles n'y sont pas présente, sous quelle forme/structure dois-je sauvegarder le tout ?
+4 : Dans quel cas de figures penses-tu que je devrais envoyer les données au serveur ? (a chaque fois que l'utilisateur quitte une vue ?)
+5 : Est-ce que le système de switch mode automatique et manuel conviendrait pour l'application INCA ?
+6 : Comment puis-je accéder aux serveur proxy que vous avez mis en place ? Y a-t-il un document décrivant l'API ?
+7 : Sous quel format dois-je stocker les interventiosn de type réserve (classée TODAY - YESTERDAY - LAST_WEEK ... ou non classée ?)
+8 : Puis-je connaître le protocole exact pour demander toutes les informations contenues dans le xml sur les différents serveurs HUG ?
