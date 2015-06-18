@@ -59,6 +59,12 @@ angular.module('com.unarin.cordova.proximity.quickstart.monitoring')
 		$window.cordova.plugins.locationManager.setDelegate(delegate);
 
 		$scope.region = {};
+		$scope.region.uuid = 'B9407F30-F5F8-466E-AFF9-25556B7FE6D';
+		// from 401 to 404
+		$scope.region.major = 404;
+		$scope.region.minor = 1; // 1 beacon per major
+		$scope.region.typeName = $scope.region.uuid; // we search for all beacons with same UUID
+		$scope.region.identifier = 'incaRoomLookup';
 
 		$scope.updateRangedRegions();
 	}]);

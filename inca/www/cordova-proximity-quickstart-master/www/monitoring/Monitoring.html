@@ -9,30 +9,29 @@
 
             <label class="item item-input">
                 <span class="input-label">UUID</span>
-                <input type="text" ng-model="region.uuid"
-                       ng-init="region.uuid = '00000000-0000-0000-0000-000000000000'">
+                <input type="text" ng-model="region.uuid">
             </label>
 
             <label class="item item-input">
                 <span class="input-label">Identifier</span>
-                <input type="text" ng-model="region.identifier" ng-init="region.identifier = 'beaconAtTheMacBooks'">
+                <input type="text" ng-model="region.identifier">
             </label>
 
             <label class="item item-input">
                 <span class="input-label">Major</span>
-                <input type="number" ng-model="region.major" ng-init="region.major = 1000">
+                <input type="number" ng-model="region.major">
             </label>
 
             <label class="item item-input">
                 <span class="input-label">Minor</span>
-                <input type="number" ng-model="region.minor" ng-init="region.minor = 1000">
+                <input type="number" ng-model="region.minor">
             </label>
 
             <label class="item item-input item-select">
                 <div class="input-label">
                     Region Type
                 </div>
-                <select ng-model="region.typeName" ng-init="region.typeName = 'BeaconRegion'">
+                <select ng-model="region.typeName">
                     <option value="BeaconRegion">BeaconRegion</option>
                 </select>
             </label>
