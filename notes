@@ -1,0 +1,8 @@
+
+reserves - vue retour probleme
+
+clique sur intervention amene sur vue des details de l'intervention avec possibilité de validation toujours présente.
+
+Heure et type intervention a gauche de l'intervention pas dans categorie
+
+bouton action ouvre poup vue résumé intervention + champ note + champ valider refuser + changer heure (ordre dans classement)
