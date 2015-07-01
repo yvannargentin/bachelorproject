@@ -10,13 +10,9 @@ angular.module('inca', [
   'inca.rooms',
   'inca.patients',
   'inca.interventions',
-  'inca.ibeacon',
   'cb.x2js',
   'ngSanitize',
-  'chart.js',
-  'inca.monitoring',
-  'inca.eventlog',
-  'inca.ranging'
+  'chart.js'
   ])
 
 .run(function($ionicPlatform) {

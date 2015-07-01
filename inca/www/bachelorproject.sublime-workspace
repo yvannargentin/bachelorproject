@@ -372,6 +372,14 @@
 			}
 		},
 		{
+			"file": "/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
+			"settings":
+			{
+				"buffer_size": 1463,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "scripts/ibeacon/ibeacon.html",
 			"settings":
 			{
@@ -388,10 +396,10 @@
 			}
 		},
 		{
-			"file": "/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
+			"file": "scripts/interventions/interventions.js",
 			"settings":
 			{
-				"buffer_size": 920,
+				"buffer_size": 33316,
 				"line_ending": "Unix"
 			}
 		}
@@ -399,7 +407,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 67.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
@@ -427,7 +435,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 521.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -444,6 +452,13 @@
 	},
 	"file_history":
 	[
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/2pdf/Default (OSX).sublime-keymap",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/assets/data.xml",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/notes",
+		"/Applications/XAMPP/xamppfiles/htdocs/espagne/calendrier disponibilités de l'appartement.",
 		"/Applications/XAMPP/xamppfiles/htdocs/insides/wordpress/wp-content/themes/elevate/page.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/insides/wordpress/wp-content/themes/elevate/template-blog.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/insides/wordpress/wp-content/themes/elevate/template-post-grid.php",
@@ -457,10 +472,8 @@
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/ranging/RangingModule.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/monitoring/MonitoringModule.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/monitoring/MonitoringCtrl.js",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/details.html",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/css/style.css",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.html",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/patients/patients.html",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/units/units.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/rooms/rooms.js",
@@ -477,7 +490,6 @@
 		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/core.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/vitals/vitals.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/vitals/vitals.html",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
 		"/private/var/folders/js/b2j7hl9n44z2v_dml35h7q4m0000gn/T/fz3temp-1/functions.inc",
 		"/private/var/folders/js/b2j7hl9n44z2v_dml35h7q4m0000gn/T/fz3temp-1/connection.inc",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.spec.js",
@@ -567,11 +579,7 @@
 		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/package.json",
 		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/users.js",
 		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/data/UnitList.json",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/hug.js",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/todo.js",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/units.js",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/data/UnitList.xml",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/config/database.js"
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/hug.js"
 	],
 	"find":
 	{
@@ -589,6 +597,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"YESTERDAY",
+			"<?",
 			"primary-toggle",
 			"createBeacon",
 			"Units",
@@ -714,9 +724,7 @@
 			"view",
 			"ConnexionController",
 			"connexion",
-			"console",
-			"Interventions",
-			"}\n"
+			"console"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -771,7 +779,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -845,13 +853,87 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 161.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
+					"settings":
+					{
+						"buffer_size": 1463,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1342,
+								1342
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "scripts/ibeacon/ibeacon.html",
 					"settings":
 					{
@@ -862,8 +944,8 @@
 						"selection":
 						[
 							[
-								61,
-								61
+								663,
+								663
 							]
 						],
 						"settings":
@@ -926,7 +1008,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "scripts/app.js",
 					"settings":
 					{
@@ -937,8 +1019,8 @@
 						"selection":
 						[
 							[
-								1329,
-								1329
+								451,
+								451
 							]
 						],
 						"settings":
@@ -1002,19 +1084,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
+					"buffer": 4,
+					"file": "scripts/interventions/interventions.js",
 					"settings":
 					{
-						"buffer_size": 920,
+						"buffer_size": 33316,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								920,
-								920
+								900,
+								900
 							]
 						],
 						"settings":
@@ -1067,10 +1149,12 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close"
 							],
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1327.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1141,7 +1225,7 @@
 		[
 			[
 				"",
-				"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/celciusv2.sublime-project"
+				"/Users/Yvann/Documents/HEALvetia/packages/Progress-Report/HEALvetia.sublime-project"
 			]
 		],
 		"width": 380.0

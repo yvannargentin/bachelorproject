@@ -1,10 +1,33 @@
 1 : Est-ce que je peux voir comment marche le logiciel bureau pour les fiches patient ?
+
+print-screen
+
+
 2 : Est-ce qu'on peut faire tester l'application à une infirmière ?
+
+après 8 juillet => 14 juillet a confirmer
+
 3 : Ou se trouve les données des graphes dans le XML, si elles n'y sont pas présente, sous quelle forme/structure dois-je sauvegarder le tout ?
+
+Structure des données et service qui renvoie ces informations
+
 4 : Dans quel cas de figures penses-tu que je devrais envoyer les données au serveur ? (a chaque fois que l'utilisateur quitte une vue ?)
+
+~500 infirmieres en meme temps
+envoie a chaque validation + mecanisme envoie intervla regulier si probleme reseau
+
 5 : Est-ce que le système de switch mode automatique et manuel conviendrait pour l'application INCA ?
+
+A implementer avec settings
+
 6 : Comment puis-je accéder aux serveur proxy que vous avez mis en place ? Y a-t-il un document décrivant l'API ?
 7 : Sous quel format dois-je stocker les interventiosn de type réserve (classée TODAY - YESTERDAY - LAST_WEEK ... ou non classée ?)
+a la suite
+
+vue compte rendu pdf imprimable
+
 8 : Puis-je connaître le protocole exact pour demander toutes les informations contenues dans le xml sur les différents serveurs HUG ?
-9 : Est-ce que l'infirmière est celle qui rentre le données dans le DPI ou est-ce une deuxième personne ?
-10 : Qu'est-ce que le DPI exactement ?
+format XML pour faire un input dans le DPI
+9 : Qu'est-ce que le DPI exactement ?
+Dossier patient intégré
+10 : Est-ce que l'infirmière est celle qui rentre le données dans le DPI ou est-ce une deuxième personne ? meme infirmiere
