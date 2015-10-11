@@ -15,3 +15,95 @@
 .center{text-align: center;}
 .img-left img{float: left;}
 #titre-patients{line-height: 30px;}
+
+.done *{
+	color : rgba(189,189,189,1);
+	border-color: rgba(189,189,189,1);
+}
+
+.item-balancedbis, .item-balancedbis *, .button-balancedbis { background-color: rgba(207,245,106,1)!important;}
+.item-assertivebis, .item-assertivebis *, .button-assertivebis { background-color: rgba(234, 132, 116,1.0)!important;}
+ 
+.fixed{position: absolute;z-index: 1000;width: 100%;top: 65px;}
+
+.adaptheight{
+    line-height: 22px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    white-space: pre;
+}
+
+#height-footer{
+	height: 55px;
+}
+table.CSSTableGenerator{
+	width: 100%;
+	position: relative;
+	height: 100%;
+    vertical-align: middle;
+}
+table.CSSTableGenerator tr{
+    min-height: 50px;
+    vertical-align: middle;
+}
+table.CSSTableGenerator th{
+	font-weight: bolder;
+}
+table.CSSTableGenerator td, table.CSSTableGenerator th{
+	border-bottom: 1px solid rgba(33,33,33,1);
+}
+
+table tr:nth-child(odd){
+	background-color: rgba(248,248,248,1);
+}
+
+.list .item.item-accordion {
+    line-height: 22px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    white-space: pre;
+    transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+
+@media print {
+    body {
+        width: auto!important;
+        margin: auto!important;
+        background-color: #fff!important;
+        color: #000!important;
+        font-size: 1em!important;
+    }
+    p, h1, h2, h3, h4, h5, h6, blockquote, ul, ol {
+        color: #000!important;
+    }
+    .print {
+        display: block; /* affichage des éléments de classe print */
+    }
+    p, blockquote {
+        orphans: 3; /* no alone lines on bottom */
+        widows: 3; /* no alone lines on top */
+    }
+
+    a {
+        color: #000!important;
+        text-decoration: underline!important;
+    }
+
+    a[href]:after {
+        content: "(" attr(href) ")"; /* Display of url for links */
+    }
+
+    .noprint{display: none !important;}
+    table{border: none !important; font-size: 1.2em!important;width: 100%!important;}
+    td,th{ border: none !important; border-bottom: 1px solid black !important; color: black !important; font-size: 1.2em!important; padding: 1em!important;}
+    img{display: block !important; position: relative !important; margin: auto !important; padding: 10px 0;}
+
+}

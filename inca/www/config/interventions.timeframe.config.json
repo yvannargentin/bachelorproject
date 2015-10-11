@@ -1,0 +1,19 @@
+[
+	{
+		"Nom" : "Matinée",
+		"Time" : "03:00"
+	},{
+		"Nom" : "Diurne",
+		"Time" : "08:00"
+	},{
+		"Nom" : "Sur 24H°°",
+		"Time" : "10:00"
+	},{
+		"Nom" : "Après-midi",
+		"Time" : "13:00"
+	},{
+		"Nom" : "Nuit",
+		"Time" : "17:00"
+	}
+]
+

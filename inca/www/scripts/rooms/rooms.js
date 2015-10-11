@@ -1,4 +1,3 @@
-// TO CHECK COMPLETETION OF THE SCRIPT LOOK FOR "TODO" OR "TO VERIFY"
 
 var incaRooms = angular.module('inca.rooms', ['ionic','ui.router', 'cb.x2js','ngSanitize'])
 

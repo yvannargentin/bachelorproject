@@ -48,7 +48,7 @@
 								<INFO_PART TYPE="normal">diurèse horaire</INFO_PART>
 							</INFO_PART_LIST>
 							<PLANNED_DATE VALID_ANTICIP="10">5 août 2011</PLANNED_DATE>
-							<INFORMATION>&lt; b &gt; Relevé liquidiens &lt; /b &gt;  relevé hydrique et diurèse horaire</INFORMATION>
+							<INFORMATION>&lt;b&gt; Relevé liquidiens &lt;/b&gt;  relevé hydrique et diurèse horaire</INFORMATION>
 							<INTERVENTION ID="231600" LABEL="Bilans">
 								<INTERVENTION ID="131130" LABEL="Relevé liquidiens">
 									<INTERVENTION ID="103267" LABEL="Relevé liquidiens">

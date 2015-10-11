@@ -1,0 +1,21 @@
+<ion-view view-title="Mail envoyé" on-swipe-right="$ionicGoBack()">
+<ion-content>
+<table class="CSSTableGenerator">
+	<tr>
+		<th colspan="4">{{nomPatient}}</th>
+	</tr>
+	<tr>
+		<th>informations</th>
+		<th>heure d'éxecution</th>
+		<th>heure prévue</th>
+		<th>notes</th>
+	</tr>
+	<tr ng-repeat="data in dataToPrint">
+		<td ng-bind-html="data.ACT.INFORMATION"></td>
+		<td>{{data._TIME}}</td>
+		<td>{{data._PLANNED_DATETIME_DISPLAY}}</td>
+		<td>{{data._NOTES}}</td>
+	</tr>
+</table>
+</ion-content>
+</ion-view>

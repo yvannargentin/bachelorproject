@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"cur",
+				"currentPatient"
+			],
+			[
+				"PLA",
+				"_PLANNED_DATETIME_DISPLAY"
+			],
+			[
+				"sampl",
+				"sampleData"
+			],
+			[
+				"config",
+				"configData"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"ionic",
+				"ionicView"
+			],
+			[
+				"CSS",
+				"CSSTableGenerator"
+			],
+			[
+				"bo",
+				"bolder"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"dataT",
+				"dataToPrint"
+			],
+			[
+				"upd",
+				"updateData"
+			],
+			[
+				"typ",
+				"typeof"
+			],
+			[
+				"idE",
+				"idElem2"
+			],
+			[
 				"roo",
 				"rootScope"
 			],
@@ -184,10 +236,6 @@
 				"liElemClose"
 			],
 			[
-				"font",
-				"font-size"
-			],
-			[
 				"sen",
 				"sentJson"
 			],
@@ -364,34 +412,34 @@
 	"buffers":
 	[
 		{
-			"file": "scripts/ibeacon/ibeacon.js",
+			"file": "css/style.css",
 			"settings":
 			{
-				"buffer_size": 1456,
+				"buffer_size": 3204,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
+			"file": "scripts/interventions/vitals.html",
 			"settings":
 			{
-				"buffer_size": 1463,
+				"buffer_size": 4993,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "scripts/ibeacon/ibeacon.html",
+			"file": "scripts/interventions/fullHistoric.html",
 			"settings":
 			{
-				"buffer_size": 901,
+				"buffer_size": 2492,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "scripts/app.js",
+			"file": "css/todo.js",
 			"settings":
 			{
-				"buffer_size": 1340,
+				"buffer_size": 4213,
 				"line_ending": "Unix"
 			}
 		},
@@ -399,7 +447,31 @@
 			"file": "scripts/interventions/interventions.js",
 			"settings":
 			{
-				"buffer_size": 33316,
+				"buffer_size": 39481,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/interventions.vitals.fullhistoric.config.json",
+			"settings":
+			{
+				"buffer_size": 1186,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/interventions/pdf.html",
+			"settings":
+			{
+				"buffer_size": 501,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/interventions/reserveValidations.html",
+			"settings":
+			{
+				"buffer_size": 976,
 				"line_ending": "Unix"
 			}
 		}
@@ -452,39 +524,59 @@
 	},
 	"file_history":
 	[
-		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/2pdf/Default (OSX).sublime-keymap",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/config/interventions.vitals.config.json",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/details.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/index.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/app.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/css/todo.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/config/interventions.vitals.fullhistoric.config.json",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/config/interventions.timeframe.config.json",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/units/units.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/sendMail.php",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/css/style.css",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/pdf.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/index.php",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/commentaires presentation",
+		"/Users/Yvann/Documents/cvut/introduction to web/include/style.css",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/assets/data.xml",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/cordova-proximity-quickstart/www/monitoring/Monitoring.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/cordova-proximity-quickstart/www/monitoring/MonitoringCtrl.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/cordova-proximity-quickstart/www/ranging/Ranging.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/proco4/_php_include/param.php",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/eventlog/EventLog.html",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/notes",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/css/premier chose action systematiques reserve en fin",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/vitals.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/fullHistoric.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/patients/patients.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/patients/patients.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/rooms/rooms.js",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/2pdf/Default (OSX).sublime-keymap",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/ibeacon/ibeacon.js",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/ibeacon/ibeacon.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/bower.json",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/package.json",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/config.xml",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/ionic.project",
 		"/Applications/XAMPP/xamppfiles/htdocs/espagne/calendrier disponibilités de l'appartement.",
 		"/Applications/XAMPP/xamppfiles/htdocs/insides/wordpress/wp-content/themes/elevate/page.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/insides/wordpress/wp-content/themes/elevate/template-blog.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/insides/wordpress/wp-content/themes/elevate/template-post-grid.php",
 		"/Applications/XAMPP/xamppfiles/etc/my.cnf",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/index.html",
 		"/Applications/XAMPP/xamppfiles/htdocs/insides/wordpress/wp-content/themes/elevate/sidebar.php",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/app.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/eventlog/EventLogCtrl.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/eventlog/EventLogModule.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/ranging/RangingCtrl.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/ranging/RangingModule.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/monitoring/MonitoringModule.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/lib/monitoring/MonitoringCtrl.js",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/details.html",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/css/style.css",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/patients/patients.html",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/units/units.js",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/rooms/rooms.js",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/patients/patients.js",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/reserveValidations.html",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/units/units.html",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/rooms/rooms.html",
 		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/assets/sex/maleSymbol.png",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/vitals.html",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/fullHistoric.html",
-		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/config.xml",
 		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/controllers.js",
 		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/service.js",
 		"/Users/Yvann/Documents/programmation/mean-io/source/public/js/core.js",
@@ -559,27 +651,7 @@
 		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/test.php",
 		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/app.js",
 		"/Users/Yvann/Documents/programmation/monopoly/Monopoly/package.json",
-		"/Applications/XAMPP/xamppfiles/htdocs/christenseneurope/caserver/.htpasswd",
-		"/Applications/XAMPP/xamppfiles/htdocs/christenseneurope/caserver/.htaccess",
-		"/Applications/XAMPP/xamppfiles/htdocs/christenseneurope/caserver/customers.asp",
-		"/Users/Yvann/Documents/programmation/systemes distribues/rest/index.py",
-		"/Users/Yvann/Documents/cvut/web20/4/design",
-		"/Users/Yvann/Documents/programmation/web/tp6/tp6.html",
-		"/Users/Yvann/Documents/programmation/systemes distribues/rest/server.py",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/index.html",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/core.js",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/routes.js",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/server.js",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/auth.js",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/Partials/deconnexion.html",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/css/style.css",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/Partials/rooms.html",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/Partials/connexion.html",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/Partials/unites.html",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/package.json",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/users.js",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/data/UnitList.json",
-		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/models/hug.js"
+		"/Applications/XAMPP/xamppfiles/htdocs/christenseneurope/caserver/.htpasswd"
 	],
 	"find":
 	{
@@ -597,6 +669,120 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"nomPatient",
+			"toSend",
+			"console.log",
+			"toSend",
+			"watch",
+			"$scope.toSend",
+			"$state.go",
+			"barChartVitals",
+			"console",
+			"button-assertive",
+			"item-balanced",
+			"item-balancedbis",
+			"pdfDelegate",
+			"pdf",
+			"notes",
+			"fullHistoric",
+			"full",
+			"sampleData",
+			"'",
+			"configData",
+			"config",
+			"console",
+			"'",
+			"console",
+			"interventionsController",
+			"group",
+			"notes",
+			"adaptheight",
+			".adaptheight",
+			"group",
+			"notes",
+			"deleteElement",
+			"imprimer",
+			"sanitize",
+			"px",
+			"celcius",
+			"pdf",
+			"balanced",
+			"Matinée",
+			"print",
+			"$ionicView.",
+			"$ionicView.afterEnter",
+			"trustAsHtml",
+			"html",
+			"sanitize",
+			"selector",
+			"cssDele",
+			"pdf",
+			"$state.go",
+			"go",
+			"params",
+			"dataToPrint",
+			"fullHistoric",
+			"$state.go",
+			"go",
+			"pdf",
+			"$state.go",
+			"angular",
+			"Name",
+			"Module",
+			"angular",
+			"getCurrent",
+			"currentHour",
+			"current",
+			"TIME_TO_DO_IT",
+			"TIME_TO_DO_OT",
+			"decalage",
+			"notepad",
+			"isDone",
+			"TIME_TO_DO_IT",
+			"typeof",
+			"typeOf",
+			"ACT.TIME_TO_DO_IT",
+			"ACT.TIME",
+			"25",
+			"TIME_TO_DO_IT",
+			"closeEditMode",
+			"MiliSeconds",
+			"MIliseconds",
+			"MIlisecond",
+			"MIli",
+			"scrollTo",
+			"done",
+			"retrieving",
+			"$interval",
+			"currentScroll",
+			"currentScr",
+			"current",
+			"scroll",
+			"directive",
+			"onfinishrender",
+			"delete",
+			"showDetails",
+			"on-tap",
+			"on-tape",
+			"q",
+			"isDone",
+			"&lt; ",
+			" &lt;",
+			"&lt; b",
+			"< b >",
+			"< b",
+			"splice",
+			"popup",
+			"getVitals",
+			"$scope.test",
+			"test",
+			"list",
+			"reserveValidations",
+			"details",
+			"acts",
+			"_PLANNED_DATETIME",
+			"defaultValues",
+			"dataResp",
 			"YESTERDAY",
 			"<?",
 			"primary-toggle",
@@ -610,121 +796,7 @@
 			"ok",
 			"$state.g",
 			"Rooms",
-			"rooms",
-			"patients",
-			"Patients",
-			"http",
-			"interventionsController",
-			"jsonDa",
-			"jsonData",
-			"getPatient",
-			"parse",
-			"JSON",
-			"jsonify",
-			"stringify",
-			"console",
-			"JSON",
-			"indexPatientDefault",
-			"switch",
-			"){\n",
-			"getPatient",
-			"bed_id",
-			"interventions",
-			"Interventions",
-			"TODO",
-			"showPopup",
-			"detail",
-			"tofullDate",
-			"validations",
-			"params",
-			"$state.go",
-			"toggle",
-			"console",
-			"-1",
-			"notepad",
-			"show",
-			"showpopup",
-			"showPopup",
-			"reserve",
-			"$scope.interventions.reserve",
-			"reserve",
-			"IconeLink",
-			"addIcons",
-			"_TYPE",
-			"Group",
-			"getDeta",
-			"fullscreenChartfullscreenChart",
-			"console",
-			"dataCharts",
-			"fullHistoricController",
-			"categoryNameToIdCategory",
-			"domUtil",
-			"dataPuls",
-			"detailsContr",
-			"fullHistoricController",
-			"$state",
-			"patient1",
-			"console.log",
-			"currentPatient",
-			"patient1",
-			"patients",
-			".then",
-			".hen",
-			"patients",
-			"patient",
-			"getPatient",
-			"switch",
-			"$scope.refreshData",
-			"patient.Index",
-			"change",
-			"getPatient",
-			"getInterventions",
-			"patient",
-			"getInterventions",
-			"getters",
-			"watch",
-			"validate",
-			"jquery",
-			"interventions",
-			"getInterventions",
-			"$scope.list",
-			"ng-repeat",
-			"  ",
-			"getD",
-			"getDe",
-			"ng-repeat",
-			"getDe",
-			"toggle",
-			"togglet",
-			"$state.go",
-			"undefined",
-			"console.log",
-			"' = '",
-			"delete",
-			"deleteEleme",
-			"getDetails",
-			"getDEtails",
-			"Banging",
-			"deleteElement",
-			"showPopup",
-			"getCurre",
-			"getCurrentTime",
-			"console.log",
-			"console.",
-			"delete\ndelete",
-			"delete",
-			"toSend",
-			".push",
-			"push",
-			"deleteElement",
-			"release",
-			"addIcon",
-			"Annuler",
-			"console.log",
-			"view",
-			"ConnexionController",
-			"connexion",
-			"console"
+			"rooms"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -732,6 +804,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\"",
 			"Ibeacons",
 			"ibeacon",
 			"Units",
@@ -779,23 +852,23 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 7,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/ibeacon/ibeacon.js",
+					"file": "css/style.css",
 					"settings":
 					{
-						"buffer_size": 1456,
+						"buffer_size": 3204,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								884,
-								884
+								858,
+								858
 							]
 						],
 						"settings":
@@ -848,8 +921,8 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close"
 							],
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -860,18 +933,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
+					"file": "scripts/interventions/vitals.html",
 					"settings":
 					{
-						"buffer_size": 1463,
+						"buffer_size": 4993,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1342,
-								1342
+								3767,
+								3781
 							]
 						],
 						"settings":
@@ -924,28 +997,29 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close"
 							],
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1306.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "scripts/ibeacon/ibeacon.html",
+					"file": "scripts/interventions/fullHistoric.html",
 					"settings":
 					{
-						"buffer_size": 901,
+						"buffer_size": 2492,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								663,
-								663
+								1308,
+								1322
 							]
 						],
 						"settings":
@@ -1009,18 +1083,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "scripts/app.js",
+					"file": "css/todo.js",
 					"settings":
 					{
-						"buffer_size": 1340,
+						"buffer_size": 4213,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								451,
-								451
+								1493,
+								1493
 							]
 						],
 						"settings":
@@ -1073,9 +1147,7 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close"
 							],
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1088,15 +1160,15 @@
 					"file": "scripts/interventions/interventions.js",
 					"settings":
 					{
-						"buffer_size": 33316,
+						"buffer_size": 39481,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								900,
-								900
+								36825,
+								36825
 							]
 						],
 						"settings":
@@ -1154,7 +1226,233 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1327.0,
+						"translation.y": 16751.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "config/interventions.vitals.fullhistoric.config.json",
+					"settings":
+					{
+						"buffer_size": 1186,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								164,
+								164
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 105.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "scripts/interventions/pdf.html",
+					"settings":
+					{
+						"buffer_size": 501,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								154
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "scripts/interventions/reserveValidations.html",
+					"settings":
+					{
+						"buffer_size": 976,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								934,
+								934
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1225,7 +1523,7 @@
 		[
 			[
 				"",
-				"/Users/Yvann/Documents/HEALvetia/packages/Progress-Report/HEALvetia.sublime-project"
+				"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/crayonoir.sublime-project"
 			]
 		],
 		"width": 380.0

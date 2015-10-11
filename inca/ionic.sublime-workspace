@@ -1,0 +1,607 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bord",
+				"border-bottom"
+			],
+			[
+				"fo",
+				"formulaire-big"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"us",
+				"userData"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"tex",
+				"text-transform"
+			],
+			[
+				"contr",
+				"controller"
+			],
+			[
+				"backgroun",
+				"background-size"
+			],
+			[
+				"bi",
+				"birthday"
+			],
+			[
+				"bir",
+				"birthday"
+			],
+			[
+				"disp",
+				"displayForm"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"use",
+				"user_id"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"mari",
+				"margin"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"temo",
+				"temoignage"
+			],
+			[
+				"site",
+				"siteURL"
+			],
+			[
+				"des",
+				"descProjet"
+			],
+			[
+				"Row",
+				"RowTables"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"socket",
+				"SocketClient"
+			],
+			[
+				"Combatt",
+				"Combattant1"
+			],
+			[
+				"id",
+				"idPersonnage"
+			],
+			[
+				"Re",
+				"RequeteBD"
+			],
+			[
+				"Pseudo",
+				"PseudoCo"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"A",
+				"Application"
+			],
+			[
+				"M",
+				"MonCompte"
+			],
+			[
+				"exp",
+				"expUp"
+			],
+			[
+				"Exp",
+				"Experience"
+			],
+			[
+				"get",
+				"getVie"
+			],
+			[
+				"ge",
+				"getPseudo"
+			],
+			[
+				"buffer",
+				"buffer_w"
+			],
+			[
+				"nick",
+				"nicknameSet"
+			],
+			[
+				"Clent",
+				"ClientAddr"
+			],
+			[
+				"Clien",
+				"ClientsList"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"usernam",
+				"usernameset"
+			],
+			[
+				"Cli",
+				"ClientsList"
+			],
+			[
+				"s",
+				"sizeof"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"",
+				"About"
+			],
+			[
+				"Package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Controle",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Yvann/Desktop/tmp.tmp",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/listClients/listClients.html",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/css/style.css",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/api/bdd.php",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/newClient/factory.js",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/newClient/newClient.js",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/newClient/newClient.html",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/listClients/a modifier",
+		"/Users/Yvann/Desktop/shop/shopdb.sql",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/listClients/listClients.js",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/login/login.js",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/listClients/factory.js",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/index.html",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/login/factory.js",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/app.js",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/common/form.js",
+		"/Volumes/mon disque/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/units/units.js",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/mrassurance/ftpsync.settings",
+		"/Volumes/mon disque/Applications/XAMPP/xamppfiles/htdocs/crayonoir/ftpsync.settings",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/css/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/contracts/contract.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/contracts/newContract.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/common/anime.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/app.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/login/login.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/contracts/contract.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/fullHistoric.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/vitals.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/app.js",
+		"/Users/Yvann/Documents/ecolint/scripting google/cockpit google sheet/description cockpit",
+		"/Users/Yvann/Documents/ecolint/grille salaire.txt",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/assets/downArrow.svg",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/interventions/interventions.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/login/login.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/scripts/login/.htaccess",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/inca/www/scripts/units/units.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/mrassurance/MRAssurances.sublime-workspace",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/assets/inscription-bkg-1.jpg",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/test.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/assets/sprite_35_35.png",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/assets/twitter-logo.png",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/OAuth/OauthStorage.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/js/main.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/OAuth/receive_token.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/js/OauthStorage.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/connectionPDO.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/forumtravian/ConnectPDO.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/css/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/ftpsync.settings",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/index.html",
+		"/Users/Yvann/Documents/bachelor/bachelorproject/questionsfrederic",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/assets/location.png",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/assets/gvacup-logo.jpg",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/assets/google-plus-logo.png",
+		"/Applications/XAMPP/xamppfiles/htdocs/din/assets/facebook-logo.png",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/FTPSync/ftpsync.settings",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/FTPSync/FTPSync.sublime-settings",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/css/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/menu.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/twitter-oauth/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/twitter-oauth/jquery.jstwitter.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/twitter-oauth/jquery.gridalicious.min.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/twitter-oauth/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/twitter-oauth/grabtweets.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/twitter-oauth/codebird.php",
+		"/Users/Yvann/Documents/crayonoir/why responsive design.txt",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/css/landscapecheck.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/header-statique.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/img/nominee/awwwards.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/quisommesnous.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/ftpsync.settings",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/journal.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/projetclient.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/test.php",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/LiveReload.sublime-settings",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/nosprojets.html",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/LiveReload/LiveReload.sublime-settings",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/bootstrap/css/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/Celciusv2/index.php",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/Autoprefixer.sublime-settings",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/Autoprefixer/Autoprefixer.sublime-settings",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/CSScomb/Default.sublime-keymap",
+		"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/CSScomb/CSScomb.sublime-settings",
+		"/Users/Yvann/Documents/programmation/mean-io/travail de semestre/graphiques/vues/application flow [semestre].xml",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/bootstrap/js/general.js",
+		"/Users/Yvann/Documents/programmation/web/tp6/tp6.css",
+		"/Users/Yvann/Documents/programmation/web/tp6/script.js",
+		"/Users/Yvann/Documents/programmation/web/tp6/tp6.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/include/fonctions.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/accueil.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/quisommesnous.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/Contact.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/picibi.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/css/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/crayonoir/admin/nosMarques.php",
+		"/Users/Yvann/Documents/cvut/web20/3 - Restfull URI operations/design.txt",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/core.js",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/app/routes.js",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/public/index.html",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/package.json",
+		"/Users/Yvann/Documents/programmation/mean-io/simple-crud/config/database.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/views/users.html",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/views/index.html",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/js/services/UsersService.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/js/controllers/UsersCtrl.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/app/routes.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/app/models/users.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/app.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/views/home.html",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/core.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/cors.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/js/appRoutes.js",
+		"/Users/Yvann/Documents/programmation/mean-io/mean-stack-skeleton/public/js/app.js",
+		"/Users/Yvann/Documents/programmation/mean-io/CRUD/.bowerrc",
+		"/Users/Yvann/Documents/programmation/mean-io/CRUD/public/js/app.js",
+		"/Users/Yvann/Documents/programmation/mean-io/CRUD/server.js",
+		"/Users/Yvann/Documents/programmation/mean-io/CRUD/public/views/user.html",
+		"/Users/Yvann/Documents/programmation/mean-io/CRUD/public/js/controllers/UserCtrl.js",
+		"/Users/Yvann/Documents/programmation/mean-io/CRUD/public/js/controllers/MainCtrl.js",
+		"/Users/Yvann/Documents/programmation/mean-io/CRUD/bower.json"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			".formulaire-big",
+			".rechercherLeft .border-bottom-h2",
+			".border-bottom",
+			"rechercheLeft",
+			"table",
+			"246",
+			"h2",
+			"border-bottom-h2",
+			"rechercherLeft",
+			"uppercase",
+			"push",
+			"#menu",
+			"GetUserIdForUserToken",
+			"menu",
+			"#menu",
+			"menu",
+			"#asklandscape",
+			"@",
+			"750",
+			"#asklandscape h1, #alternative h1",
+			"h1",
+			"iphone",
+			"alt",
+			"h1",
+			"#alternative",
+			"alternative",
+			"include",
+			"h1",
+			".agencewebsuisse",
+			"agencewebsuisse",
+			"h2",
+			"h1",
+			"1021",
+			"z-index:",
+			"#quiSom",
+			"quiSom",
+			"h2",
+			".text-position-accueil h2",
+			"1021",
+			"@",
+			"relative;",
+			"relative",
+			"#desc-partie-accueil",
+			"relative",
+			"relaive",
+			".text-position-accueil",
+			"#quiSommesNous .text-position-accueil",
+			"1021",
+			"\n#quiSommesNous",
+			"\n#quiSommesNous .text-position-accueil h2{position: relative;}",
+			"position: relative;",
+			"h2",
+			"#quiSommesNous",
+			"quiSommesNous",
+			"#quisomm",
+			"#quiSomm",
+			"#QuiSomm",
+			"text",
+			"@",
+			".text",
+			".text-pos",
+			"#decale-gauche-special-accueil",
+			"video#bgvid",
+			"video#",
+			"video{ ",
+			"video{",
+			"video",
+			"bgvid",
+			"	",
+			"\\n",
+			"article",
+			"seemore",
+			"Voir la suite",
+			"voir la suite",
+			"Parent",
+			"Parent$",
+			"Last",
+			"AddProjet",
+			"ContactFormAdmin",
+			"formContact",
+			"9",
+			"formData",
+			"scotchTodo",
+			"todo",
+			"dbUser",
+			"Todo",
+			"todos",
+			"nerd",
+			"Nerd",
+			"%>",
+			"<%",
+			"bkg-service",
+			"bkg-partenaire-1",
+			"encart-desc-service",
+			"bkg",
+			"no-top",
+			"form ul",
+			"form",
+			"h2",
+			"#menu",
+			"frequence",
+			"RowTables",
+			"GL_",
+			"glTexParameterfv",
+			"text-position",
+			".text-position",
+			"text-position",
+			"video",
+			"header",
+			"bgvid",
+			"article",
+			"input",
+			"fin",
+			"        }",
+			"fixed",
+			"nos services",
+			"ptinf",
+			"ligne",
+			"socket_serveur",
+			"socket",
+			"bkg.png",
+			"getId",
+			"input",
+			";",
+			"getPseudo",
+			"getLvl",
+			"Some",
+			"getClasseId"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"	",
+			"$TAILLESUDOKU",
+			"MUser",
+			"user",
+			"dbUsers",
+			"dbUser",
+			"users",
+			"user",
+			"User",
+			"}}",
+			"{{",
+			"line",
+			"Line",
+			"Socket_serveur",
+			"RequeteBD",
+			"2014-05-24",
+			"*",
+			"WhosThere",
+			"possibilities"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 25.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/Yvann/Library/Application Support/Sublime Text 2/Packages/Autoprefixer/Autoprefixer.sublime-settings"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/Yvann/Documents/HEALvetia/packages/Progress-Report/HEALvetia.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 273.0,
+	"status_bar_visible": true
+}

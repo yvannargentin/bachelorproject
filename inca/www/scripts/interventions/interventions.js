@@ -1,10 +1,8 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-
-// TO CHECK COMPLETETION OF THE SCRIPT LOOK FOR "TODO" OR "TO VERIFY"
+//////////////////////////////////////////////////////////////////////////////
+// file : interventions.js                                                  //
+// views : interventions , details, vitals, fullHistoric, reserveValidation //
+// Auteur : Argentin Yvann                                                  //
+//////////////////////////////////////////////////////////////////////////////
 
 var incaInterventions = angular.module('inca.interventions', ['ionic','ui.router', 'cb.x2js','ngSanitize', 'chart.js'])
 
@@ -24,7 +22,21 @@ var incaInterventions = angular.module('inca.interventions', ['ionic','ui.router
         .state('interventions.home', {
             url: '/home',
             templateUrl: 'scripts/interventions/interventions.html',
-            controller: interventionsController
+            controller: interventionsController,
+            resolve : {
+                // data loading
+                configData : function($http) {
+                  return $http.get("http://crayonoir.ch/bachelor/config/interventions.timeframe.config.json")
+                  .then(function (data) { // promise
+                    return data.data;
+                  });
+                }
+            }
+        })
+        .state('interventions.pdf', {
+            url: '/pdf/{dataToPrint}',
+            templateUrl: 'scripts/interventions/pdf.html',
+            controller: pdfController
         })
         .state('interventions.group',{
             url: '/group/{idElem}',
@@ -34,19 +46,75 @@ var incaInterventions = angular.module('inca.interventions', ['ionic','ui.router
         .state('interventions.vitals', {
             url: '/vitals',
             templateUrl: 'scripts/interventions/vitals.html',
-            controller: vitalsController
+            controller: vitalsController,
+            resolve : {
+                // data loading
+                configData : function($http) {
+                  return $http.get("http://crayonoir.ch/bachelor/config/interventions.vitals.config.json")
+                  .then(function (data) { // promise
+                    return data.data;
+                  });
+                },
+                historicData : function($http) {
+                  return $http.get("http://crayonoir.ch/bachelor/config/interventions.vitals.historic.json")
+                  .then(function (data) { // promise
+                    return data.data;
+                  });
+                },
+                sampleData : function($http) {
+                  return $http.get("http://crayonoir.ch/bachelor/config/interventions.vitals.sample.json")
+                  .then(function (data) { // promise
+                    return data.data;
+                  });
+                }
+            }
         })
         .state('interventions.fullHistoric', {
           url : '/historic/{category}',
           templateUrl : 'scripts/interventions/fullHistoric.html',
-          controller : fullHistoricController
+          controller : fullHistoricController,
+          resolve : {
+            sampleData : function($http) {
+              return $http.get("http://crayonoir.ch/bachelor/config/interventions.vitals.fullhistoric.config.json")
+              .then(function (data) { // promise
+                return data.data;
+              });
+            }
+          }
         })
         .state('interventions.reserveValidations', {
           url : '/reserve/{validations}',
           templateUrl : 'scripts/interventions/reserveValidations.html',
           controller : reserveValidations
         });
+})
+
+
+.directive('onFinishRender', function ($timeout) {
+  return {
+    restrict: 'A',
+    link: function (scope, element, attr) {
+      if (scope.$last === true) {
+        $timeout(function () {
+          scope.$emit(attr.onFinishRender);
+        });
+      }
+    }
+  }
+})
+
+.directive('autoFocus', function($timeout) {
+    return {
+        restrict: 'AC',
+        link: function(_scope, _element) {
+            $timeout(function(){
+                _element[0].focus();
+            }, 100);
+        }
+    };
 });
+
+
 
 /////////////////
 // CONTROLLERS //
@@ -162,7 +230,7 @@ function interventionsMain($scope,$state,$ionicHistory, $rootScope, $ionicPopup,
   jsonData = $rootScope.medicalData.jsonData;
 
 
-  Username = "Yvann";
+  Username = "Infirmière";
 
   $scope.show = function(){
     $ionicLoading.show({
@@ -205,10 +273,13 @@ function interventionsMain($scope,$state,$ionicHistory, $rootScope, $ionicPopup,
 
   $scope.patient.Name = currentPatient._FIRST_NAME + ' ' + currentPatient._LAST_NAME;
 
+  // EDIT MODE
+/*
   $scope.editMode = false;
 
   $scope.labels = [];
   $scope.labels.editMode = "Modifier";
+*/
 
   // patient 0
   interventions.sort("_PLANNED_DATETIME_DISPLAY");
@@ -228,6 +299,7 @@ function interventionsMain($scope,$state,$ionicHistory, $rootScope, $ionicPopup,
   // GENERAL FUNCTIONNALITIES //
   //////////////////////////////
 
+/*
   // adds buttons delete
   $scope.toggleEditMode = function(){
     $scope.editMode = !$scope.editMode;
@@ -242,39 +314,48 @@ function interventionsMain($scope,$state,$ionicHistory, $rootScope, $ionicPopup,
       $scope.editMode = !$scope.editMode;
     $scope.labels.editMode = "Modifier";
   };
-
+*/
   //delete an element of the list
-  $scope.deleteElement = function(idElem,index,type){
-    console.log(idElem + ' - ' + index + ' - ' + type);
+  $scope.deleteElement = function(idElem,index,type,isDone){
     if (type == "list"){
-      // goes thourgh all interventions
+      // goes through all interventions
 
       for(var i = 0; i < $scope.interventions.list.length;i++){
-
+        var countDone = 0;
+        var idElemMatched = false;
         // if there's more than one act
         if(typeof($scope.interventions.list[i].ACT.length) !== 'undefined'){
           // goes through all the inner acts
           for(var y = 0; y < $scope.interventions.list[i].ACT.length; y++){
-            if($scope.interventions.list[i].ACT[y]._ID == idElem){ // if there's a match we splice it
-              $scope.interventions.list[i].ACT.splice(y, 1);
-              if(typeof($scope.interventions.detailedList) !== 'undefined')
-                console.log($scope.interventions.detailedList);//.splice(y, 1); // TO VERIFY
+            if($scope.interventions.list[i].ACT[y]._ID == idElem){ // if there's a match we mark it done
+              $scope.interventions.list[i].ACT[y].isDone = isDone;
+              idElemMatched = true;
             }
+
+            if ($scope.interventions.list[i].ACT[y].isDone || $scope.interventions.list[i].ACT[y].isDone === false)
+              countDone++;
           }
-          // if there's no more act in the category at this time we splice the categorie for that time
-          if($scope.interventions.list[i].ACT.length == 0){
-            $scope.interventions.list.splice(i, 1);
+
+          // if there's no more act in the category at this time we mark the categorie done for that time
+          if(countDone == $scope.interventions.list[i].ACT.length && countDone > 1 && idElemMatched){
+            $scope.interventions.list[i].isDone = isDone;
+            $scope.interventions.list[i].TIME_TO_DO_IT = '25:00';
             // we get out of the edit mode
-            $scope.closeEditMode();
+            //$scope.closeEditMode();
             // and come back to the intervention page
             $ionicHistory.goBack();
           }
 
-        }else{ // if there's only one act and we find a match we splice the category for the time
+
+        }else{ // if there's only one act and we find a match we mark the category done for the time
 
           if($scope.interventions.list[i].ACT._ID == idElem && index == -1)
-            $scope.interventions.list.splice(i, 1);
+            $scope.interventions.list[i].isDone = isDone;
+            $scope.interventions.list[i].TIME_TO_DO_IT = '25:00';
         }
+
+        countDone = 0;
+        idElemMatched = false;
 
       }
 
@@ -322,14 +403,14 @@ function interventionsMain($scope,$state,$ionicHistory, $rootScope, $ionicPopup,
 
     // An elaborate, custom popup
     var notesPopup = $ionicPopup.show({
-      template: '<textarea ng-model="data.notes" rows="5"></textarea>',
+      template: '<textarea ng-model="data.notes" auto-focus rows="5"></textarea> ', // <br/>heure d\'éxecution <br/><input type="time" ng-model="data._PLANNED_DATETIME_DISPLAY"/>
       title: 'Notes',
       scope: $scope,
       buttons: [
         { text: 'Annuler' },
         {
-          text: '<b>Confirmer</b>',
-          type: 'button-light',
+          text: '<b>pas fait</b>',
+          type: 'button-assertivebis',
           onTap: function(e) {
             if (!$scope.data.notes) {
               //don't allow the user to close unless he enters notes
@@ -348,7 +429,33 @@ function interventionsMain($scope,$state,$ionicHistory, $rootScope, $ionicPopup,
                 $scope.interventions.detailedList[index]._NOTES = $scope.data.notes;
               }
 
-              return {'d_idElem' : idElem, 'd_index' : index, 'd_pos' : myInterventionPos};
+              return {'d_idElem' : idElem, 'd_index' : index, 'd_pos' : myInterventionPos,'d_answer' : false};
+            }
+          }
+        },
+
+        {
+          text: '<b>fait</b>',
+          type: 'button-balancedbis',
+          onTap: function(e) {
+            if (!$scope.data.notes) {
+              //don't allow the user to close unless he enters notes
+              notesPopup.close();
+            } else {
+
+              if (type == 'list'){
+                // saving the notes
+                if(index == -1)
+                  $scope.interventions.list[myInterventionPos]._NOTES = $scope.data.notes;
+                else
+                  $scope.interventions.list[myInterventionPos].ACT[index]._NOTES = $scope.data.notes;
+
+              }else if(type == 'reserve'){
+                // saving the notes
+                $scope.interventions.detailedList[index]._NOTES = $scope.data.notes;
+              }
+
+              return {'d_idElem' : idElem, 'd_index' : index, 'd_pos' : myInterventionPos, 'd_answer' : true};
             }
           }
         }
@@ -357,13 +464,14 @@ function interventionsMain($scope,$state,$ionicHistory, $rootScope, $ionicPopup,
 
     notesPopup.then(function(data) {
       if(typeof(data) !== 'undefined'){
+        var state = data.d_answer;
         // we first retrieve all important data from the element
         if(type == 'list'){
           $scope.interventions.list[data.d_pos]._TIME = getCurrentTime();
           if(data.d_index == -1){
             $scope.toSend.push($scope.interventions.list[data.d_pos]);
             //then we need to delete the element
-            $scope.deleteElement(data.d_idElem,data.d_index,type);
+            $scope.deleteElement(data.d_idElem,data.d_index,type,state);
 
           }else{
 
@@ -374,9 +482,8 @@ function interventionsMain($scope,$state,$ionicHistory, $rootScope, $ionicPopup,
             //data = tmp[1].ACT[0];
 
             //$scope.toSend.push(data);
-            console.log($scope.toSend);
             //then we need to delete the element
-            $scope.deleteElement(data.d_idElem,data.d_index,type);
+            $scope.deleteElement(data.d_idElem,data.d_index,type,state);
           }
 
         }else{
@@ -404,6 +511,37 @@ function interventionsMain($scope,$state,$ionicHistory, $rootScope, $ionicPopup,
 
   };
 
+  $scope.showDetailsIntervention = function(acts) {
+    var data = {};
+    data.title = "détails";
+
+    if(typeof(acts.ACT) === "undefined"){
+      data.template = acts.INFORMATION;
+    }else{
+      data.template = acts.ACT.INFORMATION;
+    }
+    $ionicPopup.alert(data);
+  };
+
+  /*
+   * if given group is the selected group, deselect it
+   * else, select the given group
+   code from : http://codepen.io/ionic/pen/uJkCz
+   */
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+
+  $scope.addNewItem = function () {
+    $scope.$broadcast('newItemAdded');
+  };
 
 
 }
@@ -412,11 +550,11 @@ function interventionsMain($scope,$state,$ionicHistory, $rootScope, $ionicPopup,
 // SPECIFIC FUNCTIONS FOR THE INTERVENTION HOME VIEW //
 ///////////////////////////////////////////////////////
 
-function interventionsController($scope, $ionicScrollDelegate, $sanitize,$state,$ionicPopup){
+function interventionsController($scope, $ionicScrollDelegate, $sanitize,$state,$ionicPopup,$ionicListDelegate, $location, $interval, configData){
 
   var reserveList  = [];
-
-
+  var oneHourInMiliSeconds = 1000 * 60 * 60;
+  var formatHour = ':00';
 
   // loads useful data in variables
   function initializeTabs(){
@@ -426,22 +564,34 @@ function interventionsController($scope, $ionicScrollDelegate, $sanitize,$state,
     // default patient
     for(var i = 0; i < interventions.length; i++){
       // detects reserve interventions
+
       if(interventions[i]._PLANNED_DATETIME_DISPLAY == "R"){
         innerTab.push(interventions[i]);
         interventions.splice(i,1);
+      }
+
+      if(interventions[i].isDone != true){
+        for (var y = 0; y < configData.length; y++)
+          if(interventions[i]._PLANNED_DATETIME_DISPLAY == configData[y].Nom)
+            interventions[i].TIME_TO_DO_IT = configData[y].Time;
+
+        interventions[i].TIME_TO_DO_IT = interventions[i]._PLANNED_DATETIME_DISPLAY;
       }
     }
 
     reserveList = innerTab.slice(0,innerTab.length);
     innerTab = [];
 
-    // other patient
+    // second patient
     for(var i = 0; i < secondPatient.length; i++){
       // detects reserve interventions
       if(secondPatient[i]._PLANNED_DATETIME_DISPLAY == "R"){
         innerTab.push(secondPatient[i]);
         secondPatient.splice(i,1);
       }
+
+      if(interventions[i].isDone != true)
+        interventions[i].TIME_TO_DO_IT = interventions[i]._PLANNED_DATETIME_DISPLAY;
     }
 
     var tmp = innerTab.slice(0,innerTab.length);
@@ -450,13 +600,11 @@ function interventionsController($scope, $ionicScrollDelegate, $sanitize,$state,
 
 
 
-
   initializeTabs();
   $scope.interventions.list = interventions;
   $scope.interventions.reserve = reserveList[+$scope.patient.Index];
 
-  $ionicScrollDelegate.resize(); // to be called every content content is changed
-
+  $ionicScrollDelegate.resize(); // to be called everytime content is changed
 
   ///////////////
   // FUNCTIONS //
@@ -480,14 +628,84 @@ function interventionsController($scope, $ionicScrollDelegate, $sanitize,$state,
   // retrieves current time (hour)
   $scope.getCurrentHour= function(){
     return new Date().getHours();
+    //return '06';
   };
+
+  $scope.print = function () {
+    $scope.toSend.push(currentPatient._LAST_NAME + ' ' + currentPatient._FIRST_NAME);
+    console.log($scope.toSend);
+    $state.go('interventions.pdf',{'dataToPrint' : JSON.stringify($scope.toSend)});
+  };
+
+  // automatic scroll to current hour interventions
+  $scope.$on('scrollToCurrent', function(ngRepeatFinishedEvent) {scrollToCurrent();});
+
+  function scrollToCurrent(){
+    var hour = $scope.getCurrentHour() + formatHour;
+    $location.hash(hour);
+    $ionicScrollDelegate.anchorScroll();
+  }
+
+  $interval(updateData,oneHourInMiliSeconds);
+
+  function updateData(){
+    console.log("retrieving new data");
+    console.log("data retrieved");
+    console.log("updating local data...");
+    for (var i = 0 ; i < $scope.interventions.list.length; i++){
+      if($scope.interventions.list[i].isDone != true)
+        $scope.interventions.list[i].TIME_TO_DO_IT = $scope.getCurrentHour() + formatHour;
+    }
+    console.log("local data updated !");
+  }
+
+  $scope.$on('$ionicView.enter', function () {
+    updateData();
+  });
 
   $scope.getDetails = function(idElem){
     $state.go('interventions.group',{'idElem' : idElem});
   }
 
+  $scope.getDetailsOrVitals = function(acts){
+    var idElem = acts.ACT[0]._ID;
+    if(acts._TYPE == 'Surveillances'){
+      $state.go('interventions.vitals',{'idElem' : idElem});
+    }else{
+      $state.go('interventions.group',{'idElem' : idElem});
+    }
+  }
+
   $scope.getVitals = function(idElem){
     $state.go('interventions.vitals',{'idElem' : idElem});
+  }
+
+  $scope.moveIt = function(acts){
+    console.log("trigger reorder");
+    //$ionicListDelegate.$getByHandle('').showReorder(true);
+  }
+
+  $scope.moveItem = function(acts,from,to){
+
+    //item moved
+    console.log(acts);
+    console.log(from);
+    console.log(to);
+
+
+    var adapt;
+    if(to != 0){
+      adapt = -1;
+    }else
+      adapt = 1;
+
+    acts._PLANNED_DATETIME = $scope.interventions.list[to + adapt]._PLANNED_DATETIME;
+    acts._PLANNED_DATETIME_DISPLAY = $scope.interventions.list[to + adapt]._PLANNED_DATETIME_DISPLAY; ;
+    acts.TIME_TO_DO_IT = $scope.interventions.list[to + adapt].TIME_TO_DO_IT;;
+
+
+    $scope.interventions.list.splice(from, 1);
+    $scope.interventions.list.splice(to, 0, acts);
   }
 
 }
@@ -510,7 +728,6 @@ function detailsController($scope, $http, $ionicScrollDelegate, $sanitize, $stat
     $scope.interventions.Icone = null;
     $scope.type="reserve";
     $scope.interventions.detailedList =  interventions.ACT;
-    console.log($scope.interventions.detailedList);
 
   }else{
 
@@ -556,7 +773,7 @@ function detailsController($scope, $http, $ionicScrollDelegate, $sanitize, $stat
 // SPECIFIC FUNCTIONS FOR THE INTERVENTION VITALS MEASURES VIEW //
 //////////////////////////////////////////////////////////////////
 
-function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, $ionicPopup, $ionicTabsDelegate){
+function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, $ionicPopup, $ionicTabsDelegate, configData,historicData,sampleData){
 
 
   $scope.interventions = interventions;
@@ -574,79 +791,20 @@ function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, 
   dataCharts = [];
   nbBarPreviewChart = 3;
 
-  var Historical = [
-    {Category : 'Puls', data : [{Date : '20.05.2015',Time : '07:00',Measure : '120'}]},
-    {Category : 'T', data : [{Date : '20.05.2015',Time : '07:00',Measure : '34.6'}]},
-    {Category : 'TAH', data : [{Date : '20.05.2015',Time : '07:00',Measure : '189-224'}]},
-    {Category : 'Glyc', data : [{Date : '20.05.2015',Time : '07:00',Measure : '14.3'}]},
-    {Category : 'Resp', data : [{Date : '20.05.2015',Time : '07:00',Measure : '14.7'}]}
-  ];
 
+  var Historical = historicData;
 
   ///////////////////////////////////////////////////////
   // VALUES IN THE SELECT FIELDS IN THE DIFFERENT TABS //
   ///////////////////////////////////////////////////////
 
-  var Rythme = [ 'Non précisé','Irrégulier','Régulier','Autre' ];
-
-  var RythmeR = ['Non précisé','Irrégulier','Régulier','Apnée','Cheynes-Stroke','Kusmmaul','Autre'];
-
-  var Lieu = [
-    'Non précisé',
-    'Radial gauche',
-    'Radial droit',
-    'Rétro-malléolaire gauche',
-    'Rétro-malléolaire droit',
-    'Pédieux gauche',
-    'Pédieux droit',
-    'Fémoral gauche',
-    'Fémoral droit',
-    'Poplité gauche',
-    'Poplité droit',
-    'Cardiaque',
-    'Autre'
-  ];
-
-  var LieuT = [
-    'Non précisé',
-    'Rectal',
-    'Buccal',
-    'Axillaire',
-    'Inguinale',
-    'Tympanique',
-    'Cutanée',
-    'Autre'
-  ];
-
-  var LieuTAH = [
-    'Non précisé',
-    'Bras gauche',
-    'Bras droit',
-    'Jambe gauche',
-    'Jambe droite',
-    'Autre'
-  ];
-
-  var Prise = [
-    'Non précisé',
-    'Debout',
-    'Couché',
-    'Assi',
-    'Après effort',
-    'Autre'
-  ];
-
-  var Observation = [
-    'Non précisé',
-    'Dyspnée',
-    'Tachypnée',
-    'Sibilance',
-    'Tirage',
-    'Balancement thoraco-abdominal',
-    'Paradoxal',
-    'Stridor',
-    'Autre'
-  ];
+  var Rythme = configData[0].Rythme;
+  var RythmeR = configData[1].RythmeR;
+  var Lieu = configData[2].Lieu;
+  var LieuT = configData[3].LieuT;
+  var LieuTAH = configData[4].LieuTAH;
+  var Prise = configData[5].Prise;
+  var Observation = configData[6].Observation;
 
   $scope.List = [
     {Name : 'Rythme',Options : Rythme,Tab : 'Puls'},
@@ -663,60 +821,12 @@ function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, 
   /////////////////////////////////////////////
 
 
-  $scope.optionsPuls = {
-    scaleOverride: true,
-    scaleSteps: 7,
-    // Number - The value jump in the hard coded scale
-    scaleStepWidth: 20,
-    // Number - The scale starting value
-    scaleStartValue: 20,
-    responsive : true,
-    maintainAspectRatio : false
-  };
 
-  $scope.optionsT = {
-    scaleOverride: true,
-    scaleSteps: 4,
-    // Number - The value jump in the hard coded scale
-    scaleStepWidth: 5,
-    // Number - The scale starting value
-    scaleStartValue: 26,
-    responsive : true,
-    maintainAspectRatio : false
-  };
-
-  $scope.optionsTAH = {
-    scaleOverride: true,
-    scaleSteps: 14,
-    // Number - The value jump in the hard coded scale
-    scaleStepWidth: 20,
-    // Number - The scale starting value
-    scaleStartValue: 0,
-    responsive : true,
-    maintainAspectRatio : false
-  };
-
-  $scope.optionsGlyc = {
-    scaleOverride: true,
-    scaleSteps: 11,
-    // Number - The value jump in the hard coded scale
-    scaleStepWidth: 2,
-    // Number - The scale starting value
-    scaleStartValue: 0,
-    responsive : true,
-    maintainAspectRatio : false
-  };
-
-  $scope.optionsResp = {
-    scaleOverride: true,
-    scaleSteps: 11,
-    // Number - The value jump in the hard coded scale
-    scaleStepWidth: 2,
-    // Number - The scale starting value
-    scaleStartValue: 0,
-    responsive : true,
-    maintainAspectRatio : false
-  };
+  $scope.optionsPuls = configData[7].optionsPuls;
+  $scope.optionsT = configData[8].optionsT;
+  $scope.optionsTAH  = configData[9].optionsTAH;
+  $scope.optionsGlyc = configData[10].optionsGlyc;
+  $scope.optionsResp = configData[11].optionsResp;
 
   dummyInitialValues();
 
@@ -747,10 +857,10 @@ function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, 
     dataCharts.labelsGlyc = ['May 20 17:05'];
     dataCharts.dataGlyc = [ [12.5] ];
 
-    $scope.labelsResp = ['May 20 17:05'];
-    $scope.dataResp = [ [17.2] ];
-    dataCharts.labelsResp = ['May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05','May 20 17:05',];
-    dataCharts.dataResp = [ [17.2,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,1.2,1.3,1.9,5.3,8.4,3.7,5.78,5.3,5.89] ];
+    dataCharts.labelsResp = ['May 20 17:05','May 20 17:05','May 20 17:05'];
+    dataCharts.dataResp = [ [17.2,12,15] ];
+    $scope.labelsResp = ['May 20 17:05','May 20 17:05','May 20 17:05'];
+    $scope.dataResp = [ [17.2,12,15] ];
 
     defaultValues();
   }
@@ -890,7 +1000,7 @@ function vitalsController($scope,$http, $ionicScrollDelegate, $sanitize,$state, 
 }
 
 
-function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $state, $ionicLoading, $ionicPopup, $ionicTabsDelegate){
+function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $state, $ionicLoading, $ionicPopup, $ionicTabsDelegate, sampleData){
 
   /////////////////////////////////////////////
   // CHARTS DATA INITIALIZATION AND SETTINGS //
@@ -918,65 +1028,11 @@ function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $
   $scope.dataResp = dataCharts['dataResp'];
 
 
-  $scope.optionsPuls = {
-    scaleOverride: true,
-    scaleSteps: 7,
-    // Number - The value jump in the hard coded scale
-    scaleStepWidth: 20,
-    // Number - The scale starting value
-    scaleStartValue: 20,
-    responsive : false,
-    maintainAspectRatio : true,
-    animation : false
-  };
-
-  $scope.optionsT = {
-    scaleOverride: true,
-    scaleSteps: 4,
-    // Number - The value jump in the hard coded scale
-    scaleStepWidth: 5,
-    // Number - The scale starting value
-    scaleStartValue: 26,
-    responsive : false,
-    maintainAspectRatio : true,
-    animation : false
-  };
-
-  $scope.optionsTAH = {
-    scaleOverride: true,
-    scaleSteps: 14,
-    // Number - The value jump in the hard coded scale
-    scaleStepWidth: 20,
-    // Number - The scale starting value
-    scaleStartValue: 0,
-    responsive : false,
-    maintainAspectRatio : true,
-    animation : false
-  };
-
-  $scope.optionsGlyc = {
-    scaleOverride: true,
-    scaleSteps: 11,
-    // Number - The value jump in the hard coded scale
-    scaleStepWidth: 2,
-    // Number - The scale starting value
-    scaleStartValue: 0,
-    responsive : false,
-    maintainAspectRatio : true,
-    animation : false
-  };
-
-  $scope.optionsResp = {
-    scaleOverride: true,
-    scaleSteps: 11,
-    // Number - The value jump in the hard coded scale
-    scaleStepWidth: 2,
-    // Number - The scale starting value
-    scaleStartValue: 0,
-    responsive : false,
-    maintainAspectRatio : true,
-    animation : false
-  };
+  $scope.optionsPuls = sampleData[0].optionsPuls[0];
+  $scope.optionsT = sampleData[1].optionsT[0];
+  $scope.optionsTAH  = sampleData[2].optionsTAH[0];
+  $scope.optionsGlyc = sampleData[3].optionsGlyc[0];
+  $scope.optionsResp = sampleData[4].optionsResp[0];
 
 
   $scope.switchTab = function(nbTab){
@@ -1008,9 +1064,9 @@ function fullHistoricController($scope,$http, $ionicScrollDelegate, $sanitize, $
 }
 
 
-function reserveValidations($scope,$http, $ionicScrollDelegate, $sanitize, $state, $ionicLoading, $ionicPopup, $ionicTabsDelegate){
+function reserveValidations($scope, $http, $ionicScrollDelegate, $sanitize, $state, $ionicLoading, $ionicPopup, $ionicTabsDelegate){
 
-    // hack to apss an object as parameter from a state to another
+    // hack to pass an object as parameter from a state to another
     var validations = JSON.parse($state.params.validations);
 
     if(typeof(validations.OLDER_THAN_THIS_WEEK) === 'undefined'){
@@ -1059,7 +1115,6 @@ function reserveValidations($scope,$http, $ionicScrollDelegate, $sanitize, $stat
     }
 
     $scope.interventions.reserveDetails = validations;
-    console.log($scope.interventions.reserveDetails);
 
     function toFullDate(date){
       return date.getFullYear() + (date.getMonth() + 1) +  date.getDate();
@@ -1069,5 +1124,83 @@ function reserveValidations($scope,$http, $ionicScrollDelegate, $sanitize, $stat
 
 }
 
+function pdfController($scope,$http,$sanitize,$state,$sce){
+  var dataToPrint = JSON.parse($state.params.dataToPrint);
+  console.log(dataToPrint);
+  $scope.dataToPrint = dataToPrint;
+  $scope.nomPatient = dataToPrint[dataToPrint.length-1];
+  var dataFormatted = "<table>";
+  dataFormatted += "<tr>";
+  dataFormatted += "<th colspan='5' style='border : none; border-bottom: 1px solid black; padding: 1em;'>";
+  dataFormatted += $scope.nomPatient;
+  dataFormatted += "</th>";
+  dataFormatted += "</tr>";
+
+  dataFormatted += "<tr>";
+  dataFormatted += "<th style='border : none; border-bottom: 1px solid black; padding: 1em;'>";
+  dataFormatted += "informations";
+  dataFormatted += "</th>";
+  dataFormatted += "<th style='border : none; border-bottom: 1px solid black; padding: 1em;'>";
+  dataFormatted += "heure d'éxecution";
+  dataFormatted += "</th>";
+  dataFormatted += "<th style='border : none; border-bottom: 1px solid black; padding: 1em;'>";
+  dataFormatted += "heure prévue";
+  dataFormatted += "</th>";
+  dataFormatted += "<th style='border : none; border-bottom: 1px solid black; padding: 1em;'>";
+  dataFormatted += "tâche effectuée ?";
+  dataFormatted += "</th>";
+  dataFormatted += "<th style='border : none; border-bottom: 1px solid black; padding: 1em;'>";
+  dataFormatted += "notes";
+  dataFormatted += "</th>";
+  dataFormatted += "</tr>";
+
+  for (var i = 0; i < dataToPrint.length - 1; i++){
+    dataFormatted += "<tr>";
+    dataFormatted += "<td style='border : none; border-bottom: 1px solid black; padding: 1em;'>";
+    var fixed = dataToPrint[i].ACT.INFORMATION.replace("d&#39;", "'");
+    dataFormatted += ("d&#39;", "'",fixed);
+    dataFormatted += "</td>";
+    dataFormatted += "<td style='border : none; border-bottom: 1px solid black; padding: 1em;'>";
+    dataFormatted += dataToPrint[i]._TIME;
+    dataFormatted += "</td>";
+    dataFormatted += "<td style='border : none; border-bottom: 1px solid black; padding: 1em;'>";
+    dataFormatted += dataToPrint[i]._PLANNED_DATETIME_DISPLAY;
+    dataFormatted += "</td>";
+    dataFormatted += "<td style='border : none; border-bottom: 1px solid black; padding: 1em;'>";
+    if(dataToPrint[i].isDone)
+      dataFormatted += "oui";
+    else
+      dataFormatted += "non";
+    dataFormatted += "</td>";
+    dataFormatted += "<td style='border : none; border-bottom: 1px solid black; padding: 1em;'>";
+    dataFormatted += dataToPrint[i]._NOTES;
+    dataFormatted += "</td>";
+    dataFormatted += "</tr>";
+  }
+  dataFormatted += "</table>";
+
+  $scope.$on('$ionicView.afterEnter',function(){
+   // var tableString = JSON.stringify(table);
+    var req = {
+      method: 'GET',
+      url: 'http://crayonoir.ch/bachelor/sendMail.php?msg='+dataFormatted,
+      headers: {
+       'Content-Type': 'text/html'
+      }
+    };
+
+    $http(req).
+      then(function(response) {
+      // this callback will be called asynchronously
+      // when the response is available
+      console.log("mail envoyé");
+    }, function(response) {
+      console.log("problème avec email");
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
+  });
+
+}
 
 

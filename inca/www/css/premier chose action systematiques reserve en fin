@@ -1,0 +1,115 @@
+DONE - premier chose action systematiques reserve en fin de liste.
+DONE - heure et interventions a faire directement affichée
+en fixed traitements a effectué les plus proches.
+// interventions grisée pas disparaitre. !! important !!
+
+
+//intervnetions non effectuée suivent l'heure actuelle
+
+
+// ibeacon detection emplacement
+
+
+/*
+reconnaissance
+personne qui  se perdent dans le couloirs ou qui ont des soucis cognitifs ou au bloc operatoire ont un bracelet contenant identité et unité d'hospitalisation.
+*/
+
+/*
+application utile permet de noter tres rapidement les reactions sinon doivent retourner dna le bureau pour noter les reaction et problemes sur les interventions
+
+des fois interuptions on peu oublier l'avantage est qu'oin peut directement ecrire ce qe l'on voit et ensuite fir le pensement.
+
+infirmerie ruche ca parle ca interompt transporteur qui vient chercher un patient snas cesse interonpu des fois on veut retranscrire ce qu'on a fait et on es tinterrompu ca perturbe on perd du temps plus de confort et de precision
+
+
+Question ?
+
+examens spvemt pibéoe par quelque chose de regulier souvent oublie avantageux que ce soit inscrit.
+
+
+visite medicale ce fait avec prdomateir donc tout ce que est retrospective se fait sur ordinateur. pratique pour ce qui es t afaire d eponctuel mais pour voir ce qui s'est deja fait mieux sur grand écran.
+*/
+/*
+
+vue alternative apercu de ce qu'il y a a faire pour un patient avec les details.
+visualisation de tout ce qu'il y a a faire das la journée mais si on a une feuille recapitalutive du patient.
+pas besoin du titre de l'intervention juste les détails de ceux-ci.
+
+*/
+
+
+==> intervnetions effectuée ==> grisées
+==> tap on intervention ==> popup details
+==> interventions non effectuées suivent l'heure jusqu'à effectuée
+==> IBEACON
+==> afficher si intervention doit être fait aujourd'hui hier ou demain
+==> reserves en fixed bottom 0
+
+/*
+Apercu global très intéressant.
+
+police 10-11
+
+*/
+// reserves en bas de l'écran fixe au lieu d'en haut fixe
+
+// tap agrandit et affiche détails la premiere reste ouverte.
+
+// afficher si intervention doit être faite aujourd'hui hier ou demain
+
+
+refresh toutes les heures pour nouvelles interventions sur dpi et informations interventions jour aujourd'hui hier demain.
+
+garder l'idée du pdf imprimable résumé.
+scroll en fonction de l'heure de la journée.
+interventions tiemframe après interventions en retard.
+
+
+
+délimiter mieux la zone de description d'une opération quand touche for details.
+
+
+Enlever vue details quand touche interventions multiples mais afficher en accordeon les détails des interventions inhérentes.
+
+structurer ligne comme photo.
+
+Changer font heure internveiton par font horloge
+possibilité de valider sans mettre de commentaires
+
+regarder pouruqoi font changent en fonction des elem-list
+
+
+afficher dernire intervention dans la réserve directement dans la vue des détails.
+afficher l'icone de l'intervention réserve aussi
+
+
+details reserve mettre en ordre plus récent en premier
+
+
+voir pour override le back d'android
+//
+$ionicPlatform.registerBackButtonAction(function () {
+  if (condition) {
+    navigator.app.exitApp();
+  } else {
+    handle back action!
+  }
+}, 100);
+//http://forum.ionicframework.com/t/handling-the-hardware-back-buttons/1505/15
+//
+
+quand trop long a charger passer a la page suivante et charger les données après
+
+Hold to reorder pour les interentions
+fait aps fait annuler display block width 90%
+
+
+sélectionner whole div a la place du texte pour détails interventions
+
+empecher les mots coupé
+
+
+bouton now en bas à droite pour aller à l'heure courante
+
+essayer changer couleur header et footer pour les délimiter mieux

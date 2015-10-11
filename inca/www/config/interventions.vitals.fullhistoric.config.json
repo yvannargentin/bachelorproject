@@ -1,0 +1,61 @@
+[
+  {
+    "optionsPuls"  : [{
+      "scaleOverride": true,
+      "scaleSteps": 7,
+      "scaleStepWidth": 20,
+      "scaleStartValue": 20,
+      "responsive" : true,
+      "maintainAspectRatio" : true,
+      "animation" : false
+    }]
+  },
+
+  {
+    "optionsT"  : [{
+      "scaleOverride": true,
+      "scaleSteps": 4,
+      "scaleStepWidth": 5,
+      "scaleStartValue": 26,
+      "responsive" : true,
+      "maintainAspectRatio" : true,
+      "animation" : false
+    }]
+  },
+
+  {
+    "optionsTAH"  : [{
+      "scaleOverride": true,
+      "scaleSteps": 14,
+      "scaleStepWidth": 20,
+      "scaleStartValue": 0,
+      "responsive" : true,
+      "maintainAspectRatio" : true,
+      "animation" : false
+    }]
+  },
+
+  {
+    "optionsGlyc" : [{
+      "scaleOverride": true,
+      "scaleSteps": 11,
+      "scaleStepWidth": 2,
+      "scaleStartValue": 0,
+      "responsive" : true,
+      "maintainAspectRatio" : true,
+      "animation" : false
+    }]
+  },
+
+  {
+    "optionsResp"  : [{
+      "scaleOverride": true,
+      "scaleSteps": 11,
+      "scaleStepWidth": 2,
+      "scaleStartValue": 0,
+      "responsive" : true,
+      "maintainAspectRatio" : true,
+      "animation" : false
+    }]
+}
+]

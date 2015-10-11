@@ -22,7 +22,7 @@ var incaUnits = angular.module('inca.units', ['ionic','ui.router', 'cb.x2js','ng
             resolve : {
                 // data loading
                 jsonData : function($http) {
-                  return $http.get("assets/data.xml")
+                  return $http.get("http://www.crayonoir.ch/bachelor/data.xml")
                   .then(function (data) { // promise
 
                     var x2js = new X2JS();

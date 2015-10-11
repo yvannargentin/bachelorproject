@@ -9,16 +9,16 @@
 
 	<ion-content>
 		<ion-list show-delete="editMode">
-			<ion-item class="item item-icon-left item-icon-right"  ng-repeat="myAct in interventions.detailedList" >
+			<ion-item class="item item-icon-left item-icon-right" ng-class="{'item-balancedbis': myAct.isDone, 'item-assertivebis' : myAct.isDone === false}"  ng-repeat="myAct in interventions.detailedList" >
 				<span ng-switch="interventions.Icone" >
 
 					<img ng-switch-default class="icon" src="assets/domain/{{interventions.Icone}}" alt="{{interventions.Icone}}"/>
 
-					<span ng-switch-default>{{myAct._SUBTITLE_1}} {{myAct._SUBTITLE_2}}</span>
-					<img ng-switch-default  class="icon hover" src="assets/Icon/notepad.png" on-release="showPopup(myAct._ID,$index,'list')" alt="Notepad" />
+					<span ng-switch-default class="adaptheight" ng-bind-html="myAct.INFORMATION"> </span>
+					<img ng-switch-default  class="icon hover" src="assets/Icon/notepad.png" ng-if="myAct.isDone != true  && myAct.isDone != false"  on-release="showPopup(myAct._ID,$index,'list')" alt="Notepad" />
 
-					<span ng-switch-when="null" ng-click="lastValidations($index)">{{myAct._SUBTITLE_1}} {{myAct._SUBTITLE_2}}</span>
-					<img ng-switch-when="null"  class="icon hover" src="assets/Icon/notepad.png" on-release="showPopup(myAct._ID,$index,'reserve')" alt="Notepad" />
+					<span ng-switch-when="null" class="adaptheight" ng-click="lastValidations($index)" ng-bind-html="myAct.INFORMATION"></span>
+					<img ng-switch-when="null"  class="icon hover" src="assets/Icon/notepad.png" ng-if="myAct.isDone != true  && myAct.isDone != false" on-release="showPopup(myAct._ID,$index,'reserve')" alt="Notepad" />
 				</span>
 				<ion-delete-button on-release="deleteElement(myAct._ID,$index,type)" ng-if="editMode" class="ion-minus-circled">
 				</ion-delete-button>

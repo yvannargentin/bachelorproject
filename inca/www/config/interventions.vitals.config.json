@@ -1,0 +1,122 @@
+[
+
+  {"Rythme" : [ "Non précisé","Irrégulier","Régulier","Autre" ]},
+
+  {"RythmeR" : ["Non précisé","Irrégulier","Régulier","Apnée","Cheynes-Stroke","Kusmmaul","Autre"]},
+
+   {"Lieu" : [
+    "Non précisé",
+    "Radial gauche",
+    "Radial droit",
+    "Rétro-malléolaire gauche",
+    "Rétro-malléolaire droit",
+    "Pédieux gauche",
+    "Pédieux droit",
+    "Fémoral gauche",
+    "Fémoral droit",
+    "Poplité gauche",
+    "Poplité droit",
+    "Cardiaque",
+    "Autre"
+  ]},
+
+  {"LieuT" : [
+    "Non précisé",
+    "Rectal",
+    "Buccal",
+    "Axillaire",
+    "Inguinale",
+    "Tympanique",
+    "Cutanée",
+    "Autre"
+  ]},
+
+  {"LieuTAH" : [
+    "Non précisé",
+    "Bras gauche",
+    "Bras droit",
+    "Jambe gauche",
+    "Jambe droite",
+    "Autre"
+  ]},
+
+  {"Prise" : [
+    "Non précisé",
+    "Debout",
+    "Couché",
+    "Assi",
+    "Après effort",
+    "Autre"
+  ]},
+
+  {"Observation" : [
+    "Non précisé",
+    "Dyspnée",
+    "Tachypnée",
+    "Sibilance",
+    "Tirage",
+    "Balancement thoraco-abdominal",
+    "Paradoxal",
+    "Stridor",
+    "Autre"
+  ]},
+  {
+    "optionsPuls"  : [{
+      "scaleOverride": true,
+      "scaleSteps": 7,
+      "scaleStepWidth": 20,
+      "scaleStartValue": 20,
+      "responsive" : true,
+      "maintainAspectRatio" : false,
+      "animation" : false
+    }]
+  },
+
+  {
+    "optionsT"  : [{
+      "scaleOverride": true,
+      "scaleSteps": 4,
+      "scaleStepWidth": 5,
+      "scaleStartValue": 26,
+      "responsive" : true,
+      "maintainAspectRatio" : false,
+      "animation" : false
+    }]
+  },
+
+  {
+    "optionsTA"  : [{
+      "scaleOverride": true,
+      "scaleSteps": 14,
+      "scaleStepWidth": 20,
+      "scaleStartValue": 0,
+      "responsive" : true,
+      "maintainAspectRatio" : false,
+      "animation" : false
+    }]
+  },
+
+  {
+    "optionsGlyc" : [{
+      "scaleOverride": true,
+      "scaleSteps": 11,
+      "scaleStepWidth": 2,
+      "scaleStartValue": 0,
+      "responsive" : true,
+      "maintainAspectRatio" : false,
+      "animation" : false
+    }]
+  },
+
+  {
+    "optionsResp"  : [{
+      "scaleOverride": true,
+      "scaleSteps": 11,
+      "scaleStepWidth": 2,
+      "scaleStartValue": 0,
+      "responsive" : true,
+      "maintainAspectRatio" : false,
+      "animation" : false
+    }]
+  }
+]

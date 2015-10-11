@@ -1,0 +1,8 @@
+[
+
+  {"Category" : "Puls", "data" : [{"Date" : "20.05.2015","Time" : "07:00","Measure" : "120"}]},
+  {"Category" : "T", "data" : [{"Date" : "20.05.2015","Time" : "07:00","Measure" : "34.6"}]},
+  {"Category" : "TAH", "data" : [{"Date" : "20.05.2015","Time" : "07:00","Measure" : "189-224"}]},
+  {"Category" : "Glyc", "data" : [{"Date" : "20.05.2015","Time" : "07:00","Measure" : "14.3"}]},
+  {"Category" : "Resp", "data" : [{"Date" : "20.05.2015","Time" : "07:00","Measure" : "14.7"}]}
+]
